@@ -1,0 +1,101 @@
+.cart-container {
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cart-table th,tr,td{
+  color:#222;
+}
+
+.bag-container {
+  display:flex;
+  padding-left: 30px;
+  width:100%;
+}
+.bag {
+  width:60%;
+  display:flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.bag table {
+  font-family: San Francisco Light;
+  width:100%;
+  text-align: center;
+}
+.bag table tr {
+  margin-bottom: 5px;
+}
+.bag-title {
+  font-family: San Francisco;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color:#222;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #888888;
+  margin-bottom:20px;
+
+
+}
+
+.summary {
+  width:30%;
+display:flex;
+flex-direction: column;
+padding-left: 15px;
+border-left: 1px solid #888888;
+}
+
+.summary-values {
+  color: #888888;
+  font-family: San Francisco Light;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.summary-values-black{
+  color: #222;
+  font-family: San Francisco Light;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.checkout-btn {
+  background-color: #222;
+  font-family: San Francisco Light;
+  color:white;
+  text-align: center;
+  width:80%;
+  height:50px;
+  font-size: 23px;
+  text-decoration: none;
+  line-height: 50px;
+  border:1px solid #222;
+}
+
+.checkout-btn:hover {
+  background-color: white;
+  color:#222;
+}
+
+.cart_picture {
+  width:50px;
+  height:50px;
+}
+
+.remove-cart {
+  width:100px;
+  height:40px;
+  background-color: #e74c3c;
+  color:white;
+  padding:10px 20px 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.remove-cart:hover {
+  background-color: #c0392b;
+}

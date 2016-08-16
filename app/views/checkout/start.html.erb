@@ -1,0 +1,162 @@
+<div class="checkout-container">
+
+  <div class="nav" id="navbar">
+    <p class="nav-logo-embeds">
+      [NIRVANA CON]
+    </p>
+    <div class="nav-items-embeds">
+      <%= link_to "HOME",root_path, class:'nav-item-a'%>
+      <div class="dropdown">
+        <button class="dropbtn" id="embed-dropbtn">PRODUCTS
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to "EASY EMBEDS", products_path%>
+          <%= link_to "STANDARD STAIRS", stairs_path%>
+          <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
+        </div>
+
+      </div>
+      <%= link_to "CUSTOM ORDER", new_message_path, class:'custom-order' %>
+
+      <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn" id="embed-dropbtn"><%= current_user.email %>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to orders_path do %>
+          <i class="fa fa-list-alt" aria-hidden="true"></i>
+          ORDERS
+          <%end%>
+          <%= link_to destroy_user_session_path, :method => "delete" do %>
+          <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+          SIGN OUT
+          <%end %>
+        </div>
+      </div>
+      <%= link_to cart_path do %>
+      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav' style="color:#222;"></i>
+      <%end%>
+      <%else%>
+      <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
+      <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
+      <%end%>
+
+    </div>
+  </div>
+  <% flash.each do |name,msg| %>
+  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+  <%end%>
+
+  <div class="bag-container" style="margin-top:100px;padding-left:0px; margin-left:60px;">
+    <div class="bag">
+      <div class="bag-title">
+        YOUR ITEMS
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Item
+            </th>
+
+            <th>
+              Quantity
+            </th>
+            <th>
+              Per Item Price
+            </th>
+            <th>
+              Shipping
+            </th>
+            <th>
+              Total Price
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @order.order_items.each do |order_item| %>
+
+          <tr>
+            <td>
+              <%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+            </td>
+
+            <td>
+              <%= order_item.quantity %>
+            </td>
+            <td>
+              <%= number_to_currency(order_item.price.to_i) %>
+            </td>
+            <td>
+              <%= number_to_currency(order_item.shipping_cost.to_i) %>
+            </td>
+            <td>
+              <%= number_to_currency(order_item.total_price.to_i) %>
+            </td>
+
+          </tr>
+
+          <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bag-title" style="width:20%;margin-left:60px;margin-top:50px;">CHECKOUT</div>
+  <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
+
+  <script
+    src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key="pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C"
+    data-name="Nirvana Construction"
+    data-description="<%= @order.description %>"
+    data-amount="<%= @order.total_price_in_cents %>"
+    data-email="<%= current_or_guest_user.email %>"
+    data-shipping-address="true"
+    data-locale="auto"
+    data-zip-code="true"
+    ></script>
+
+  <% end %>
+
+  <% if false %>
+  <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
+
+  <span class="payment-errors"></span>
+
+  <div class="">
+    <%= label_tag :credit_card_number %>
+    <%= text_field_tag :credit_card_number, "", class: "card-number" %>
+  </div>
+
+  <div class="">
+    <%= label_tag :expiration_month %>
+    <%= select_month Date.today, {}, class: "card-expiry-month" %>
+  </div>
+
+  <div class="">
+    <%= label_tag :expiration_year %>
+    <%= select_year Date.today, {start_year: Date.today.year, end_year: Date.today.year+20}, class: "card-expiry-year" %>
+  </div>
+
+  <div class="">
+    <%= label_tag :cvc %>
+    <%= number_field_tag :cvc, "",class: "card-cvc"%>
+  </div>
+
+  <div class="">
+    <%= label_tag :token %>
+    <%= text_field_tag :token, "", class: "card-token" %>
+  </div>
+
+  <%= submit_tag 'Purchase', class: :btn %>
+
+  <% end %>
+
+  <% end %>
+</div>

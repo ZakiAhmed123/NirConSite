@@ -1,0 +1,379 @@
+#embed-dropbtn {
+  color:#222;
+}
+.product-index-container {
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
+  height:100%;
+  flex-wrap: wrap;
+padding-top: 100px;
+margin-right: 60px;
+background-color: white;
+}
+
+.product-container {
+  width:75%;
+  display:flex;
+  justify-content: space-around;
+  height:100%;
+  flex-wrap: wrap;
+  float: left;
+  overflow: scroll;
+}
+
+.embed-index-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:32%;
+  margin-bottom: 20px;
+}
+
+
+.embed-index-item p{
+  margin:0px;
+}
+
+.embed_picture {
+  width:100%
+}
+
+.stabilizer-picture {
+  width:100%;
+  max-width:200px;
+}
+.product-name {
+  border-top: 1px solid #333;
+  padding-top: 5px;
+}
+
+.product-sub {
+  color:gray;
+}
+
+.products-title {
+  font-size: 100px;
+  text-align: center;
+  font-family: San Francisco Light;
+  color:#222;
+  width:100%;
+  margin-bottom: 30px;
+}
+
+.embed-index-item a {
+  text-decoration: none;
+  color:#333;
+  font-family: San Francisco Light;
+  text-align: center;
+  padding:10px;
+  margin:10px;
+  background-color: white;
+
+}
+
+.embed-index-item a:hover {
+  border:1px solid gray;
+
+}
+
+.embeds-desc {
+  color:#222;
+  font-family: San Francisco Light;
+  text-align: justify;
+  padding:0px 60px;
+  margin-bottom: 25px;
+}
+
+
+
+
+
+.nav-logo-embeds {
+  width: 25%;
+  font-family: San Francisco Light;
+  font-size: 30px;
+  text-align: center;
+  color:#222;
+}
+
+.pdf-embed {
+  width:100%;
+  height:100vh;
+}
+
+// NAV ALTERNATE
+.nav-alt {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 18px;
+  font-family: San Francisco Light;
+  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #222;
+}
+.nav-items-alt {
+  display: flex;
+  justify-content: space-between;;
+  align-items: center;
+  width: 82%;
+}
+.nav-item-a-alt{
+  height: 56px;
+  line-height: 56px;
+}
+.nav-items-alt a {
+  color: white;
+  text-decoration: none;
+  width: 130px;
+  text-align: center;
+  margin: 0;
+}
+
+
+.nav-items a:hover {
+  border-bottom: 3px solid white;
+  color: #16a085;
+  background-color: white;
+
+}
+
+.nav-items p {
+  color: white;
+  text-decoration: none;
+  width: 110px;
+  text-align: center;
+  margin: 0;
+}
+
+.nav-items p:hover {
+  border-bottom: 3px solid white;
+  color: #2ecc71;
+}
+
+.nav-logo {
+  width: 18%;
+  font-family: San Francisco Light;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+// ALT DROPDOWN BUTTON
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  font-family: San Francisco Light;
+  background-color: rgba(255,0,0,0);
+  width:100%;
+  margin-right: 13.5px;
+}
+
+.dropbtn i {
+  color:black;
+}
+#dropbtn-alt {
+  color:white;
+}
+
+#dropbtn-alt:hover {
+  color:#222;
+}
+
+#dropbtn-alt i {
+  color:white;
+}
+.dropbtn:hover {
+  color:#16a085;
+  background-color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+}
+.dropdown-content a {
+  color: gray;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: white;
+  font-size: 14px;
+}
+.dropdown-content a i {
+  color: gray;
+}
+.dropdown-content a:hover {
+  color: white;
+  background-color: #f1c40f;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+// PRODUCT VIEW
+.product-view-picture {
+  width:50%;
+  margin-top: 20%;
+  border: 1px solid gray;
+  padding:20px;
+
+}
+
+.product-view {
+  padding-top:100px;
+  display:flex;
+  justify-content: center;
+}
+
+.product-view-info {
+  width:40%;
+  font-family: San Francisco Light;
+  color: #f1c40f;
+  height:100%;
+}
+
+.product-view-name {
+  margin:0 0 10px 20px;
+  color:#222;
+  font-family: San Francisco;
+  font-size: 40px;
+  border:0px;
+  padding:0px;
+}
+.product-name-sub {
+  color: gray;
+  font-family: San Francisco;
+  font-style: italic;
+  font-size: 15px;
+  border:0px;
+  padding:0px;
+  margin:0 0 20px 20px;
+}
+
+.product-price {
+  color:#222;
+  font-family: San Francisco;
+  margin:0 0 20px 20px;
+  font-size: 30px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.product-info {
+  background-color: #EEEEEE;
+  width:95%;
+  color:#222;
+  margin:0 0 20px 20px;
+  padding:10px;
+
+}
+
+.product-dimensions-head {
+  text-align: center;
+  margin:0 0 10px 0px;
+  font-family: San Francisco;
+  font-size: 20px;
+}
+.product-dimensions {
+  margin:0px;
+}
+
+.product-drawing {
+  color:#222;
+  margin-top: 10px;
+  font-size: 17px;
+  font-family: San Francisco;
+  text-align: center;
+}
+
+
+.product-drawing:hover {
+  color:blue;
+}
+
+.product-dimensions {
+
+}
+
+
+.add-to-cart {
+  background-color: #FA5400;
+  color:white;
+  padding:10px 20px 10px 20px;
+  width:300px;
+  border-radius: 3px;
+  border:1px solid #FA5400;
+  font-size: 18px;
+}
+
+.quantity {
+  color:#222;
+  text-align: center;
+  font-family: San Francisco;
+  font-size: 20px;
+}
+
+.new_order_item {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-container {
+  display:flex;
+}
+
+.stabilizer-container {
+  display:flex;
+  flex-direction: column;
+  width:25%;
+  align-items: center;
+  border-right:1px solid #222;
+  font-family: San Francisco Light;
+  float: left;
+  overflow: scroll;
+}
+.stabilizer-index-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:60%;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.stabilizer-index-item a {
+  text-decoration: none;
+}
+
+.stabilizer-heading {
+  font-family: San Francisco;
+  color:#222;
+  text-align: center;
+  margin:0 0 20px 0;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color:#3498db
+}
+.stabilizer-view-picture {
+  width:25%;
+  margin-top: 20%;
+  border: 1px solid gray;
+  padding:20px;
+
+}

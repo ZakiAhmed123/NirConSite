@@ -1,0 +1,22 @@
+Hi <%= current_or_guest_user.email %>
+
+You have successfully placed an order with us.
+Please find the details of order....
+
+<strong>Total Price: </strong>
+
+<%= @order.total_price %>
+
+<h3>Items</h3>
+
+<% @order.order_items.each do |order_item| %>
+
+<%= order_item.product.name %>
+
+<%= order_item.quantity %> at <%= order_item.price %>
+
+<p>
+Total: <%= number_to_currency order_item.total_price %>
+</p>
+
+<% end %>

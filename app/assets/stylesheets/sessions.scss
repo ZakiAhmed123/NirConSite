@@ -1,0 +1,80 @@
+@font-face {
+  font-family: San Francisco;
+  src: url('/assets/SanFranciscoText-Bold.otf');
+}
+@font-face {
+  font-family: San Francisco Light;
+  src: url('/assets/SanFranciscoText-Light.otf');
+}
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-title {
+  font-size: 50px;
+  font-family: San Francisco;
+  text-align: center;
+  margin: 0;
+  color:#222
+}
+
+.signin-subheading {
+  font-family: San Francisco Light;
+  color: gray;
+  text-align: center;
+  font-size: 15px;
+  width: 400px;
+  margin: 5px;
+}
+.signin-container ul{
+  list-style: none;
+  padding:0px;
+  text-align: center;
+}
+
+.signin-container li {
+  margin: 5px 20px 15px;
+}
+
+.signin-label {
+  font-family: San Francisco;
+}
+
+.signin-field {
+  border: 2px solid #AAAAAA;
+  width: 350px;
+  height: 30px;
+  color: #555555;
+  font-size: 15px;
+}
+
+.signin-field:focus {
+  border: 2px solid black;
+  outline: 0;
+}
+
+.signin-submit {
+  width: 170px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-family: San Francisco;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid black;
+}
+.signin-submit:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color:gray;
+  text-decoration: none;
+  font-family: San Francisco Light;
+}

@@ -1,0 +1,143 @@
+<div class="home-container">
+
+  <div class="automatic-slider">
+    <ul>
+      <li><%= image_tag 'home-slider-3.jpg'%></li>
+      <li><%= image_tag 'home-slider-1.jpg'%></li>
+      <li><%=image_tag 'home-slider-2.jpg'%></li>
+    </ul>
+  </div>
+
+  <div class="nav" id="navbar">
+    <p class="nav-logo">
+      [NIRVANA CON]
+    </p>
+    <div class="nav-items">
+      <%= link_to "HOME",root_path, class:'nav-item-a'%>
+      <div class="dropdown">
+        <button class="dropbtn">PRODUCTS
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to "EASY EMBEDS", products_path%>
+          <%= link_to "STANDARD STAIRS", stairs_path%>
+          <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
+        </div>
+
+      </div>
+      <%= link_to "CUSTOM ORDER", new_message_path, class:'custom-order' %>
+
+      <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn"><%= current_user.email %>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to orders_path do %>
+          <i class="fa fa-list-alt" aria-hidden="true"></i>
+          ORDERS
+          <%end%>
+          <%= link_to destroy_user_session_path, :method => "delete" do %>
+          <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+          SIGN OUT
+          <%end %>
+        </div>
+      </div>
+      <%= link_to cart_path do %>
+      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
+      <%end%>
+      <%else%>
+      <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
+      <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
+      <%end%>
+
+    </div>
+  </div>
+  <% flash.each do |name,msg| %>
+  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+  <%end%>
+  <p class="home-title" id="startchange">
+    STANDARDIZED CONSTRUCTION
+  </br>PRODUCTS
+</p>
+
+</div>
+
+<div class="home-about-us">
+<div class="home-about-title">
+  ABOUT
+</div>
+<div class="home-about-text">
+  Ad sint nobis ius, case eruditi ad mel. Libris electram abhorreant vix id, ut esse gloriatur eloquentiam sit, mel ex esse clita habemus. Noluisse partiendo principes ex sit, mea et possit omittam. Mei ei minimum albucius lobortis, sit an cibo
+  labores, eu cum graece feugait vituperata. Est dicit iracundia scriptorem eu.Id veniam graeco mei, audire eligendi tractatos ut mea. Facer erant pro an, nibh tritani lucilius est ut. Vim alia forensibus eu. Quo ei fugit dicant. Usu dicant bonorum ut.
+  Sea enim possim no.At etiam tacimates his. Indoctum quaerendum definitiones ne eos, utamur verterem cu ius. Quo habeo.
+</div>
+</div>
+
+<div class="home-icons">
+<div class="home-icon-title">
+  SERVICES
+</div>
+<div class="home-icon-item-container">
+
+  <div class="home-icon-item">
+    <i class="fa fa-wrench fa-5x" aria-hidden="true"></i>
+    <p>
+      Standardized construction parts removing the need for custom parts
+    </p>
+  </div>
+
+  <div class="home-icon-item">
+    <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>
+    <p>
+      All products are checked and certified by structural engineers.
+    </p>
+  </div>
+</div>
+</div>
+<div class="follow">
+<div class="follow-title">
+  FOLLOW US
+</div>
+<div class="follow-content">
+  <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
+  <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+  <i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i>
+  <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+</div>
+</div>
+<div class="footer">
+
+<div class="footer-left">
+
+  <div class="footer-logo">
+    [NIRVANA CON]
+  </div>
+
+  <div class="copyright">
+    © Copyright 2016 by Nirvana Construction. All Rights Reserved</br>
+    <%= link_to "CONTACT US", contact_path , class:'contact-footer' %>
+
+  </div>
+
+</div>
+
+<div class="footer-right">
+  <i class="fa fa-cc-mastercard fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-cc-visa fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-cc-discover fa-3x" aria-hidden="true"></i>
+  <i class="fa fa-cc-amex fa-3x" aria-hidden="true"></i>
+</div>
+</div>
+
+<script>
+
+$(document).ready(function () {
+  setTimeout(function () {
+    $('#flash').remove();
+  }, 1800);
+})
+jQuery(document).ready(function ($) {
+  $('.automatic-slider').unslider({autoplay: true, arrows: false});
+});
+</script>

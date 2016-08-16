@@ -1,0 +1,46 @@
+<%= render "/products/_alt_nav.html.erb" %>
+<div class="receipt-container">
+
+<p class="receipt-header">RECEIPT #<%= @order.id %></p>
+
+
+<ul>
+  <li>
+
+
+
+    <strong>Purchase Date</strong>: <%= @order.purchased_at %>
+  </li>
+
+  <li>
+    <strong>Order ID</strong>: <%= @order.id %>
+  </li>
+
+  <li>
+    <strong>Purchaser:</strong>: | <%= @order.user.email %>
+  </li>
+
+  <li>
+    <strong>Total Price: </strong>
+
+    <%= @order.total_price %>
+
+  </li>
+</ul>
+
+<h3>Items</h3>
+
+<% @order.order_items.each do |order_item| %>
+
+  <%= order_item.product.name %>
+
+  <%= order_item.quantity %> at <%= order_item.price %>
+
+  <p>
+    Total: <%= number_to_currency order_item.total_price %>
+  </p>
+
+<% end %>
+</div>
+
+<%= render '/layouts/alt_footer.html.erb' %>

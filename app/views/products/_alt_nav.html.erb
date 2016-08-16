@@ -1,0 +1,49 @@
+<div class="nav-alt" id="navbar">
+  <p class="nav-logo-alt">
+    [NIRVANA CON]
+  </p>
+  <div class="nav-items-alt">
+    <%= link_to "HOME",root_path, class:'nav-item-a-alt'%>
+    <div class="dropdown">
+      <button class="dropbtn" id="dropbtn-alt">PRODUCTS
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <%= link_to "EASY EMBEDS", products_path%>
+        <%= link_to "STANDARD STAIRS", stairs_path%>
+        <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
+      </div>
+
+    </div>
+    <%= link_to "CUSTOM ORDER", new_message_path, class:'nav-item-a-alt' %>
+
+    <% if user_signed_in? %>
+    <div class="dropdown">
+      <button class="dropbtn" id="dropbtn-alt" ><%= current_user.email %>
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <%= link_to orders_path do %>
+        <i class="fa fa-list-alt" aria-hidden="true"></i>
+        ORDERS
+        <%end%>
+        <%= link_to destroy_user_session_path, :method => "delete" do %>
+        <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+        SIGN OUT
+        <%end %>
+      </div>
+    </div>
+    <%else%>
+
+    <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a-alt' %>
+    <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a-alt' %>
+
+    <%end%>
+    <%= link_to cart_path do %>
+    <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav-alt' style="color:white;"></i>
+    <%end%>
+  </div>
+</div>
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>

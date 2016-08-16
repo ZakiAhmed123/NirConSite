@@ -1,0 +1,115 @@
+.custom-order-container {
+  background-color: #EFB814;
+  display:flex;
+  flex-direction: column;
+  padding:100px 50px 100px 50px;
+}
+
+.custom-order-container p {
+  font-family: San Francisco Regular;
+  font-size: 22px;
+  margin:0px;
+  color:white;
+  margin-bottom: 8px;
+}
+
+.custom-order-title {
+  font-size: 100px;
+  color:white;
+  font-family: San Francisco Light;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.custom-order-info {
+  font-size: 15px;
+  color:white;
+  font-family: San Francisco Light;
+  margin-bottom: 20px;
+}
+
+.custom-order-container input {
+
+  font-family: San Francisco Light;
+  color:#7f8c8d;
+  font-size: 18px;
+  padding:10px;
+}
+
+.custom-order-container textarea {
+  font-family: San Francisco Light;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding:10px;
+  font-size: 18px;
+  width:634.5px;
+  height:250px;
+  color:#7f8c8d;
+}
+.custom-order-container form {
+  width:60%
+}
+
+.custom-order-mailer {
+  display:flex;
+}
+.custom-order-top {
+  display:flex;
+}
+
+.custom-order-top-block {
+  display:flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+.co-top {
+  width:300px;
+  border-radius: 5px;
+border:1px solid white;
+}
+
+.custom-order-middle {
+  width:634.5px;
+}
+
+.co-middle {
+  width:100%;
+  border-radius: 5px;
+border:1px solid white;
+}
+
+.custom-order-send {
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: white;
+  width:656px;
+  text-align: center;
+}
+
+.custom-order-send:hover {
+  background-color: #7f8c8d;
+  color:white;
+  border:1px solid #7f8c8d;
+}
+
+.custom-order-upload {
+  font-family: San Francisco Light;
+}
+
+.custom-order-other {
+  display:flex;
+  font-family: San Francisco Light;
+  flex-direction: column;
+}
+
+.other-contact {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+
+.other-title {
+  font-size: 35px;
+}

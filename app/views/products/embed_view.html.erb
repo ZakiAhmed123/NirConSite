@@ -1,0 +1,34 @@
+<%= render '/products/alt_nav.html.erb'%>
+
+
+
+<div class="product-view">
+  <%= image_tag "#{@product.img_file}.jpg", {:class => "product-view-picture"}%>
+<div class="product-view-info">
+  <p class="product-view-name"><%= @product.name %>(in)</p>
+  <p class="product-name-sub"> STANDARDIZED EMBED </p>
+  <p class="product-price"><%= number_to_currency(@product.price.to_i)%></p>
+<div class="product-info">
+  <p class="product-dimensions-head">
+    Embed Dimensions
+  </p>
+  <p class="product-dimensions">
+    Plate Length: <%=@product.length%>in </br>
+    Plate Width: <%=@product.width%>in </br>
+    Plate Thickness: <%=@product.thickness%>in </br>
+    Stud Count: <%= @product.stud_count%></br>
+    Stud Length:<%=@product.stud_length %>in </br>
+    Stud Diameter: <%= @product.stud_thickness %>in
+  </p>
+  <%= link_to 'SHOP DRAWING',pdf_path, class:"product-drawing" %>
+  LOAD TABLES
+</div>
+  <%= form_for @orderitem, :url => add_to_cart_path(product_id: @product.id) do |f| %>
+  <p class="quantity">QUANTITY <%= f.number_field :quantity, min: 1 %> </p>
+  <%= f.hidden_field :product_id %>
+  <%= f.submit "ADD TO CART", class:"add-to-cart"%>
+  <%end%>
+</div>
+</div>
+
+<%= render '/layouts/alt_footer.html.erb'%>

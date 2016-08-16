@@ -1,0 +1,25 @@
+<%= render '/products/alt_nav.html.erb'%>
+
+
+<div class="product-view">
+  <%= image_tag "#{@stabilizer.img_file}.png", {:class => "stabilizer-view-picture"}%>
+<div class="product-view-info">
+  <p class="product-view-name"><%= @stabilizer.name %>(in)</p>
+  <p class="product-name-sub"> STANDARDIZED EMBED </p>
+  <p class="product-price"><%= number_to_currency(@stabilizer.price.to_i)%></p>
+<div class="product-info">
+  <p class="product-dimensions-head">
+    Embed Stabilizer kit, ...INFO
+  </p>
+  <%= link_to 'SHOP DRAWING',pdf_alt_path, class:"product-drawing" %>
+  LOAD TABLES
+</div>
+  <%= form_for @orderitem, :url => add_stabilizer_path(product_id: @stabilizer.id) do |f| %>
+  <p class="quantity">QUANTITY <%= f.number_field :quantity, max: 10, min: 1 %> </p>
+
+  <%= f.submit "ADD TO CART", class:"add-to-cart"%>
+  <%end%>
+</div>
+</div>
+
+<%= render '/layouts/alt_footer.html.erb'%>

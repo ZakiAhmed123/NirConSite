@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nirvana Construction Standardized Parts</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript" src=" https://checkout.stripe.com/checkout.js"></script>
+  <script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C');
+  </script>
+</head>
+<body>
+  <!--  NAV-->
+
+<%= yield %>
+
+</body>
+
+<script>
+$(document).ready(function () {
+  var scroll_start = 0;
+  var startchange = $('#startchange');
+  var offset = startchange.offset();
+  $(document).scroll(function () {
+    scroll_start = $(this).scrollTop();
+    if (scroll_start > offset.top) {
+      $('#navbar').css('background-color', '#222');
+    } else {
+      $('#navbar').css('background-color', '#222');
+    }
+  });
+});
+</script>
+
+</html>

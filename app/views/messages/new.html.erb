@@ -1,0 +1,162 @@
+<div class="home-container">
+
+  <div class="nav" id="navbar">
+    <p class="nav-logo">
+      [NIRVANA CON]
+    </p>
+    <div class="nav-items">
+      <%= link_to "HOME",root_path, class:'nav-item-a'%>
+      <div class="dropdown">
+        <button class="dropbtn">PRODUCTS
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to "EASY EMBEDS", products_path%>
+          <%= link_to "STANDARD STAIRS", stairs_path%>
+          <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
+        </div>
+
+      </div>
+      <%= link_to "CUSTOM ORDER", new_message_path, class:'custom-order' %>
+
+      <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn"><%= current_user.email %>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <%= link_to orders_path do %>
+          <i class="fa fa-list-alt" aria-hidden="true"></i>
+          ORDERS
+          <%end%>
+          <%= link_to destroy_user_session_path, :method => "delete" do %>
+          <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+          SIGN OUT
+          <%end %>
+        </div>
+      </div>
+
+      <%else%>
+      <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
+      <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
+      <%end%>
+      <%= link_to cart_path do %>
+      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
+      <%end%>
+    </div>
+  </div>
+  <% flash.each do |name,msg| %>
+  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+  <%end%>
+
+</div>
+<div class="custom-order-container">
+  <div class="custom-order-title" id="startchange">
+    CUSTOM ORDERS
+  </div>
+  <div class="custom-order-info">
+    Maecenas imperdiet lorem nec porta molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris hendrerit, tellus ullamcorper tincidunt suscipit, odio urna cursus orci, a interdum quam nisl vel orci. Mauris
+    fringilla lorem a dignissim pharetra. Vestibulum eros nunc, malesuada at tellus sed, condimentum lacinia felis. Proin tempor, dolor non pharetra vestibulum, nunc leo elementum nibh, et imperdiet augue felis vitae nulla. Phasellus ut purus tristique,
+    efficitur lacus rutrum, tristique eros. Morbi pharetra varius leo, vitae sollicitudin lectus venenatis id.
+  </div>
+
+  <div class="custom-order-mailer">
+    <%= form_for @message,:multipart=>true do |f|%>
+    <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
+      </h2>
+
+      <ul>
+        <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+        <ul></div>
+        <% end %>
+
+        <div class="custom-order-top">
+          <div class="custom-order-top-block">
+            <p>
+              Name:
+            </p>
+            <%= f.text_field :name, class:"co-top" %>
+
+          </div>
+          <div class="custom-order-top-block">
+            <p>
+              Email:
+            </p>
+            <%= f.email_field :email, class:'co-top' %>
+          </div>
+
+        </div>
+
+        <div class="custom-order-middle">
+          <p>
+            Subject:
+          </p>
+          <%= f.text_field :subject, class:"co-middle" %>
+        </div>
+
+        <div class="custom-order-bottom">
+
+          <p>
+            Message:
+          </p>
+          <%= f.text_area :content %>
+        </div>
+        <div class="custom-order-upload">
+
+          Select File<%= f.file_field :file %>
+        </div>
+
+        <div class="custom-order-submit">
+          <%= f.submit 'Send', class: 'custom-order-send' %>
+        </div>
+        <% end %>
+        <div class="custom-order-other">
+          <div class="other-contact">
+            <p style="font-size:40px;">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              EMAIL US
+            </p>
+            <p>
+              Feel free to email us at nirconrd@gmail.com
+            </p>
+          </div>
+          <div class="other-contact">
+            <p style="font-size:40px;">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              CALL US
+            </p>
+            <p>
+              Feel free to call us at 832-483-2131
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+
+      <div class="footer-left">
+
+        <div class="footer-logo">
+          [NIRVANA CON]
+        </div>
+
+        <div class="copyright">
+          © Copyright 2016 by Nirvana Construction. All Rights Reserved
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+        <i class="fa fa-cc-mastercard fa-3x" aria-hidden="true"></i>
+        <i class="fa fa-cc-visa fa-3x" aria-hidden="true"></i>
+        <i class="fa fa-cc-discover fa-3x" aria-hidden="true"></i>
+        <i class="fa fa-cc-amex fa-3x" aria-hidden="true"></i>
+      </div>
+    </div>

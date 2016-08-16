@@ -1,0 +1,4 @@
+id,shipping_cost,price,name,img_file,pdf
+101,15,25,Side Condition Embed Stabilizer,side,side_condition
+102,15,30,Corner Condition Embed Stabilizer,corner,corner_condition
+103,15,35,Inside Condition Embed Stabilizer,inside,inside_condition
