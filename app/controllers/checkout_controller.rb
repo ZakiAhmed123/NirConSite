@@ -49,43 +49,13 @@ class CheckoutController < ApplicationController
  #    # if successful, redirect
  #    # else show start
 
-  if  @order.update status: 'pending'
-    Shippo.api_key = '6ab6370046522ef5df151d5f5e4dc579d7f83606'
+ if @order.update status: 'pending'
+   ReceiptMailer.order_confirmation(current_user, @order).deliver
+   redirect_to receipt_path(id: @order.id)
+ else
+   redirect_to request.referrer, alert: "Transaction Failed to Process, Please Try Again and Validate your card information"
+ end
 
-    params   = { object_purpose: 'PURCHASE',
-              async:          false,
-              address_from:   {
-                object_purpose: 'PURCHASE',
-                name:           'NIRVANA PRODUCTS LLC',
-                company:        'NIRVANA PRODUCTS LLC',
-                street1:        '14025 West Road',
-                street2:        '',
-                city:           'Houston',
-                state:          'TX',
-                zip:            '77041',
-                country:        'US',
-                phone:          '+1 832 277 6945',
-                email:          'zakinircon@gmail.com' },
-              address_to:     {
-                object_purpose: 'PURCHASE',
-                name:           :stripeBillingName,
-                company:        'San Diego Zoo',
-                street1:        :stripeShippingAddressLine1,
-                city:           :stripeShippingAddressCity,
-                state:          :stripeShippingAddressState,
-                zip:            :stripeShippingAddressZip,
-                country:        :stripeShippingAddressCountry,
-                phone:          '+1 555 341 9393',
-                email:          current_user.email },
-              parcel:         {
-                length:        5,
-                width:         2,
-                height:        5,
-                distance_unit: :in,
-                weight:        2,
-                mass_unit:     :lb }
-}
-  end
 end
 
   def receipt

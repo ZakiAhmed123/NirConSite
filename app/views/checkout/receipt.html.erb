@@ -1,46 +1,95 @@
-<%= render "/products/_alt_nav.html.erb" %>
+<%= render '/products/alt_nav.html.erb'%>
 <div class="receipt-container">
 
 <p class="receipt-header">RECEIPT #<%= @order.id %></p>
 
+<div class="thank-you">
+  THANK YOU FOR YOUR PURCHASE
+</div>
 
-<ul>
-  <li>
 
 
 
-    <strong>Purchase Date</strong>: <%= @order.purchased_at %>
-  </li>
+</div>
+<div class="bag-container" style="margin-top:100px;padding-left:0px; margin-left:60px;">
+  <div class="bag">
+    <div class="receipt-line">Purchaser: <%= @order.user.email %></div>
+    <div class="receipt-line">Purchase Date : <%= local_time(@order.purchased_at) %></div>
+    <div class="receipt-line">Order ID : <%= @order.id %></div>
+    <div class="bag-title">
+      YOUR PURCHASE
+    </div>
 
-  <li>
-    <strong>Order ID</strong>: <%= @order.id %>
-  </li>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Item
+          </th>
+          <th>
+            Name
+          </th>
+          <th>
+            Quantity
+          </th>
 
-  <li>
-    <strong>Purchaser:</strong>: | <%= @order.user.email %>
-  </li>
+          <th>
+            Per Item Price
+          </th>
 
-  <li>
-    <strong>Total Price: </strong>
+          <th>
+            Shipping Per Item
+          </th>
+          <th>
+            Total Shipping Cost
+          </th>
+          <th>
+            Subtotal
+          </th>
+          <th>
+            Total Price
+          </th>
+        </tr>
+      </thead>
 
-    <%= @order.total_price %>
+      <tbody>
+        <% @order.order_items.each do |order_item| %>
 
-  </li>
-</ul>
+        <tr>
+          <td>
+            <%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+          </td>
+          <td>
+            <%= order_item.name %>
+          </td>
+          <td>
+            <%= order_item.quantity %>
+          </td>
 
-<h3>Items</h3>
+          <td>
+            <%= number_to_currency(order_item.price.to_i) %>
+          </td>
+          <td>
+            <%= number_to_currency(order_item.shipping_cost.to_i) %>
+          </td>
+          <td>
+            <%= number_to_currency(order_item.total_shipping.to_i) %>
+          </td>
+          <td>
+            <%= number_to_currency(order_item.subtotal_price.to_i) %>
+          </td>
+          <td>
+            <%= number_to_currency(order_item.total_price.to_i) %>
+          </td>
 
-<% @order.order_items.each do |order_item| %>
+        </tr>
 
-  <%= order_item.product.name %>
+        <% end %>
 
-  <%= order_item.quantity %> at <%= order_item.price %>
-
-  <p>
-    Total: <%= number_to_currency order_item.total_price %>
-  </p>
-
-<% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 </div>
 
 <%= render '/layouts/alt_footer.html.erb' %>

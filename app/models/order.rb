@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
 def subtotal
-  order_items.map { |order_item| order_item.price}.sum
+  order_items.map { |order_item| order_item.subtotal_price}.sum
 end
 
   def total_price

@@ -305,10 +305,6 @@ background-color: white;
   color:blue;
 }
 
-.product-dimensions {
-
-}
-
 
 .add-to-cart {
   background-color: #FA5400;
@@ -318,6 +314,12 @@ background-color: white;
   border-radius: 3px;
   border:1px solid #FA5400;
   font-size: 18px;
+  margin-left: 10px;
+}
+
+.add-to-cart:hover {
+  background-color: #de480d;
+  border:1px solid #de480d;
 }
 
 .quantity {
@@ -325,6 +327,16 @@ background-color: white;
   text-align: center;
   font-family: San Francisco;
   font-size: 20px;
+}
+
+.quantity-dropdown {
+  width:70px;
+  border:1px solid #EEE;
+  background-color: #EEE;
+  font-family: San Francisco Light;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .new_order_item {

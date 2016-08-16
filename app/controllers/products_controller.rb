@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def embed_view
     @products = fetch_products
     @product = @products.find {|a| a.id == params[:id]}
-    @orderitem=OrderItem.new(orderitem_params)
   end
 
 
@@ -21,7 +20,6 @@ class ProductsController < ApplicationController
   def stabilizer
     @stabilizers= fetch_stabilizers
     @stabilizer = @stabilizers.find {|a| a.id == params[:id]}
-    @orderitem=OrderItem.new
   end
 
   def stabilizer_pdf
@@ -29,9 +27,5 @@ class ProductsController < ApplicationController
     @stabilizer = @stabilizers.find {|a| a.id == params[:id]}
   end
 
-  private
-  def orderitem_params
-    params.permit(:quantity)
-  end
 
 end

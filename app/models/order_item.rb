@@ -6,4 +6,11 @@ class OrderItem < ActiveRecord::Base
     quantity * (price + shipping_cost)
   end
 
+  def subtotal_price
+    quantity * price
+  end
+
+  def total_shipping
+    quantity * shipping_cost
+  end
 end
