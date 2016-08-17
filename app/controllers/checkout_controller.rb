@@ -21,12 +21,22 @@ class CheckoutController < ApplicationController
 
     Stripe.api_key = "sk_test_xIGhTi9JGwC0H65Tq1KdFEJE"
 
+    customer = Stripe::Customer.create(
+    :email => params[:stripeEmail],
+    :source => card_token
+    )
+
     Stripe::Charge.create(
+      :customer => customer.id,
       :amount => @order.total_price_in_cents,
       :currency => "usd",
       :source => card_token,
       :description => @order.description
     )
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to checkout_path
 
  #    rescue Stripe::CardError => e
  # # Since it's a decline, Stripe::CardError will be caught
