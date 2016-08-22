@@ -5,9 +5,9 @@ class CheckoutController < ApplicationController
         end
       end
 
-  def start
-
+  def shipping
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
+    @order.update_attributes(order_params)
   end
 
   def process_payment
@@ -72,4 +72,9 @@ end
     # I want a 404 if we can't find_by
     @order = Order.find_by! id: params[:id], user_id: current_or_guest_user.id
   end
+
+  private
+    def order_params
+      params.permit(:address_zip, :address_city, :address_state, :address_line1)
+    end
 end

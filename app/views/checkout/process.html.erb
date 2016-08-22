@@ -1,7 +1,5 @@
 <div class="checkout-container" style="margin-bottom:16%;">
 
-  <%= render '/products/alt_nav.html.erb'%>
-
 
   <div class="bag-container" style="margin-top:100px;padding-left:0px; margin-left:60px;">
     <div class="bag">
@@ -79,36 +77,48 @@
       </table>
     </div>
   </div>
+
   <div class="bag-title" style="width:20%;margin-left:60px;margin-top:50px;">CHECKOUT</div>
-<%= form_tag process_payment_path, method: :post, id: 'payment-form' do %>
-  <script src="https://checkout.stripe.com/checkout.js"
-  class="customButton"
-  data-key="pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C"
-  ></script>
-  <%= hidden_field_tag 'stripeToken' %>
-  <%= hidden_field_tag 'stripeEmail' %>
-  <button id="customButton">Pay with Card  <i class="fa fa-arrow-circle-o-right fa-lg" aria-hidden="true"></i></button>
 
-  <script>
-    var handler = StripeCheckout.configure({
-      key: '<%= ENV["pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C"] %>',
-      token: function(token, args) {
-        document.getElementById("stripeToken").value = token.id;
-        document.getElementById("stripeEmail").value = token.email;
-        document.getElementById("payment-Form").submit();
-      }
-    });
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-    document.getElementById('customButton').addEventListener('click', function(e) {
-      // Open Checkout with further options
-      handler.open({
-        name: 'Nirvana Construction',
-        amount: <%=@order.total_price_in_cents%>,
-        shippingAddress: true,
-        description: '<%=@order.description%>'
-      });
-      e.preventDefault();
-    });
-  </script>
-<% end %>
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C');
+</script>
+
+  <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
+
+    <span class="payment-errors"></span>
+
+    <div>Name <input type="text" size="20" data-stripe="name"> </div>
+    <div>Address <input type="text" size="20" data-stripe="billing_address_line_1">
+
+    <div class="">
+      <%= label_tag :credit_card_number %>
+      <%= text_field_tag :credit_card_number, "", class: "card-number" %>
+    </div>
+
+    <div class="">
+      <%= label_tag :expiration_month %>
+      <%= select_month Date.today, {}, class: "card-expiry-month" %>
+    </div>
+
+    <div class="">
+      <%= label_tag :expiration_year %>
+      <%= select_year Date.today, {start_year: Date.today.year, end_year: Date.today.year+20}, class: "card-expiry-year" %>
+    </div>
+
+    <div class="">
+      <%= label_tag :cvc %>
+      <%= number_field_tag :cvc, "",class: "card-cvc"%>
+    </div>
+
+    <div class="">
+      <%= label_tag :token %>
+      <%= text_field_tag :token, "", class: "card-token" %>
+    </div>
+
+    <%= submit_tag 'PURCHASE', class: :btn %>
+
+  <% end %>
 <%= render '/layouts/alt_footer.html.erb'%>

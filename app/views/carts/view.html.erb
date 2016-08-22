@@ -90,7 +90,7 @@
         Total: <%= number_to_currency(@order.total_price.to_i) %>
       </div>
       <% if @order.total_price > 0 %>
-      <%= link_to 'CHECKOUT', checkout_path, class: 'checkout-btn' %>
+      <%= link_to 'CHECKOUT', shipping_path, class: 'checkout-btn' %>
       <%end%>
     </div>
   </div>

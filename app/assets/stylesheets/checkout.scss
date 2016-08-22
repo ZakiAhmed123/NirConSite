@@ -1,6 +1,190 @@
-// START
-#payment-form {
-  padding-left: 60px;
+// SHIPPING
+.checkout-nav {
+  padding:20px;
+  color:#333;
+  font-family: San Francisco;
+  text-align: left;
+  font-size:30px;
+  border-bottom: 1px solid #E5E5E5;
+
+}
+
+.checkout-phone {
+  height:70px;
+  padding:20px;
+  text-align: right;
+  font-family: San Francisco Regular;
+  font-size: 20px;
+  color:#8D8D8D;
+  line-height: 50px;
+}
+
+.checkout-title {
+text-align: center;
+font-family: San Francisco;
+font-size: 40px;
+letter-spacing: 3px;
+color:#333;
+margin-bottom: 40px;
+}
+
+.shipping-container {
+  display:flex;
+  justify-content: center;
+}
+
+.summary-main-container {
+  display:flex;
+  flex-direction: column;
+  width:25%;
+}
+
+.piece {
+  display:flex;
+  margin-bottom: 15px;
+}
+
+.item{
+  width:70%;
+}
+
+.item-2 {
+  width:30%;
+}
+
+.item-total {
+  color:#FA5400;
+}
+.piece-total {
+  display:flex;
+  font-size: 25px;
+}
+.shipping {
+  width:50%;
+}
+
+.summary {
+  border-left: 0px;
+  width:100%;
+}
+
+.current-cart {
+  padding-left: 15px;
+  width:100%;
+}
+.shipping-title {
+  background-color: #333;
+  color:white;
+  padding:20px;
+  height:35px;
+  font-size: 25px;
+  font-family: San Francisco;
+  line-height: 35px;
+  letter-spacing: 3px;
+}
+.shipping-content {
+  padding:30px;
+  border:20px solid #EEE;
+}
+.shipping-content form {
+  display:flex;
+  flex-direction: column;
+}
+
+.shipping-content select {
+  font-family: San Francisco Light;
+  font-size: 15px;
+}
+
+.section {
+  display:flex;
+  padding-bottom:15px;
+
+}
+
+.shipping-label span {
+  color: #F76122;
+}
+
+.shipping-param {
+  width:30%;
+  font-size: 20px;
+  font-family: San Francisco Light;
+}
+
+
+
+.next-step {
+  width:150px;
+  padding:10px 20px;
+  font-family: San Francisco Regular;
+  color:white;
+  background-color: #F76122;
+  font-size: 18px;
+  border: 1px solid #F76122;
+  border-radius:3px;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.next-step:hover {
+  background-color:#e05a00 ;
+  border:1px solid #e05a00 ;
+}
+
+.shipping-label {
+  width:30%;
+  font-family:San Francisco Regular;
+  font-size: 20px;
+}
+
+.required {
+  font-size: 15px;
+  font-family: San Francisco Light;
+
+}
+
+.required span {
+  color:#F76122;
+}
+.summary-title {
+  background-color: #EEEEEE;
+  color:#333;
+  padding:20px;
+  height:35px;
+  font-size: 25px;
+  font-family: San Francisco;
+  line-height: 35px;
+  letter-spacing: 3px;
+}
+
+.summary-content {
+  border:1px solid #EEEEEE;
+  font-family: San Francisco;
+  color:#333;
+  padding:20px;
+  font-size: 16.5px;
+  display:flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+
+}
+
+.checkout_picture {
+  width:40%;
+  margin-left: 20px;
+  margin-right:10px;
+}
+
+
+.checkout-item-info {
+  display:flex;
+  flex-direction: column;
+  font-family: San Francisco Regular;
+}
+
+.checkout-item-info span {
+  margin-bottom:15px;
 }
 
 // RECEIPT

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'contact' => 'basics#contact', as: :contact
   get 'Policies' => 'basics#policies', as: :policies
-  get 'Shipping-Info' => 'basics#shipping', as: :shipping
+  get 'Shipping-Info' => 'basics#shipping_info', as: :shipping_info
 
   # PRODUCTS
   get 'products/embeds' => 'products#embeds', as: :products
@@ -45,7 +45,8 @@ Rails.application.routes.draw do
 
 
   #ORDER PROCESSING I.E. CHECKOUT
-  get 'checkout' =>  'checkout#start', as: :checkout
+  get 'checkout' =>  'checkout#shipping', as: :shipping
+  get 'checkout' => 'checkout#payment', as: :payment
   post 'checkout' => 'checkout#process_payment', as: :process_payment
   get 'receipts/:id' => 'checkout#receipt', as: :receipt
 

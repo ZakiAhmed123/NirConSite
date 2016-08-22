@@ -1,0 +1,133 @@
+<div class="checkout-nav">
+  [NIRVANA CONSTRUCTION]
+</div>
+<div class="checkout-phone">
+  <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
+  (832)-483-2131
+</div>
+<div class="checkout-title">
+  CHECKOUT
+</div>
+<div class="shipping-container">
+  <div class="shipping">
+
+    <div class="shipping-1">
+
+      <div class="shipping-title">
+        1. SHIPPING
+      </div>
+
+      <div class="shipping-content">
+        <%= form_for :orders do |f| %>
+        <div class="section">
+          <div class="shipping-label">
+            Address<span>*</span>
+          </div>
+          <%= f.text_field :shipping_address1, class:'shipping-param' %>
+        </div>
+        <div class="section">
+          <div class="shipping-label">
+            City<span>*</span>
+          </div>
+          <%= f.text_field :shipping_city, class:'shipping-param' %>
+        </div>
+        <div class="section">
+          <div class="shipping-label">
+            State<span>*</span>
+          </div>
+          <%= f.select(:shipping_state, options_for_select(us_states, "TX"))%>
+        </div>
+        <div class="section">
+          <div class="shipping-label">
+            ZIP Code<span>*</span>
+          </div>
+          <%= f.text_field :shipping_zip, class:"shipping-param" %>
+        </div>
+        <%= f.submit "NEXT STEP", class:'next-step'%>
+        <div class="required">
+          <span>*</span>
+          Required Field
+        </div>
+        <%end%>
+      </div>
+
+    </div>
+
+    <div class="summary-title" style="margin-top:20px;">
+      2. PAYMENT
+    </div>
+
+    <div class="summary-title" style="margin-top:20px;">
+      3. RECEIPT
+    </div>
+
+  </div>
+  <div class="summary-main-container">
+
+    <div class="summary">
+      <div class="summary-title">
+        SUMMARY
+        <% @order.order_items.each do |order_item| %>
+      </div>
+      <div class="summary-content">
+        <div class="piece">
+          <div class="item">
+            SUBTOTAL
+          </div>
+          <div class="item-2">
+            <%= number_to_currency(order_item.subtotal_price.to_i) %>
+          </div>
+        </div>
+        <div class="piece">
+          <div class="item">
+            ESTIMATED SHIPPING
+          </div>
+          <div class="item-2">
+            $0.00 (TBD)
+          </div>
+        </div>
+        <div class="piece">
+          <div class="item">
+            TAX
+          </div>
+          <div class="item-2">
+            $0.00 (TBD)
+          </div>
+        </div>
+        <div class="piece-total">
+          <div class="item">
+            TOTAL
+          </div>
+          <div class="item-total">
+            <%= number_to_currency(order_item.subtotal_price.to_i) %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="current-cart">
+      <div class="summary-title" style="margin-top:20px;margin-bottom:40px;">
+        IN YOUR CART
+      </div>
+      <div style="display:flex;">
+        <%= image_tag "#{order_item.img_file}.jpg", {:class => "checkout_picture"}%>
+        <div class="checkout-item-info">
+          <span style="font-family:San Francisco"><%= order_item.name %></span>
+
+          <span>Quantity: <%= order_item.quantity%></span>
+
+          <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
+
+          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.total_price %></span>
+        </div>
+      </div>
+
+
+    </div>
+<%end%>
+  </div>
+
+</div>
+
+<%= render "layouts/alt_footer.html.erb" %>
