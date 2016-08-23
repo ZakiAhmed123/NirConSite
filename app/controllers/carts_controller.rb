@@ -46,7 +46,9 @@ class CartsController < ApplicationController
   def view
     @current_user=current_or_guest_user
     @order = Order.find_by status: 'cart', user_id: current_or_guest_user.id
-
+    if @order.nil?
+      @order=Order.new
+    end
   end
 
 

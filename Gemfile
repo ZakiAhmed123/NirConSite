@@ -65,3 +65,4 @@ gem 'devise'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'refile-postgres'
+gem 'easypost'

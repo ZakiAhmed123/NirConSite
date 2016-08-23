@@ -7,17 +7,68 @@ class CheckoutController < ApplicationController
 
   def shipping
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
+  end
+
+  def process_shipping
+    @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
     @order.update_attributes(order_params)
+
+    EasyPost.api_key = 's7GSYnjCSu0HWkp5PE5akg'
+
+      to_address = EasyPost::Address.create(
+    :name =>  @order.name,
+    :street1 => @order.address_line1,
+    :city => @order.address_city,
+    :state => @order.address_state,
+    :zip => @order.address_zip,
+    :country => 'US',
+    :phone => @order.phone_number
+  )
+  from_address = EasyPost::Address.create(
+    :company => 'Nirvana Products',
+    :street1 => '12029 Brittmoore Park Drive',
+    :city => 'Houston',
+    :state => 'TX',
+    :zip => '77041',
+    :phone => '832-277-6945'
+  )
+
+  parcel = EasyPost::Parcel.create(
+    :width => 15.2,
+    :length => 18,
+    :height => 9.5,
+    :weight => 35.1
+  )
+
+
+  shipment = EasyPost::Shipment.create(
+    :to_address => to_address,
+    :from_address => from_address,
+    :parcel => parcel,
+    :customs_info => customs_info
+  )
+
+  shipment.buy(
+    :rate => shipment.lowest_rate
+  )
+
+  shipment.insure(amount: 100)
+
+  puts shipment.insurance
+
+  puts shipment.postage_label.label_url
+
+    redirect_to checkout_path
+  end
+
+  def payment
+    @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
   end
 
   def process_payment
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
 
-    # process the payment
-
-    # Actually process payment
-    # card_token = params[:token]
-    card_token = params[:stripeToken] # how stripe checkout tells me
+    card_token = params[:stripeToken]
 
     Stripe.api_key = "sk_test_xIGhTi9JGwC0H65Tq1KdFEJE"
 
@@ -28,36 +79,16 @@ class CheckoutController < ApplicationController
 
     Stripe::Charge.create(
       :customer => customer.id,
-      :amount => @order.total_price_in_cents,
+      :amount => @order.total_price,
       :currency => "usd",
       :source => card_token,
-      :description => @order.description
     )
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to checkout_path
 
- #    rescue Stripe::CardError => e
- # # Since it's a decline, Stripe::CardError will be caught
- #  body = e.json_body
- #  err  = body[:error]
- #
- #  @logger.error "Status is: #{e.http_status}"
- #  @logger.error "Type is: #{err[:type]}"
- #  @logger.error "Code is: #{err[:code]}"
- # # param is '' in this case
- #  @logger.error "Param is: #{err[:param]}"
- #  @logger.error "Message is: #{err[:message]}"
- #
- #  raise Striped::CreditCardDeclined.new(err[:message])
- #  rescue Exception => ex
- #    @logger.error "Purchase failed due to : #{ex.message}"
- #
- #    raise
- #
- #    # if successful, redirect
- #    # else show start
+    redirect_to request.referrer
+
 
  if @order.update status: 'pending'
    ReceiptMailer.order_confirmation(current_user, @order).deliver
@@ -69,7 +100,6 @@ class CheckoutController < ApplicationController
 end
 
   def receipt
-    # I want a 404 if we can't find_by
     @order = Order.find_by! id: params[:id], user_id: current_or_guest_user.id
   end
 

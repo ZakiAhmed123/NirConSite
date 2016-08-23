@@ -9,52 +9,58 @@
   CHECKOUT
 </div>
 <div class="shipping-container">
-  <div class="shipping">
-
+  <div class="shipping" style="margin-right:15px;">
+    <div class="summary-title">
+      1. SHIPPING
+    </div>
     <div class="shipping-1">
 
       <div class="shipping-title">
-        1. SHIPPING
+        2. PAYMENT
       </div>
 
+      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+      <script type="text/javascript">
+        Stripe.setPublishableKey('pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C');
+      </script>
+
       <div class="shipping-content">
-        <%= form_for :orders, :url=> process_shipping_path, method: :post do |f| %>
+        <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
+        <span class="payment-errors"></span>
         <div class="section">
           <div class="shipping-label">
-            Address<span>*</span>
+            Card Number<span>*</span>
           </div>
-          <%= f.text_field :shipping_address1, class:'shipping-param' %>
+          <%= text_field_tag :credit_card_number, "", class: "card-number" %>
         </div>
         <div class="section">
           <div class="shipping-label">
-            City<span>*</span>
+            Expiry Date<span>*</span>
           </div>
-          <%= f.text_field :shipping_city, class:'shipping-param' %>
+          <%= select_month Date.today, {}, class: "card-expiry-month" %>  <%= select_year Date.today, {start_year: Date.today.year, end_year: Date.today.year+20}, class: "card-expiry-year" %>
         </div>
         <div class="section">
           <div class="shipping-label">
-            State<span>*</span>
+            Security Code<span>*</span>
           </div>
-          <%= f.select(:shipping_state, options_for_select(us_states, "TX"))%>
+          <%= number_field_tag :cvc, "",class: "card-cvc"%>
         </div>
         <div class="section">
           <div class="shipping-label">
-            ZIP Code<span>*</span>
+            Token<span>*</span>
           </div>
-          <%= f.text_field :shipping_zip, class:"shipping-param" %>
+          <%= text_field_tag :token, "", class: "card-token" %>
         </div>
-        <%= f.submit "NEXT STEP", class:'next-step'%>
+        <%= submit_tag 'PURCHASE', class:'next-step' %>
         <div class="required">
           <span>*</span>
           Required Field
+
         </div>
         <%end%>
       </div>
 
-    </div>
-
-    <div class="summary-title" style="margin-top:20px;">
-      2. PAYMENT
     </div>
 
     <div class="summary-title" style="margin-top:20px;">
@@ -74,7 +80,7 @@
             SUBTOTAL
           </div>
           <div class="item-2">
-            <%= number_to_currency(@order.subtotal.to_i) %>
+            <%= number_to_currency(@order.subtotal) %>
           </div>
         </div>
         <div class="piece">
@@ -86,11 +92,15 @@
           </div>
         </div>
         <div class="piece">
-          <div class="item">
+          <div class="item" style="color:#7f8c8d">
             TAX
           </div>
-          <div class="item-2">
-          $0.00
+          <div class="item-2" style="color:#7f8c8d">
+            <% if @order.address_state = "TX" %>
+            <%= number_to_currency(@order.total_tax) %>
+            <%else%>
+            TAX: $0.00
+            <%end%>
           </div>
         </div>
         <div class="piece-total">
@@ -98,7 +108,11 @@
             TOTAL
           </div>
           <div class="item-total">
-            <%= number_to_currency(@order.subtotal) %>
+            <% if @order.address_state = "TX" %>
+            <%= number_to_currency(@order.total_price_texas) %>
+            <%else%>
+            <%= number_to_currency(@order.total_price) %>
+            <%end%>
           </div>
         </div>
       </div>
@@ -110,7 +124,8 @@
         IN YOUR CART
       </div>
       <div style="display:flex;">
-          <% @order.order_items.each do |order_item| %>
+        <% @order.order_items.each do |order_item| %>
+
         <%= image_tag "#{order_item.img_file}.jpg", {:class => "checkout_picture"}%>
         <div class="checkout-item-info">
           <span style="font-family:San Francisco"><%= order_item.name %></span>

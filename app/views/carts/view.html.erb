@@ -20,14 +20,12 @@
             <th>
               Quantity
             </th>
-            <th>
-              Shipping Cost Per
-            </th>
+
             <th>
               Item Price
             </th>
             <th>
-              Total Price
+              Total Item Price
             </th>
             <th>
               Remove
@@ -49,13 +47,10 @@
               <%= order_item.quantity%>
             </td>
             <td>
-              <%= number_to_currency(order_item.shipping_cost.to_i) %>
+              <%= number_to_currency(order_item.price) %>
             </td>
             <td>
-              <%= number_to_currency(order_item.price.to_i) %>
-            </td>
-            <td>
-              <%= number_to_currency order_item.total_price %>
+              <%= number_to_currency order_item.subtotal_price %>
             </td>
             <td>
               <%= link_to 'Remove Item', remove_from_cart_path(product_id: order_item.product_id), method: :delete, class: "remove-cart" %>
@@ -75,19 +70,19 @@
         ORDER SUMMARY
       </div>
       <div class="summary-values">
-        Subtotal:<%=number_to_currency(@order.subtotal.to_i) %></br>
+        Subtotal:<%=number_to_currency(@order.subtotal) %></br>
       </div>
 
       <div class="summary-values">
-        Shipping: <%= number_to_currency(@order.total_shipping.to_i) %></br>
+        Shipping: $0.00 (TBD)</br>
 
       </div>
       <div class="summary-values">
-        Estimated Tax: $0.00
+        Tax: $0.00 (TBD)
 
       </div>
       <div class="summary-values-black">
-        Total: <%= number_to_currency(@order.total_price.to_i) %>
+        Total: <%= number_to_currency(@order.subtotal) %>
       </div>
       <% if @order.total_price > 0 %>
       <%= link_to 'CHECKOUT', shipping_path, class: 'checkout-btn' %>
