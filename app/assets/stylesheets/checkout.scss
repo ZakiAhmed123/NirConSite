@@ -1,7 +1,6 @@
 // SHIPPING
 .checkout-nav {
   padding:20px;
-  color:#333;
   font-family: San Francisco;
   text-align: left;
   font-size:30px;
@@ -9,6 +8,13 @@
 
 }
 
+.checkout-nav a {
+  color:#333;
+  text-decoration: none;
+}
+.checkout-nav a:hover {
+  color:#f1c40f;
+}
 .checkout-phone {
   height:70px;
   padding:20px;
@@ -127,6 +133,24 @@ margin-bottom: 40px;
 }
 
 .next-step:hover {
+  background-color:#e05a00 ;
+  border:1px solid #e05a00 ;
+}
+
+#next-step {
+  width:200px;
+  padding:10px 20px;
+  font-family: San Francisco Regular;
+  color:white;
+  background-color: #F76122;
+  font-size: 18px;
+  border: 1px solid #F76122;
+  border-radius:3px;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+#next-step:hover {
   background-color:#e05a00 ;
   border:1px solid #e05a00 ;
 }

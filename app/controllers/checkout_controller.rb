@@ -13,6 +13,8 @@ class CheckoutController < ApplicationController
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
     @order.update_attributes(order_params)
 
+    @order.save!
+
     EasyPost.api_key = 's7GSYnjCSu0HWkp5PE5akg'
 
       to_address = EasyPost::Address.create(
@@ -45,7 +47,6 @@ class CheckoutController < ApplicationController
     :to_address => to_address,
     :from_address => from_address,
     :parcel => parcel,
-    :customs_info => customs_info
   )
 
   shipment.buy(
@@ -54,11 +55,14 @@ class CheckoutController < ApplicationController
 
   shipment.insure(amount: 100)
 
+
+  puts shipment.lowest_rate.rate
   puts shipment.insurance
 
   puts shipment.postage_label.label_url
-
-    redirect_to checkout_path
+  @order.shipping_cost = shipment.lowest_rate.rate.to_i.round
+  @order.save!
+    redirect_to payment_path
   end
 
   def payment
@@ -67,19 +71,13 @@ class CheckoutController < ApplicationController
 
   def process_payment
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
-
+    @user = current_or_guest_user
     card_token = params[:stripeToken]
 
     Stripe.api_key = "sk_test_xIGhTi9JGwC0H65Tq1KdFEJE"
 
-    customer = Stripe::Customer.create(
-    :email => params[:stripeEmail],
-    :source => card_token
-    )
-
     Stripe::Charge.create(
-      :customer => customer.id,
-      :amount => @order.total_price,
+      :amount => @order.total_price_in_cents,
       :currency => "usd",
       :source => card_token,
     )
@@ -87,11 +85,9 @@ class CheckoutController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
 
-    redirect_to request.referrer
-
-
+    @order.update status: 'pending'
  if @order.update status: 'pending'
-   ReceiptMailer.order_confirmation(current_user, @order).deliver
+   ReceiptMailer.order_confirmation(@user, @order).deliver
    redirect_to receipt_path(id: @order.id)
  else
    redirect_to request.referrer, alert: "Transaction Failed to Process, Please Try Again and Validate your card information"
@@ -105,6 +101,6 @@ end
 
   private
     def order_params
-      params.permit(:address_zip, :address_city, :address_state, :address_line1)
+      params.require(:orders).permit(:address_zip, :address_city, :address_state, :address_line1, :phone_number, :name, :shipping_cost)
     end
 end

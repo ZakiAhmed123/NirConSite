@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823182541) do
+ActiveRecord::Schema.define(version: 20160824183055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20160823182541) do
     t.string   "address_zip"
     t.string   "name"
     t.boolean  "address_same",  default: false
+    t.string   "phone_number"
+    t.integer  "shipping_cost", default: 1
   end
 
   create_table "payola_affiliates", force: :cascade do |t|

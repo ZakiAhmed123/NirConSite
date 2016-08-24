@@ -11,11 +11,15 @@ class Order < ActiveRecord::Base
   end
 
   def total_price
-    order_items.map { |order_item| order_item.item_price }.sum
+    order_items.map { |order_item| order_item.item_price }.sum + shipping_cost
   end
 
   def total_price_texas
-    order_items.map { |order_item| order_item.total_price_texas }.sum
+    order_items.map { |order_item| order_item.total_price_texas }.sum + shipping_cost
   end
+
+  def total_price_in_cents
+    (total_price * 100).to_i
+end
 
 end

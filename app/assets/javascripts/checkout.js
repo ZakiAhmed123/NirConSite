@@ -16,7 +16,6 @@ jQuery(function($) {
 
       //  // Insert the token into the form so it gets submitted to the server
        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-       $form.append($('<input type="hidden" name="stripeEmail" />').val(email));
       //  // and re-submit
        $form.get(0).submit();
      }
@@ -34,7 +33,11 @@ jQuery(function($) {
       number: $('.card-number').val(),
       cvc: $('.card-cvc').val(),
       exp_month: $('.card-expiry-month').val(),
-      exp_year: $('.card-expiry-year').val()
+      exp_year: $('.card-expiry-year').val(),
+      address_line1: $('.card-address').val(),
+      address_city: $('.card-city').val(),
+      address_state: $('.card-state').val(),
+      address_zip: $('.card-zip').val()
     }, stripeResponseHandler);
 
     // Prevent the form from submitting with the default action

@@ -27,7 +27,7 @@ class CartsController < ApplicationController
 
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
     if order_item.present?
-      order_item.inject(&:quantity).sum
+      order_item.map { |order_item| order_item.quantity }.sum
     else
       order_item = OrderItem.new(orderitem_params)
       order_item.order = order
