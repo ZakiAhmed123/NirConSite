@@ -44,11 +44,13 @@ Rails.application.routes.draw do
   delete 'cart' => 'carts#remove_from_cart_stabilizer', as: :remove_from_cart_stabilizer
 
 
+
   #ORDER PROCESSING I.E. CHECKOUT
+  get 'checkout' => 'checkout#payment', as: :checkout
+  post 'checkout' => 'checkout#process_payment', as: :process_payment
   get 'shipping' =>  'checkout#shipping', as: :shipping
   post 'shipping' => 'checkout#process_shipping', as: :process_shipping
-  get 'checkout' => 'checkout#payment', as: :payment
-  post 'checkout/process_payment' => 'checkout#process_payment', as: :process_payment
+
   get 'receipts/:id' => 'checkout#receipt', as: :receipt
 
   # The priority is based upon order of creation: first created -> highest priority.

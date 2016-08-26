@@ -19,3 +19,6 @@ id,length,width,thickness,stud_count,stud_thickness,stud_length,total_weight,pre
 18,12,16,0.75,6,0.625,6,44.03,88.06,25,88.06,12' x 16' x 0.75' Embed,SR-18,sample
 19,16,16,0.75,8,0.375,6,56.03,112.07,35,112.07,16' x 16' x 0.75' Embed,SR-19,sample
 20,16,16,0.75,8,0.625,6,58.71,117.42,35,117.42,16' x 16' x 0.75' Embed,SR-20,sample
+101,,,,,,,,,,25,Side Condition Embed Stabilizer,side,side_condition
+102,,,,,,,,,,30,Corner Condition Embed Stabilizer,corner,corner_condition
+103,,,,,,,,,,35,Inside Condition Embed Stabilizer,inside,inside_condition

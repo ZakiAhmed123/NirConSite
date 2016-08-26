@@ -11,6 +11,7 @@
   <script type="text/javascript">
     Stripe.setPublishableKey('pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C');
   </script>
+
 </head>
 <body>
   <!--  NAV-->
@@ -18,7 +19,12 @@
 <%= yield %>
 
 </body>
-
+<script type="text/javascript">
+$(window).load(function() {
+  $(".loader").fadeOut("slow");
+})
+</script>
+<!-- <div class="loader"></div> -->
 <script>
 $(document).ready(function () {
   var scroll_start = 0;
@@ -33,6 +39,15 @@ $(document).ready(function () {
     }
   });
 });
+
 </script>
+<script type="text/javascript">
+$(document).ready(function () {
+  setTimeout(function () {
+    $('#flash').remove();
+  }, 1800);
+})
+</script>
+
 
 </html>

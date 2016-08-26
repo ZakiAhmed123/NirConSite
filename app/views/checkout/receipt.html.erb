@@ -6,7 +6,9 @@
 <div class="thank-you">
   THANK YOU FOR YOUR PURCHASE
 </div>
-
+  <div class="" style="Font-family:San Francisco Light; font-size:18px; text-align:center;margin-top:30px;">
+  We sent a receipt to your email (<strong> <%= current_or_guest_user.email %></strong>). Your load tables, sign and seals and shop drawings are all in the email and you can download them below
+</div>
 
 
 
@@ -37,15 +39,11 @@
             Per Item Price
           </th>
 
-          <th>
-            Shipping Per Item
-          </th>
+
           <th>
             Total Shipping Cost
           </th>
-          <th>
-            Subtotal
-          </th>
+
           <th>
             Total Price
           </th>
@@ -69,22 +67,18 @@
           <td>
             <%= number_to_currency(order_item.price.to_i) %>
           </td>
-          <td>
-            <%= number_to_currency(order_item.shipping_cost.to_i) %>
-          </td>
-          <td>
-            <%= number_to_currency(order_item.total_shipping.to_i) %>
-          </td>
-          <td>
-            <%= number_to_currency(order_item.subtotal_price.to_i) %>
-          </td>
-          <td>
-            <%= number_to_currency(order_item.total_price.to_i) %>
-          </td>
 
+          <% end %>
+          <td>
+            <%= @order.shipping_cost %>
+
+          </td>
+          <td>
+            <%= number_to_currency(@order.total_price_in_cents * 0.01) %>
+          </td>
         </tr>
 
-        <% end %>
+
 
       </tbody>
     </table>

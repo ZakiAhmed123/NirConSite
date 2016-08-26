@@ -32,7 +32,6 @@
             </th>
           </tr>
         </thead>
-
         <tbody>
           <% @order.order_items.each do |order_item| %>
 
@@ -45,6 +44,7 @@
             </td>
             <td>
               <%= order_item.quantity%>
+
             </td>
             <td>
               <%= number_to_currency(order_item.price) %>

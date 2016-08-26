@@ -24,11 +24,11 @@ class CartsController < ApplicationController
       order.purchased_at = Time.now
       order.save!
     end
-
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
-    if order_item.present?
-      order_item.map { |order_item| order_item.quantity }.sum
-    else
+
+    # if order_item.present?
+    #   order_item.sum(&:quantity)
+    # else
       order_item = OrderItem.new(orderitem_params)
       order_item.order = order
       order_item.product = @product
@@ -36,12 +36,17 @@ class CartsController < ApplicationController
       order_item.shipping_cost = @product.shipping_cost
       order_item.img_file = @product.img_file
       order_item.name = @product.name
-    end
-    order_item.save!
-
-    redirect_to request.referrer
-
+    # end
+    if order_item.save!
+      flash[:success] = "Successfully Added to Cart"
+      redirect_to request.referrer
+    else
+      flash[:error] = "Error In adding to Cart"
+      render :new
+      end
   end
+
+
 
   def view
     @current_user=current_or_guest_user
@@ -54,7 +59,7 @@ class CartsController < ApplicationController
 
   private
   def orderitem_params
-    params.require(:order_items).permit(:quantity)
+    params.require(:order_item).permit(:quantity)
   end
 
 

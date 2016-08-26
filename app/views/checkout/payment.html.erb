@@ -19,15 +19,31 @@
         2. PAYMENT
       </div>
 
-      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-      <script type="text/javascript">
-        Stripe.setPublishableKey('pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C');
-      </script>
+      <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
+
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C"
+          data-name="Nirvana Products"
+          data-amount="<%= @order.total_price_in_cents %>"
+          data-email="<%= @current_user.email %>"
+          data-billing-address="true"
+          data-locale="auto">
+        </script>
+      <% end %>
+
+      <% if false %>
+
 
       <div class="shipping-content">
         <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
         <span class="payment-errors"></span>
+        <div id="error_explanation">
+          <% if flash[:error].present? %>
+          <p><%= flash[:error] %></p>
+          <% end %>
+        </div>
         <div class="section">
           <div class="shipping-label">
             Name<span>*</span>
@@ -52,12 +68,7 @@
           </div>
           <%= number_field_tag :cvc, "",class: "card-cvc"%>
         </div>
-        <div class="section">
-          <div class="shipping-label">
-            Token<span>*</span>
-          </div>
-          <%= text_field_tag :token, "", class: "card-token" %>
-        </div>
+
         <div class="summary-title">
           BILLING
         </div>
@@ -65,27 +76,27 @@
           <div class="shipping-label">
             Address Line 1<span>*</span>
           </div>
-          <%= text_field_tag :address_line1, "", class: "card-address" %>
+          <%= text_field_tag :stripeBillingAddressLine1, "", class: "card-address" %>
         </div>
 
         <div class="section">
           <div class="shipping-label">
             City<span>*</span>
           </div>
-          <%= text_field_tag :address_city, "", class: "card-city" %>
+          <%= text_field_tag :stripeBillingAddressCity, "", class: "card-city" %>
         </div>
 
         <div class="section">
           <div class="shipping-label">
             State<span>*</span>
           </div>
-            <%= select_tag(:address_state, options_for_select(us_states, "TX"),{ :class => 'card-state' }) %>
+            <%= select_tag(:stripeBillingAddressState, options_for_select(us_states, "TX"),{ :class => 'card-state' }) %>
         </div>
         <div class="section">
           <div class="shipping-label">
             Zip<span>*</span>
           </div>
-          <%= text_field_tag :address_zip, "", class: "card-zip" %>
+          <%= text_field_tag :stripeBillingAddressZip, "", class: "card-zip" %>
         </div>
 
 
@@ -95,6 +106,8 @@
           Required Field
 
         </div>
+
+        <%end%>
         <%end%>
       </div>
 

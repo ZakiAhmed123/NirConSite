@@ -62,7 +62,7 @@ class CheckoutController < ApplicationController
   puts shipment.postage_label.label_url
   @order.shipping_cost = shipment.lowest_rate.rate.to_i.round
   @order.save!
-    redirect_to payment_path
+    redirect_to checkout_path
   end
 
   def payment
@@ -70,11 +70,13 @@ class CheckoutController < ApplicationController
   end
 
   def process_payment
+
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
     @user = current_or_guest_user
     card_token = params[:stripeToken]
 
     Stripe.api_key = "sk_test_xIGhTi9JGwC0H65Tq1KdFEJE"
+
 
     Stripe::Charge.create(
       :amount => @order.total_price_in_cents,
@@ -82,16 +84,23 @@ class CheckoutController < ApplicationController
       :source => card_token,
     )
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
 
-    @order.update status: 'pending'
- if @order.update status: 'pending'
-   ReceiptMailer.order_confirmation(@user, @order).deliver
-   redirect_to receipt_path(id: @order.id)
- else
-   redirect_to request.referrer, alert: "Transaction Failed to Process, Please Try Again and Validate your card information"
- end
+
+    if @order.update status: 'pending'
+    ReceiptMailer.order_confirmation(@user, @order).deliver
+    redirect_to receipt_path(id: @order.id)
+    else
+    render :new
+    
+
+    end
+
+ # if @order.update status: 'pending'
+ #   ReceiptMailer.order_confirmation(@user, @order).deliver
+ #
+ # else
+ #   redirect_to request.referrer, alert: "Transaction Failed to Process, Please Try Again and Validate your card information"
+ # end
 
 end
 

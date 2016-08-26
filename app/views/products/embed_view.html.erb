@@ -23,7 +23,7 @@
   <%= link_to 'SHOP DRAWING',pdf_path, class:"product-drawing" %>
   LOAD TABLES
 </div>
-  <%= form_for :order_items, :url => add_to_cart_path(product_id: @product.id) do |f| %>
+  <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
   <p class="quantity"> <%= f.number_field :quantity, min: 1, placeholder: "QTY(1)", class:"quantity-dropdown"%> <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
   <%end%>
 </div>

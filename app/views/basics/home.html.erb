@@ -43,14 +43,14 @@
           <%end %>
         </div>
       </div>
-      <%= link_to cart_path do %>
-      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
-      <%end%>
+
       <%else%>
       <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
       <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
       <%end%>
-
+      <%= link_to cart_path do %>
+      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
+      <%end%>
     </div>
   </div>
   <% flash.each do |name,msg| %>
@@ -132,11 +132,7 @@
 
 <script>
 
-$(document).ready(function () {
-  setTimeout(function () {
-    $('#flash').remove();
-  }, 1800);
-})
+
 jQuery(document).ready(function ($) {
   $('.automatic-slider').unslider({autoplay: true, arrows: false});
 });

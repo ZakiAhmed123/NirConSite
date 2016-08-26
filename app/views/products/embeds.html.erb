@@ -11,20 +11,9 @@
     epicuri liberavisse in nec. Quo id quis consectetuer.
   </div>
   <div class="item-container">
-    <div class="stabilizer-container">
-      <p class="stabilizer-heading">
-        TRY OUT OUR </br>STABILIZERS
-      </p>
-      <% @stabilizers.each do |stabilizer| %>
-      <div class="stabilizer-index-item">
-        <%= link_to "/products/stabilizers/#{stabilizer.id}" do %>
-        <%= image_tag"#{stabilizer.img_file}.png", {:class => "stabilizer-picture"} %>
-        <p class="product-name" style="color:#222;"><%= stabilizer.name %>(in)</p>
-        <p class="product-sub"><%= number_to_currency(stabilizer.price.to_i)%></p>
-        <%end%>
-    </div>
+    <% flash.each do |name,msg| %>
+    <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
-  </div>
     <div class="product-container">
       <% @products.each do |product|%>
       <div class="embed-index-item">

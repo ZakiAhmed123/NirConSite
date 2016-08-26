@@ -99,6 +99,8 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     local_time (1.0.3)
       coffee-rails
     loofah (2.0.3)
@@ -264,6 +266,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  letter_opener
   local_time
   payola-payments
   pg (~> 0.15)

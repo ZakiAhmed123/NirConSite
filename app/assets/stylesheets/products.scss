@@ -1,3 +1,5 @@
+// PRODUCTS INDEX
+
 #embed-dropbtn {
   color:#222;
 }
@@ -84,10 +86,6 @@ background-color: white;
   padding:0px 60px;
   margin-bottom: 25px;
 }
-
-
-
-
 
 .nav-logo-embeds {
   width: 25%;
@@ -348,44 +346,4 @@ background-color: white;
 
 .item-container {
   display:flex;
-}
-
-.stabilizer-container {
-  display:flex;
-  flex-direction: column;
-  width:25%;
-  align-items: center;
-  border-right:1px solid #222;
-  font-family: San Francisco Light;
-  float: left;
-  overflow: scroll;
-}
-.stabilizer-index-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width:60%;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.stabilizer-index-item a {
-  text-decoration: none;
-}
-
-.stabilizer-heading {
-  font-family: San Francisco;
-  color:#222;
-  text-align: center;
-  margin:0 0 20px 0;
-  font-size: 30px;
-  letter-spacing: 2px;
-  color:#3498db
-}
-.stabilizer-view-picture {
-  width:25%;
-  margin-top: 20%;
-  border: 1px solid gray;
-  padding:20px;
-
 }
