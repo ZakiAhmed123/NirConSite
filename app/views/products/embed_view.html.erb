@@ -1,16 +1,23 @@
-<%= render '/products/alt_nav.html.erb'%>
+<%= render '/layouts/nav_bar.html.erb'%>
+<div class="view-header">
+  <%= image_tag "slab.jpg" %>
+  <div class="view-title">
+    <%= @product.name.upcase %>
+  </div>
+</div>
 
-
-
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
 <div class="product-view">
   <%= image_tag "#{@product.img_file}.jpg", {:class => "product-view-picture"}%>
 <div class="product-view-info">
-  <p class="product-view-name"><%= @product.name %>(in)</p>
+  <p class="product-price"><%= number_to_currency(@product.price)%></p>
+
   <p class="product-name-sub"> STANDARDIZED EMBED </p>
-  <p class="product-price"><%= number_to_currency(@product.price.to_i)%></p>
 <div class="product-info">
   <p class="product-dimensions-head">
-    Embed Dimensions
+    Embed Information
   </p>
   <p class="product-dimensions">
     Plate Length: <%=@product.length%>in </br>
@@ -20,8 +27,7 @@
     Stud Length:<%=@product.stud_length %>in </br>
     Stud Diameter: <%= @product.stud_thickness %>in
   </p>
-  <%= link_to 'SHOP DRAWING',pdf_path, class:"product-drawing" %>
-  LOAD TABLES
+  <%= link_to 'SHOP DRAWING/LOAD TABLES',pdf_path, class:"product-drawing" %>
 </div>
   <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
   <p class="quantity"> <%= f.number_field :quantity, min: 1, placeholder: "QTY(1)", class:"quantity-dropdown"%> <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
@@ -29,4 +35,4 @@
 </div>
 </div>
 
-<%= render '/layouts/alt_footer.html.erb'%>
+<%= render '/layouts/footer.html.erb'%>

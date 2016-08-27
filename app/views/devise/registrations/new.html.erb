@@ -1,50 +1,7 @@
 <div class="sign-up-container">
 
-  <div class="nav" id="navbar">
-    <p class="nav-logo">
-      [NIRVANA CON]
-    </p>
-    <div class="nav-items">
-      <%= link_to "HOME",root_path, class:'nav-item-a'%>
-      <div class="dropdown">
-        <button class="dropbtn">PRODUCTS
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-          <%= link_to "EASY EMBEDS", products_path%>
-          <%= link_to "STANDARD STAIRS", stairs_path%>
-          <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
-        </div>
+  <%= render 'layouts/nav_bar.html.erb' %>
 
-      </div>
-      <%= link_to "CUSTOM ORDER", new_message_path, class:'custom-order' %>
-
-      <% if user_signed_in? %>
-      <div class="dropdown">
-        <button class="dropbtn"><%= current_user.email %>
-          <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-          <%= link_to orders_path do %>
-          <i class="fa fa-list-alt" aria-hidden="true"></i>
-          ORDERS
-          <%end%>
-          <%= link_to destroy_user_session_path, :method => "delete" do %>
-          <i class="fa fa-times-circle-o" aria-hidden="true"></i>
-          SIGN OUT
-          <%end %>
-        </div>
-      </div>
-      <%= link_to cart_path do %>
-      <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
-      <%end%>
-      <%else%>
-      <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
-      <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
-      <%end%>
-
-    </div>
-  </div>
   <% flash.each do |name,msg| %>
   <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
   <%end%>
@@ -82,3 +39,5 @@ SIGN UP
 
 </div>
 </div>
+
+<%= render 'layouts/footer.html.erb' %>

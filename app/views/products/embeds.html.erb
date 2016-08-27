@@ -1,16 +1,29 @@
 <div class="product-index-container">
 
-  <%= render '/products/alt_nav.html.erb'%>
+  <%= render '/layouts/nav_bar.html.erb'%>
 
-  <div class="products-title">
-    EASY EMBEDS
+<div class="index-title-block">
+  <div class="i-image">
+    <%= image_tag 'SR-01.jpg', class:'index-title-image' %>
+
   </div>
-  <div class="embeds-desc" id="startchange">
-    Lorem ipsum dolor sit amet, ius cu quot vide eruditi, partem populo signiferumque ne vel. Ei sea vocent periculis. Id eam congue utamur accommodare. Vis at tantas conceptam, nam ad dico legimus. Ex vis nibh audiam, nec porro deterruisset at. Facer
-    vidisse placerat vim ex, rebum minim eligendi sea te, vix eu quem everti percipitur. In sea vidit nihil diceret, mollis perpetua vituperata no qui. Eum at movet labitur. Tollit audire eu his, usu ei postea mnesarchum. Duis omnes dolore id per. Ignota
-    epicuri liberavisse in nec. Quo id quis consectetuer.
+  <div class="i-container">
+    <div class="index-title">
+    EASY EMBEDS:
+    </div>
+    <div class="index-subtitle">
+      THE NEW STANDARD
+    </div>
+    <div class="index-desc">
+      Ea nec enim accumsan, ut prima blandit mel, </br>labores nonumes detraxit an sed. Omnis </br>malis propriae an sed, eu mea erat utinam.
+    </div>
+      <a href="www.easyembeds.com" class="shop-now">
+        READ MORE
+      </a>
   </div>
-  <div class="item-container">
+
+</div>
+
     <% flash.each do |name,msg| %>
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
@@ -18,12 +31,14 @@
       <% @products.each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
-        <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
-        <p class="product-name"><%= product.name %>(in)</p>
+        <div class="image-container">
+          <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
+        </div>
+        <p class="product-index-price"><%= number_to_currency(product.price)%></p>
+        <p class="product-name"><%= product.name.upcase %>(in)</p>
         <p class="product-sub">Stud:
           <%=product.stud_length %>in x
           <%= product.stud_thickness %>in</p>
-        <p class="product-sub"><%= number_to_currency(product.price.to_i)%></p>
         <%end%>
       </div>
       <%end%>
@@ -32,4 +47,37 @@
   </div>
 </div>
 
-<%= render '/layouts/alt_footer.html.erb'%>
+<div class="panels">
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-trophy fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+QUALITY GUARANTEED
+</div>
+
+
+</div>
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-bus fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+ON SITE DELIVERY
+</div>
+
+
+</div>
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-lock fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+SECURE PAYMENT
+</div>
+
+
+</div>
+</div>
+
+<%= render '/layouts/footer.html.erb'%>

@@ -16,8 +16,28 @@
 
     </div>
     <%= link_to "Custom Order", new_message_path, class:'custom-order' %>
+
+    <% if user_signed_in? %>
+    <div class="dropdown">
+      <button class="dropbtn"><%= current_user.email %>
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <%= link_to orders_path do %>
+        <i class="fa fa-list-alt" aria-hidden="true"></i>
+        ORDERS
+        <%end%>
+        <%= link_to destroy_user_session_path, :method => "delete" do %>
+        <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+        SIGN OUT
+        <%end %>
+      </div>
+    </div>
+
+    <%else%>
     <%= link_to "Sign Up", new_user_registration_path, class:'nav-item-a' %>
     <%= link_to "Sign In", new_user_session_path, class:'nav-item-a' %>
+    <%end%>
     <%= link_to cart_path do %>
     <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
     <%end%>
