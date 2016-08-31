@@ -5,12 +5,13 @@
   <% flash.each do |name,msg| %>
   <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
   <%end%>
+  <%= devise_error_messages! %>
 
 <div class="user-title">
 SIGN UP
 </div>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
   <div class="user-field">
     <%= f.label :email %><br />

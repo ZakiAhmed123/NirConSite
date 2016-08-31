@@ -9,8 +9,10 @@ class MessagesController < ApplicationController
       @message = Message.new(message_params)
       if @message.valid?
         MessageMailer.message_me(@message).deliver_now
-        redirect_to new_message_path, flash[:notice], "Thank you for your message."
+        redirect_to new_message_path
+        flash[:success] = "Successfully Sent Custom Order, We Will Contact You Shortly"
       else
+        flash[:error] = "Error In Sending Message"
         render :new
       end
     end

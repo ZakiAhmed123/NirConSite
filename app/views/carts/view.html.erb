@@ -1,6 +1,7 @@
+<%= render '/products/alt_nav.html.erb'%>
+
 <div class="cart-container" style="margin-bottom:18%;">
 
-  <%= render '/products/alt_nav.html.erb'%>
 
   <div class="bag-container">
     <div class="bag">
@@ -12,20 +13,19 @@
         <thead>
           <tr>
             <th>
-              Product
             </th>
             <th>
-              Name
+              Product
             </th>
             <th>
               Quantity
             </th>
 
             <th>
-              Item Price
+              Price
             </th>
             <th>
-              Total Item Price
+              Total
             </th>
             <th>
               Remove
@@ -50,7 +50,7 @@
               <%= number_to_currency(order_item.price) %>
             </td>
             <td>
-              <%= number_to_currency order_item.subtotal_price %>
+              <%= number_to_currency order_item.item_price %>
             </td>
             <td>
               <%= link_to 'Remove Item', remove_from_cart_path(product_id: order_item.product_id), method: :delete, class: "remove-cart" %>
@@ -74,7 +74,7 @@
       </div>
 
       <div class="summary-values">
-        Shipping: $0.00 (TBD)</br>
+        Shipping: <%= number_to_currency(@order.total_shipping)%></br>
 
       </div>
       <div class="summary-values">
@@ -82,10 +82,12 @@
 
       </div>
       <div class="summary-values-black">
-        Total: <%= number_to_currency(@order.subtotal) %>
+        Total: <%= number_to_currency(@order.cart_total) %>
       </div>
-      <% if @order.total_price > 0 %>
+      <% if @order.cart_total > 0 %>
       <%= link_to 'CHECKOUT', shipping_path, class: 'checkout-btn' %>
+      <%else%>
+      <%= link_to 'FIND EMBEDS?', products_path, class:'checkout-btn' %>
       <%end%>
     </div>
   </div>

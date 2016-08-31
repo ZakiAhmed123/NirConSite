@@ -1,5 +1,5 @@
 .custom-order-container {
-  background-color: #EFB814;
+  background-color: white;
   display:flex;
   flex-direction: column;
   padding:100px 50px 100px 50px;
@@ -9,13 +9,13 @@
   font-family: San Francisco Regular;
   font-size: 22px;
   margin:0px;
-  color:white;
+  color:#333;
   margin-bottom: 8px;
 }
 
 .custom-order-title {
   font-size: 100px;
-  color:white;
+  color:#333;
   font-family: San Francisco Light;
   text-align: center;
   letter-spacing: 5px;
@@ -23,7 +23,7 @@
 
 .custom-order-info {
   font-size: 15px;
-  color:white;
+  color:#333;
   font-family: San Francisco Light;
   margin-bottom: 20px;
 }
@@ -34,6 +34,7 @@
   color:#7f8c8d;
   font-size: 18px;
   padding:10px;
+  border:2px solid #333;
 }
 
 .custom-order-container textarea {
@@ -45,6 +46,8 @@
   width:634.5px;
   height:250px;
   color:#7f8c8d;
+  border:2px solid #333;
+
 }
 .custom-order-container form {
   width:60%
@@ -79,18 +82,21 @@ border:1px solid white;
 border:1px solid white;
 }
 
+#message_file {
+  border:none;
+}
 .custom-order-send {
   border-radius: 5px;
-  border: 1px solid white;
-  background-color: white;
   width:656px;
   text-align: center;
+  background-color: white;
+  color:#333;
 }
 
 .custom-order-send:hover {
-  background-color: #7f8c8d;
+  background-color: #333;
   color:white;
-  border:1px solid #7f8c8d;
+  border:1px solid #333;
 }
 
 .custom-order-upload {

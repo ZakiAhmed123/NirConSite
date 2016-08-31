@@ -1,12 +1,12 @@
 
 .sign-up-container {
-  background-color: #3498db;
+  background-color: white;
   height:90vh;
   padding-top: 100px;
 }
 
 .sign-in-container {
-  background-color: #16a085;
+  background-color: white;
   height:100vh;
   padding-top: 100px;
 }
@@ -15,26 +15,26 @@
   font-family: San Francisco Light;
   text-align: center;
   font-size: 100px;
-  color:white;
+  color:#333;
   letter-spacing: 10px;
 }
 
 .user-field {
-  color: white;
+  color: #333;
   text-align: center;
   font-family: San Francisco Light;
   font-size: 30px;
 }
 
 .user-field-submit {
-  color: white;
+  color: #333;
   text-align: center;
   font-family: San Francisco Light;
   font-size: 30px;
 }
 
 .user-field-submit input {
-  border: 1px solid white;
+  border: 1px solid #333;
   border-radius: 3px;
   font-size: 25px;
   margin-top: 15px;
@@ -42,17 +42,17 @@
   width:100%;
   max-width: 500px;
   background-color: white;
-  color:#7f8c8d;
+  color:#333;
 }
 
 
 .user-field-submit input:hover {
   color:white;
-  background-color: #7f8c8d;
-  border:1px solid #7f8c8d;
+  background-color: #333;
+  border:1px solid #333;
 }
 .user-checkbox {
-  color:white;
+  color:#333;
   font-family: San Francisco Light;
   display:flex;
   justify-content: center;
@@ -61,7 +61,7 @@
 }
 
 .user-field input {
-border: 1px solid white;
+border: 1px solid #333;
 border-radius: 3px;
 font-size: 25px;
 margin-top: 15px;
@@ -69,17 +69,17 @@ margin-bottom: 15px;
 width:100%;
 max-width: 500px;
 background-color: white;
-color:#7f8c8d;
+color:#333;
 }
 .user-field-option {
-  color: white;
+  color: #333;
   text-align: center;
   font-family: San Francisco Light;
   font-size: 20px;
   margin-top: 20px;
 }
 .user-field-option a{
-  color: white;
+  color: #333;
   text-align: center;
   font-family: San Francisco Light;
   font-size:20px;

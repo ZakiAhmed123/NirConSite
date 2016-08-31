@@ -20,14 +20,16 @@
       </div>
 
 
+      <div class="shipping-content">
+
       <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
 
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="pk_test_UQ02f5WGJ1E2k2sUXLJcqn4C"
           data-name="Nirvana Products"
-          data-amount="<%= @order.total_price_in_cents %>"
-          data-email="<%= @current_user.email %>"
+          data-amount="<%= @order.final_price %>"
+          data-email="<%= @order.email %>"
           data-billing-address="true"
           data-locale="auto">
         </script>
@@ -36,7 +38,7 @@
       <% if false %>
 
 
-      <div class="shipping-content">
+
         <%= form_tag process_payment_path, method: :post, id: "payment-form" do %>
         <span class="payment-errors"></span>
         <div id="error_explanation">
@@ -138,7 +140,7 @@
             ESTIMATED SHIPPING
           </div>
           <div class="item-2">
-            <%= number_to_currency(@order.shipping_cost)%>
+            <%= number_to_currency(@order.total_shipping)%>
           </div>
         </div>
         <div class="piece">
@@ -158,11 +160,7 @@
             TOTAL
           </div>
           <div class="item-total">
-            <% if @order.address_state = "TX" %>
-            <%= number_to_currency(@order.total_price_texas) %>
-            <%else%>
-            <%= number_to_currency(@order.total_price) %>
-            <%end%>
+            <%= number_to_currency(@order.final_price * 0.01) %>
           </div>
         </div>
       </div>
@@ -173,8 +171,8 @@
       <div class="summary-title" style="margin-top:20px;margin-bottom:40px;">
         IN YOUR CART
       </div>
-      <div style="display:flex;">
         <% @order.order_items.each do |order_item| %>
+        <div style="display:flex">
 
         <%= image_tag "#{order_item.img_file}.jpg", {:class => "checkout_picture"}%>
         <div class="checkout-item-info">
@@ -184,7 +182,7 @@
 
           <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
 
-          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.subtotal_price %></span>
+          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.item_price %></span>
         </div>
       </div>
 

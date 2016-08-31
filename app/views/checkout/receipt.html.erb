@@ -7,15 +7,15 @@
   THANK YOU FOR YOUR PURCHASE
 </div>
   <div class="" style="Font-family:San Francisco Light; font-size:18px; text-align:center;margin-top:30px;">
-  We sent a receipt to your email (<strong> <%= current_or_guest_user.email %></strong>). Your load tables, sign and seals and shop drawings are all in the email and you can download them below
+  We sent a receipt to your email (<strong> <%= @order.email %></strong>). Your load tables, sign and seals and shop drawings are all in the email and you can download them below
 </div>
 
 
 
 </div>
-<div class="bag-container" style="margin-top:100px;padding-left:0px; margin-left:60px;">
+<div class="bag-container" style="margin-top:100px;padding-left:120px;">
   <div class="bag">
-    <div class="receipt-line">Purchaser: <%= @order.user.email %></div>
+    <div class="receipt-line">Purchaser: <%= @order.email %></div>
     <div class="receipt-line">Purchase Date : <%= local_time(@order.purchased_at) %></div>
     <div class="receipt-line">Order ID : <%= @order.id %></div>
     <div class="bag-title">
@@ -70,8 +70,7 @@
 
           <% end %>
           <td>
-            <%= @order.shipping_cost %>
-
+            <%= number_to_currency(@order.total_shipping) %>
           </td>
           <td>
             <%= number_to_currency(@order.total_price_in_cents * 0.01) %>
@@ -86,4 +85,4 @@
 </div>
 </div>
 
-<%= render '/layouts/alt_footer.html.erb' %>
+<%= render '/layouts/footer.html.erb' %>

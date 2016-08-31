@@ -8,6 +8,9 @@
 <div class="checkout-title">
   CHECKOUT
 </div>
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
 <div class="shipping-container">
   <div class="shipping">
 
@@ -54,6 +57,12 @@
             Phone Number<span>*</span>
           </div>
           <%= f.text_field :phone_number, class:"shipping-param" %>
+        </div>
+        <div class="section">
+          <div class="shipping-label">
+            Email<span>*</span>
+          </div>
+          <%= f.text_field :email, class:"shipping-param" %>
         </div>
         <%= f.submit "NEXT STEP", class:'next-step'%>
         <div class="required">
@@ -131,7 +140,7 @@
 
           <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
 
-          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.subtotal_price %></span>
+          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.item_price %></span>
         </div>
       </div>
 

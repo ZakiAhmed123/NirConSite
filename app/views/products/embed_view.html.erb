@@ -14,25 +14,87 @@
 <div class="product-view-info">
   <p class="product-price"><%= number_to_currency(@product.price)%></p>
 
-  <p class="product-name-sub"> STANDARDIZED EMBED </p>
-<div class="product-info">
-  <p class="product-dimensions-head">
-    Embed Information
+  <p class="product-name-sub">
+    STANDARDIZED EMBED
   </p>
-  <p class="product-dimensions">
-    Plate Length: <%=@product.length%>in </br>
-    Plate Width: <%=@product.width%>in </br>
-    Plate Thickness: <%=@product.thickness%>in </br>
-    Stud Count: <%= @product.stud_count%></br>
-    Stud Length:<%=@product.stud_length %>in </br>
-    Stud Diameter: <%= @product.stud_thickness %>in
-  </p>
-  <%= link_to 'SHOP DRAWING/LOAD TABLES',pdf_path, class:"product-drawing" %>
-</div>
-  <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
-  <p class="quantity"> <%= f.number_field :quantity, min: 1, placeholder: "QTY(1)", class:"quantity-dropdown"%> <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
-  <%end%>
-</div>
+  <div class="product-info">
+    <p class="product-dimensions-head">
+      Embed Information
+    </p>
+    <p class="product-dimensions">
+      Plate Length:
+      <%=@product.length%>in
+    </br>
+    Plate Width:
+    <%=@product.width%>in
+  </br>
+  Plate Thickness:
+<%=@product.thickness%>in
+</br>
+Stud Count:
+<%= @product.stud_count%></br>
+Stud Length:<%=@product.stud_length %>in
+</br>
+Stud Diameter:
+<%= @product.stud_thickness %>in
+</p>
+    <%= link_to 'SAMPLE SHOP DRAWING/LOAD TABLES',pdf_path, class:"product-drawing" %>
+    </div>
+    <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
+    <p class="quantity">
+    <%= f.number_field :quantity, min: 1, placeholder: "QTY(1)", class:"quantity-dropdown"%>
+    <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
+    <%end%>
+    </div>
+    </div>
+<div class="feature-container">
+  <div class="feature-products">
+    CHECK OUT OUR EMBED STABILIZER KITS
+  </div>
+
+  <div class="extras-container">
+    <div class="e-block">
+      <a href="/products/embeds/101">
+        <%= image_tag 'side.jpg', class:'e-image' %>
+        <div class="e-description">
+          <div class="e-name">
+            Side Condition: Embed Stabilizer
+          </div>
+          <div class="e-price">
+            $35.00
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="e-block">
+      <a href="/products/embeds/102">
+        <%= image_tag 'corner.jpg', class:'e-image' %>
+        <div class="e-description">
+          <div class="e-name">
+            Corner Condition: Embed Stabilizer
+          </div>
+          <div class="e-price">
+            $30.00
+          </div>
+        </div>
+      </a>
+    </div>
+
+<div class="e-block">
+  <a href="/products/embeds/103">
+    <%= image_tag 'inside.jpg', class:'e-image' %>
+    <div class="e-description">
+      <div class="e-name">
+        Inside Condition: Embed Stabilizer
+      </div>
+      <div class="e-price">
+        $35.00
+      </div>
+    </div>
+  </a>
 </div>
 
+</div>
+
+</div>
 <%= render '/layouts/footer.html.erb'%>

@@ -1,9 +1,6 @@
-<div class="home-container">
-
 <%= render 'layouts/nav_bar.html.erb' %>
-  <% flash.each do |name,msg| %>
-  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
-  <%end%>
+
+<div class="home-container">
 
 </div>
 <div class="custom-order-container">
@@ -15,7 +12,9 @@
     fringilla lorem a dignissim pharetra. Vestibulum eros nunc, malesuada at tellus sed, condimentum lacinia felis. Proin tempor, dolor non pharetra vestibulum, nunc leo elementum nibh, et imperdiet augue felis vitae nulla. Phasellus ut purus tristique,
     efficitur lacus rutrum, tristique eros. Morbi pharetra varius leo, vitae sollicitudin lectus venenatis id.
   </div>
-
+  <% flash.each do |name,msg| %>
+  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+  <%end%>
   <div class="custom-order-mailer">
     <%= form_for @message,:multipart=>true do |f|%>
     <% if @message.errors.any? %>

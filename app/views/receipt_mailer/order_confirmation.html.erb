@@ -1,11 +1,11 @@
-Hi <%= @user.email %>
+Hi <%= @order.email %>
 
 You have successfully placed an order with us.
 Please find the details of your order below.
 
 <strong>Total Price: </strong>
 
-<%= number_to_currency(@order.total_price_in_cents * 0.01) %>
+<%= number_to_currency(@order.final_price * 0.01) %>
 
 <h3>Items</h3>
 
@@ -17,3 +17,6 @@ Please find the details of your order below.
 
 
 <% end %>
+
+
+A PDF with your necessary tables with sign and seals are on the way!
