@@ -2,6 +2,7 @@ class BasicsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def contact
+
   end
 
   def home
@@ -10,6 +11,6 @@ class BasicsController < ApplicationController
   def policies
   end
 
-  def shipping
+  def shipping_info
   end
 end
