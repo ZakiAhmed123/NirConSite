@@ -25,6 +25,7 @@ module Nirconecommerce
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('/app/assets/fonts')
     config.assets.paths << Rails.root.join('/app/assets/pdfs')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.serve_static_files = true
   end
 end
