@@ -32,7 +32,7 @@ end
 
     card_token = params[:stripeToken]
 
-    Stripe.api_key = "sk_test_xIGhTi9JGwC0H65Tq1KdFEJE"
+    Stripe.api_key = "sk_live_rBUFnaNVloLy6YhyhEDJx5O4"
 
     Stripe::Charge.create(
       :amount => @order.final_price,

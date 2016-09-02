@@ -1,6 +1,6 @@
 class MessageMailer < ApplicationMailer
 
-  default :to => "nirconrd@gmail.com"
+  default :to => "info.nircon@gmail.com"
   def message_me(msg)
     @msg=msg
     attachments['file'] =  {
