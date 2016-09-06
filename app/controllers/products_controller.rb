@@ -18,5 +18,10 @@ class ProductsController < ApplicationController
     @product = @products.find {|a| a.id == params[:id]}
   end
 
+  def chairs
+  end
+
+  def beams
+  end
 
 end

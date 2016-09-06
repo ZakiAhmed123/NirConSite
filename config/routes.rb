@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   get 'products/embeds/:id/pdf' => 'products#pdf', as: :pdf
 
   get 'products/stabilizers/:id/pdf' => 'products#stabilizer_pdf', as: :pdf_alt
-  get 'products/stairs' => 'products#stairs', as: :stairs
-  get 'products/stairs/:id' => 'product#stair', as: :stair
+  get 'products/chairs' => 'products#chairs', as: :chairs
+  get 'products/chair/:id' => 'product#chairs', as: :chair
 
   get 'products/beams' => 'products#beams', as: :beams
   get 'products/beams/:id' => 'products#beam', as: :beam
