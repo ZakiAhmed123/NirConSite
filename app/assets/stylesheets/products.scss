@@ -70,13 +70,13 @@ opacity:0.5;
 
 .product-index-price {
   color:#f39c12;
-  font-family:San Francisco Light;
+  font-family:'Open Sans', sans-serif; font-weight:300;
   font-size: 23px;
   margin-bottom:10px;
 }
 
 .product-name {
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   font-size: 23px;
   margin-bottom:10px;
   letter-spacing: 1px;
@@ -91,7 +91,7 @@ opacity:0.5;
 
 .product-sub {
   color: #7f8c8d;
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
 }
 
 // PANELS
@@ -110,7 +110,7 @@ opacity:0.5;
 }
 
 .p-name {
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   font-size: 25px;
   letter-spacing: 1px;
   color:#333;
@@ -138,7 +138,7 @@ opacity:0.5;
   left:40%;
   top:40%;
   color:white;
-  font-family: San Francisco Heavy;
+  font-family: 'Open Sans', sans-serif; font-weight:800;
   font-size: 40px;
 }
 
@@ -160,7 +160,7 @@ height:100%;}
 
 .product-view-info {
   width:40%;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   color: #f1c40f;
   height:100%;
 }
@@ -168,14 +168,14 @@ height:100%;}
 .product-view-name {
   margin:0 0 10px 20px;
   color:#222;
-  font-family: San Francisco;
+  font-family: 'Open Sans', sans-serif; font-weight:600;
   font-size: 40px;
   border:0px;
   padding:0px;
 }
 .product-name-sub {
   color: gray;
-  font-family: San Francisco;
+  font-family: 'Open Sans', sans-serif; font-weight:600;
   font-style: italic;
   font-size: 15px;
   border:0px;
@@ -185,7 +185,7 @@ height:100%;}
 
 .product-price {
   color:#f39c12;
-  font-family: San Francisco;
+  font-family: 'Open Sans', sans-serif; font-weight:600;
   margin:0 0 20px 20px;
   font-size: 30px;
   border-bottom: 1px solid #EEEEEE;
@@ -217,7 +217,7 @@ height:100%;}
   color:#222;
   margin-top: 10px;
   font-size: 17px;
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   text-align: center;
 }
 
@@ -248,7 +248,7 @@ height:100%;}
 .quantity {
   color:#222;
   text-align: center;
-  font-family: San Francisco;
+  font-family: 'Open Sans', sans-serif; font-weight:600;
   font-size: 20px;
 }
 
@@ -256,7 +256,7 @@ height:100%;}
   width:70px;
   border:1px solid #EEE;
   background-color: white;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   border-radius: 3px;
   font-size: 20px;
   text-align: center;
@@ -288,7 +288,7 @@ height:100%;}
 }
 
 .feature-products {
-  font-family: San Francisco Heavy;
+  font-family: 'Open Sans', sans-serif; font-weight:800;
   font-size: 40px;
   margin-bottom:60px;
   text-align: center;
@@ -325,14 +325,14 @@ height:100%;}
 }
 
 .e-name {
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   color:#333;
   font-size: 20px;
   margin-bottom:10px;
 }
 
 .e-price {
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   color:#f1c40f;
   font-size: 20px;
 }

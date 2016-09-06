@@ -6,7 +6,7 @@
 }
 
 .custom-order-container p {
-  font-family: San Francisco Regular;
+  font-family: 'Open Sans', sans-serif; font-weight:400;
   font-size: 22px;
   margin:0px;
   color:#333;
@@ -16,7 +16,7 @@
 .custom-order-title {
   font-size: 100px;
   color:#333;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   text-align: center;
   letter-spacing: 5px;
 }
@@ -24,13 +24,13 @@
 .custom-order-info {
   font-size: 15px;
   color:#333;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   margin-bottom: 20px;
 }
 
 .custom-order-container input {
 
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   color:#7f8c8d;
   font-size: 18px;
   padding:10px;
@@ -38,7 +38,7 @@
 }
 
 .custom-order-container textarea {
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   border-radius: 5px;
   border: 1px solid white;
   padding:10px;
@@ -101,12 +101,12 @@ border:1px solid white;
 }
 
 .custom-order-upload {
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
 }
 
 .custom-order-other {
   display:flex;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   flex-direction: column;
 }
 

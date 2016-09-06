@@ -20,7 +20,7 @@
 }
 
 .bag table {
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   width:100%;
   text-align: center;
 }
@@ -28,7 +28,7 @@
   margin-bottom: 5px;
 }
 .bag-title {
-  font-family: San Francisco;
+  font-family: 'Open Sans', sans-serif; font-weight:600;
   font-size: 30px;
   padding-left: 10px;
   padding-right: 10px;
@@ -50,21 +50,21 @@ border-left: 1px solid #888888;
 
 .summary-values {
   color: #888888;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 .summary-values-black{
   color: #222;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   margin-top: 5px;
   margin-bottom: 30px;
 }
 
 .checkout-btn {
   background-color: #222;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   color:white;
   text-align: center;
   width:80%;

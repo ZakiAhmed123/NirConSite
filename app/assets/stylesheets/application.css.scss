@@ -14,32 +14,7 @@
  *= require_self
  */
 
- @font-face {
-   font-family: San Francisco;
-   src: font-url('/assets/SanFranciscoText-Bold.otf');
-   font-weight: normal;
-  font-style: normal;
- }
- @font-face {
-   font-family: San Francisco Light;
-   src: font-url('/assets/SanFranciscoText-Light.otf');
-   font-weight: normal;
-  font-style: normal;
- }
 
- @font-face {
-   font-family: San Francisco Regular;
-   src:font-url('/assets/SanFranciscoText-Regular.otf');
-   font-weight: normal;
-  font-style: normal;
- }
-
- @font-face {
-   font-family: San Francisco Heavy;
-   src:font-url('/assets/SanFranciscoDisplay-Heavy.otf');
-   font-weight: normal;
-  font-style: normal;
- }
 
 body {
   margin:0px;
@@ -123,7 +98,7 @@ body {
   background-color: #1abc9c;
   width:100%;
   height:35px;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   text-align: center;
   line-height: 35px;
   position:absolute;
@@ -135,7 +110,7 @@ body {
   background-color: #e74c3c;
   width:100%;
   height:150px;
-  font-family: San Francisco Light;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
   text-align: center;
   line-height: 35px;
 }
