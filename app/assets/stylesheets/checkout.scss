@@ -67,6 +67,7 @@ margin-bottom: 40px;
 }
 .shipping {
   width:50%;
+  margin-right: 20px;
 }
 
 .summary-checkout {
@@ -194,7 +195,10 @@ margin-bottom: 40px;
 }
 
 .checkout_picture {
-  width:40%;
+  width:30%;
+  height:100%;
+  max-height:90px;
+  max-width:100px;
   margin-left: 20px;
   margin-right:10px;
 }
@@ -204,12 +208,16 @@ margin-bottom: 40px;
   display:flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif; font-weight:400;
+  font-size: 15px;
 }
 
 .checkout-item-info span {
   margin-bottom:15px;
 }
 
+.cc-container {
+  display:flex;
+}
 // RECEIPT
 .receipt-container {
 }

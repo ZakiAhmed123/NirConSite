@@ -130,17 +130,18 @@
       <div class="summary-title" style="margin-top:20px;margin-bottom:40px;">
         IN YOUR CART
       </div>
-      <div style="display:flex;">
+
           <% @order.order_items.each do |order_item| %>
+          <div class="cc-container">
         <%= image_tag "#{order_item.img_file}.jpg", {:class => "checkout_picture"}%>
         <div class="checkout-item-info">
-          <span style="font-family:San Francisco"><%= order_item.name %></span>
+          <span style="font-family: 'Open Sans', sans-serif; font-weight:400;"><%= order_item.name %></span>
 
           <span>Quantity: <%= order_item.quantity%></span>
 
           <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
 
-          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.item_price %></span>
+          <span style="font-family: 'Open Sans', sans-serif; font-weight:400;">Total Price: <%= number_to_currency order_item.item_price %></span>
         </div>
       </div>
 
