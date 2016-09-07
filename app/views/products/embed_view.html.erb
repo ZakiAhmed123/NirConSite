@@ -22,21 +22,14 @@
       Embed Information
     </p>
     <p class="product-dimensions">
-      Plate Length:
-      <%=@product.length%>in
-    </br>
-    Plate Width:
-    <%=@product.width%>in
-  </br>
-  Plate Thickness:
-<%=@product.thickness%>in
+      Plate: <%=@product.length%>' x
+    <%=@product.width%>' x
+<%=@product.thickness%>' (L x W x T)
 </br>
-Stud Count:
+Stud Count
 <%= @product.stud_count%></br>
-Stud Length:<%=@product.stud_length %>in
-</br>
-Stud Diameter:
-<%= @product.stud_thickness %>in
+<%=@product.stud_length %> <%= @product.stud_thickness %> ( L x W)</br>
+
 </p>
     <%= link_to 'SAMPLE SHOP DRAWING/LOAD TABLES',pdf_path, class:"product-drawing" %>
     </div>
