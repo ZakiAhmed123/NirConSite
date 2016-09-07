@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
   def pdf
     @products = fetch_products
     @product = @products.find {|a| a.id == params[:id]}
+    pdf_filename = File.join(Rails.root, '/assets/sample.pdf')
+    send_file(pdf_filename, :filename => 'sample.pdf', :type => "application/pdf")
   end
 
   def chairs

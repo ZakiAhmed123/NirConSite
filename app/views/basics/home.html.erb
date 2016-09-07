@@ -90,7 +90,6 @@ In an industry filled with repetitive custom construction parts, Nirvana Constru
 
 </div>
 
-<div class="about-container">
 
 <div class="about">
   <A NAME="aboutus"></A>
@@ -98,13 +97,13 @@ In an industry filled with repetitive custom construction parts, Nirvana Constru
     ABOUT US
   </div>
   <div class="about-info">
-  Nirvana Construction Products was founded with the goal of becoming the leading online platform for standardized construction products. We realized that the current process of shop drawings being sent around for approvals needed to be disrupted. Nirvana Construction Products is the only place online where customers can purchase products ready to use in construction. All of our products come with shop drawings, engineering support, and a Professional Engineer’s seal for the state in which the product will be used in. Finally, contractors can be at ease. 
+  Nirvana Construction Products was founded with the goal of becoming the leading online platform for standardized construction products. We realized that the current process of shop drawings being sent around for approvals needed to be disrupted. Nirvana Construction Products is the only place online where customers can purchase products ready to use in construction. All of our products come with shop drawings, engineering support, and a Professional Engineer’s seal for the state in which the product will be used in. Finally, contractors can be at ease.
 </div>
-
-<%= link_to "SHOP NOW", products_path, class:"shop-now" %>
-
 </div>
-<%= image_tag "handshake.jpg", class:"about-image"%>
+<div class="shop-container">
+  <%= link_to products_path do%>
+    SHOP NOW
+  <%end%>
 </div>
 
 <div class="contact-container">
@@ -138,8 +137,7 @@ In an industry filled with repetitive custom construction parts, Nirvana Constru
       E-MAIL
     </div>
     <div class="c-content">
-      nirconrd@gmail.com</br>
-      zakinircon@gmail.com
+      nirconrd@gmail.com
     </div>
   </div>
 </div>

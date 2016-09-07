@@ -55,15 +55,23 @@ body {
 .nav-item-a{
   height: 56px;
   line-height: 56px;
+  width:100%;
+  max-width:150px;
+}
+.nav-item-b{
+  height: 56px;
+  line-height: 56px;
+  width:100%;
+  max-width:220px;
 }
 .nav-items a {
   color: #333;
   text-decoration: none;
-  width: 100%;
+
   text-align: center;
   margin: 0;
-  max-width:150px;
-  font-size:17px;
+
+  font-size:16px;
 }
 
 
@@ -91,6 +99,14 @@ body {
   font-size: 30px;
   text-align: center;
   color:#333;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color:#333;
+}
+.nav-logo a:hover {
+  color:#f1c40f;
 }
 
 .flash-message {

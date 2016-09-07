@@ -1,25 +1,19 @@
 <div class="nav" id="navbar">
   <p class="nav-logo">
-    [NIRVANA CON]
+    <%= link_to root_path do%>[NIRVANA CON] <%end%>
   </p>
   <div class="nav-items">
-    <%= link_to "Home",root_path, class:'nav-item-a'%>
-    <div class="dropdown">
-      <button class="dropbtn">Shop
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-      </button>
-      <div class="dropdown-content" id="myDropdown">
-        <%= link_to "Easy Embeds", products_path%>
-        <%= link_to "Standard Stairs", chairs_path%>
-        <%= link_to "Turtle Tracks/Beams", beams_path%>
-      </div>
+    <%= link_to "Easy Embeds", products_path, class:'nav-item-a'%>
+    <%= link_to "Colored Chairs", chairs_path, class:'nav-item-a'%>
+    <%= link_to "Tiger Tracks", beams_path, class:'nav-item-a'%>
 
-    </div>
-    <%= link_to "Custom Order", new_message_path, class:'custom-order' %>
-    <%= link_to "Sign Up", new_user_registration_path, class:'nav-item-a' %>
+    <%= link_to "Plan Upload/Custom Order", new_message_path, class:'custom-order' %>
     <%= link_to "Sign In", new_user_session_path, class:'nav-item-a' %>
+
     <%= link_to cart_path do %>
     <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
     <%end%>
+  </div>
+
   </div>
 </div>
