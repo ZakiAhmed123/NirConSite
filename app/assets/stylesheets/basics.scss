@@ -35,6 +35,7 @@
 .layer-content {
   display:flex;
   flex-direction: column;
+  width:85%
 }
 .layer-title {
   font-family:'Open Sans', sans-serif; font-weight:400;
@@ -57,10 +58,8 @@
   background-color: #f1c40f;
   width:80px;
   border:1px solid #f1c40f;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   height:80px;
+  border-radius:50%;
   text-align: center;
   line-height: 80px;
 }
@@ -120,20 +119,21 @@
 }
 
 .title-about {
-  border:2px solid #f1c40f;
   border-radius:30px;
   height:50px;
   font-size: 15px;
-  color:#f1c40f;
   text-decoration: none;
   font-family: 'Raleway', sans-serif; font-weight:600;
   padding:20px;
-
+  background-color: #f1c40f;
+  border:2px solid #f1c40f;
+  color:white;
 }
 
 .title-about:hover {
-  background-color: #FFF;
-  border:#FFF;
+  border:2px solid #f1c40f;
+  color:#f1c40f;
+  background-color: white;
 
 }
 
@@ -160,6 +160,7 @@
   font-size: 50px;
   margin-bottom:25px;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .about-info {
@@ -175,7 +176,7 @@
   padding:30px 20px;
   text-align: center;
   border:2px solid #f1c40f;
-  font-family: 'Open Sans', sans-serif; font-weight:600;
+  font-family: 'Open Sans', sans-serif; font-weight:800;
   letter-spacing: 4px;
   color:#333;
   text-decoration: none;

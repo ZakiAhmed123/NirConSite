@@ -8,7 +8,7 @@
 
 .orders-title {
   font-size: 100px;
-  color:white;
+  color:#333;
   font-family: 'Open Sans', sans-serif; font-weight:300;
   text-align: center;
   letter-spacing: 5px;
@@ -16,30 +16,46 @@
   margin-bottom: 30px;
   padding-bottom: 20px;
 }
+.orders-table {
+  margin-top:80px;
+}
+
+.orders-table table {
+  width:100%;
+}
+
+.orders-table tbody {
+  border-top:2px solid #333;
+}
+.orders-table th,td{
+  color:#333;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
+  font-size:20px;
+  border-right:1px solid #333;
+  text-align: center;
+}
+
+.orders-view-container {
+  color:#333;
+  font-family: 'Open Sans', sans-serif; font-weight:300;
+  font-size:20px;
+  padding-left: 30%;
+  padding-right: 30%;
+
+}
 
 
-// .orders-container table,th,td {
-//   font-family: 'Open Sans', sans-serif; font-weight:300;
-//   color:white;
-// }
-//
-// .orders-container table {
-//   width:100%;
-//   text-align: center;
-// }
-//
-// .orders-container tr {
-//   margin-bottom: 5px;
-// }
-// .order-id-link {
-//   color:white;
-// }
-//
-// .order-id-link:hover {
-//   color:black;
-// }
-//
-//
-// .checkout-table table {
-//   color:black;
-// }
+.orders-view-container {
+  margin-top:80px;
+}
+
+.orders-items {
+  color:#333;
+
+  font-family: 'Open Sans', sans-serif; font-weight:300;
+
+  font-size:30px;
+
+
+
+}

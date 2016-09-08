@@ -1,5 +1,5 @@
 <div class="checkout-nav">
-  <%= link_to root_path do %>[NIRVANA CONSTRUCTION]<%end%>
+  <%= link_to root_path do %>[NIRVANA CON]<%end%>
 </div>
 <div class="checkout-phone">
   <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
@@ -139,7 +139,7 @@
 
           <span>Quantity: <%= order_item.quantity%></span>
 
-          <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
+          <span>Item Price: <%= number_to_currency(order_item.price) %></span>
 
           <span style="font-family: 'Open Sans', sans-serif; font-weight:400;">Total Price: <%= number_to_currency order_item.item_price %></span>
         </div>

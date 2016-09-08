@@ -1,5 +1,5 @@
 <div class="checkout-nav">
-  <%= link_to root_path do %>[NIRVANA CONSTRUCTION]<%end%>
+  <%= link_to root_path do %>[NIRVANA CON]<%end%>
 </div>
 <div class="checkout-phone">
   <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
@@ -157,7 +157,8 @@
         </div>
         <div class="piece-total">
           <div class="item">
-            TOTAL
+            TOTAL </br>
+            <%= link_to "Shipping Information", shipping_info_path, :target => "_blank"%> 
           </div>
           <div class="item-total">
             <%= number_to_currency(@order.final_price * 0.01) %>
@@ -176,13 +177,13 @@
 
         <%= image_tag "#{order_item.img_file}.jpg", {:class => "checkout_picture"}%>
         <div class="checkout-item-info">
-          <span style="font-family:San Francisco"><%= order_item.name %></span>
+          <span style="font-family:'Open Sans',sans-serif"><%= order_item.name %></span>
 
           <span>Quantity: <%= order_item.quantity%></span>
 
           <span>Item Price: <%= number_to_currency(order_item.price.to_i) %></span>
 
-          <span style="color:#F76122; font-family:San Francisco">Total Price: <%= number_to_currency order_item.item_price %></span>
+          <span style="color:#F76122; font-family:'Open Sans',sans-serif">Total Price: <%= number_to_currency order_item.item_price %></span>
         </div>
       </div>
 

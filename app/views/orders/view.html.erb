@@ -1,50 +1,8 @@
-<div class="nav" id="navbar">
-  <p class="nav-logo">
-    [NIRVANA CON]
-  </p>
-  <div class="nav-items">
-    <%= link_to "HOME",root_path, class:'nav-item-a'%>
-    <div class="dropdown">
-      <button class="dropbtn">PRODUCTS
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-      </button>
-      <div class="dropdown-content" id="myDropdown">
-        <%= link_to "EASY EMBEDS", products_path%>
-        <%= link_to "STANDARD STAIRS", stairs_path%>
-        <%= link_to "TURTLE TRACK / BEAMS", beams_path%>
-      </div>
+<%= render 'layouts/nav_bar.html.erb' %>
+<div class="orders-view-container">
 
-    </div>
-    <%= link_to "CUSTOM ORDER", new_message_path, class:'custom-order' %>
 
-    <% if user_signed_in? %>
-    <div class="dropdown">
-      <button class="dropbtn"><%= current_user.email %>
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-      </button>
-      <div class="dropdown-content" id="myDropdown">
-        <%= link_to orders_path do %>
-        <i class="fa fa-list-alt" aria-hidden="true"></i>
-        ORDERS
-        <%end%>
-        <%= link_to destroy_user_session_path, :method => "delete" do %>
-        <i class="fa fa-times-circle-o" aria-hidden="true"></i>
-        SIGN OUT
-        <%end %>
-      </div>
-    </div>
-    <%else%>
-    <%= link_to "SIGN UP", new_user_registration_path, class:'nav-item-a' %>
-    <%= link_to "SIGN IN", new_user_session_path, class:'nav-item-a' %>
-    <%end%>
-    <%= link_to "CONTACT", contact_path , class:'nav-item-a' %>
-
-    <%= link_to cart_path do %>
-    <i class="fa fa-shopping-bag" aria-hidden="true" id='cart-nav'></i>
-    <%end%>
-  </div>
-</div>
-<h1>Order <%= @order.id %></h1>
+<div class="orders-title">Order <%= @order.id %></div>
 
 
 <ul>
@@ -52,35 +10,85 @@
 
 
 
-    <strong>Purchase Date</strong>: <%= @order.purchased_at %>
+    <strong>Purchase Date</strong>: <%= local_time(@order.purchased_at) %>
   </li>
 
   <li>
-    <strong>Order ID</strong>: <%= @order.id %>
-  </li>
-
-  <li>
-    <strong>Purchaser:</strong>: <%= @order.user.email %>
+    <strong>Purchaser:</strong>: <%= @order.email %>
   </li>
 
   <li>
     <strong>Total Price: </strong>
 
-    <%= @order.total_price %>
+    <%= number_to_currency(@order.final_price * 0.01) %>
 
   </li>
 </ul>
+</div>
 
-<h3>Items</h3>
+<div class="orders-table" style="margin-left:10%; margin-right:10%;">
+  <div class="orders-items">Items</div>
 
-<% @order.order_items.each do |order_item| %>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Item
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Quantity
+      </th>
 
-  <%= order_item.product.name %>
+      <th>
+        Per Item Price
+      </th>
 
-  <%= order_item.quantity %> at <%= order_item.price %>
 
-  <p>
-    Total: <%= number_to_currency order_item.total_price %>
-  </p>
+      <th>
+        Total Shipping Cost
+      </th>
 
-<% end %>
+      <th>
+        Total Price
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+
+    <tr>
+      <td>
+        <%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+      </td>
+      <td>
+        <%= order_item.name %>
+      </td>
+      <td>
+        <%= order_item.quantity %>
+      </td>
+
+      <td>
+        <%= number_to_currency(order_item.price.to_i) %>
+      </td>
+
+      <% end %>
+      <td>
+        <%= number_to_currency(@order.total_shipping) %>
+      </td>
+      <td>
+        <%= number_to_currency(@order.final_price * 0.01) %>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
+
+</div>
+
+<%= render 'layouts/footer.html.erb' %>
