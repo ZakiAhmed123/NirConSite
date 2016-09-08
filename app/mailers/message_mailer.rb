@@ -1,6 +1,6 @@
 class MessageMailer < ApplicationMailer
 
-  default :to => "info.nircon@gmail.com"
+  default :to => "nirconrd@gmail.com"
   def message_me(msg)
     @msg=msg
     if @msg.file.present?
@@ -11,7 +11,6 @@ class MessageMailer < ApplicationMailer
   else
   end
     mail from: @msg.email, subject: @msg.subject, body: @msg.content
-
   end
 
 end
