@@ -30,9 +30,9 @@
           <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
         </div>
         <p class="product-index-price"><%= number_to_currency(product.price)%></p>
-        <p class="product-name"><%= product.name.upcase %>(in)</p>
+        <p class="product-name"><%= product.name %> <%= product.length %>" <%= product.width%>" <%=product.thickness %>"</p>
         <p class="product-sub">
-          <%=product.stud_length %> <%= product.stud_thickness %></p>
+          <%=product.stud_length %>" <%= product.stud_thickness %>"</p>
         <%end%>
       </div>
       <%end%>

@@ -2,7 +2,7 @@
 <div class="view-header">
   <%= image_tag "slab.jpg" %>
   <div class="view-title">
-    <%= @product.name.upcase %>
+    <%= @product.name %> <%= @product.length %>" <%= @product.width%>" <%=@product.thickness %>"
   </div>
 </div>
 
@@ -22,16 +22,17 @@
       Embed Information
     </p>
     <p class="product-dimensions">
-      Plate: <%=@product.length%>' x
-    <%=@product.width%>' x
-<%=@product.thickness%>' (L x W x T)
+      Plate: <%=@product.length%>"
+    <%=@product.width%>"
+<%=@product.thickness%>" (L x W x T)
 </br>
 Stud Count
 <%= @product.stud_count%></br>
-<%=@product.stud_length %> <%= @product.stud_thickness %> ( L x W)</br>
-
+<%=@product.stud_length %>" <%= @product.stud_thickness %>" ( L x T)</br>
+</br>
+Once purchased, a PDF with shop drawings,load tables, and Sign and Seals for the state your using the products in will be emailed to you directly.
 </p>
-    <%= link_to 'SAMPLE SHOP DRAWING/LOAD TABLES',pdf_path, class:"product-drawing" %>
+
     </div>
     <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
     <p class="quantity">
