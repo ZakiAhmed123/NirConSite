@@ -38,6 +38,22 @@
       <%end%>
     </div>
 
+    <div class="product-container">
+      <% @stabilizers.each do |stabilizer|%>
+      <div class="embed-index-item">
+        <%= link_to "stabilizers/#{stabilizer.id}" do %>
+        <div class="image-container">
+          <%= image_tag "#{stabilizer.img_file}.jpg", {:class => "embed_picture"}%>
+        </div>
+        <p class="product-index-price"><%= number_to_currency(stabilizer.price)%></p>
+        <p class="product-name"><%= stabilizer.name %></p>
+        <p class="product-sub">
+          <%= stabilizer.subtitle %></p>
+        <%end%>
+      </div>
+      <%end%>
+    </div>
+
   </div>
 </div>
 

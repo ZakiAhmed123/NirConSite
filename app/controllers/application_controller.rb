@@ -75,6 +75,22 @@ class ApplicationController < ActionController::Base
     @products
   end
 
+  def fetch_stabilizers
+    @stabilizers=[]
+    CSV.foreach("stabilizers.csv",headers:true) do |row|
+      stabilizer=Stabilizer.new
+      stabilizer.id=row.to_h['id']
+      stabilizer.price=row.to_h['price']
+      stabilizer.shipping_cost=row.to_h['shipping_cost']
+      stabilizer.name=row.to_h['name']
+      stabilizer.img_file=row.to_h['img_file']
+      stabilizer.pdf=row.to_h['pdf']
+      stabilizer.subtitle=row.to_h['subtitle']
+      @stabilizers << stabilizer
+    end
+    @stabilizers
+  end
+
 
 
 

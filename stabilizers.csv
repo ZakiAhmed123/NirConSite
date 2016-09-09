@@ -1,0 +1,4 @@
+id,shipping_cost,price,name,img_file,pdf,subtitle
+1,15,35,Embed Stabilizer Kit,inside,inside_condition,Inside Condition
+2,15,30,Embed Stabilizer Kit,corner,corner_condition,Corner Condition
+3,15,25,Embed Stabilizer Kit,side,side_condition,Side Condition

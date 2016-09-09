@@ -1,0 +1,39 @@
+<%= render '/layouts/nav_bar.html.erb'%>
+<div class="view-header">
+  <%= image_tag "slab.jpg" %>
+  <div class="view-title">
+    <%= @stabilizer.name %>
+  </div>
+</div>
+
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
+<div class="product-view">
+  <%= image_tag "#{@stabilizer.img_file}.jpg", {:class => "product-view-picture"}%>
+<div class="product-view-info">
+  <p class="product-price"><%= number_to_currency(@stabilizer.price)%></p>
+
+  <p class="product-name-sub">
+    STANDARDIZED EMBED
+  </p>
+  <div class="product-info">
+    <p class="product-dimensions-head">
+      Embed Information
+    </p>
+    <p class="product-dimensions">
+
+</br>
+Once purchased, a PDF with shop drawings,load tables, and Sign and Seals for the state your using the products in will be emailed to you directly.
+</p>
+
+    </div>
+    <%= form_for :order_item, :url => add_stabilizers(stabilizer_id: @stabilizer.id) do |f| %>
+    <p class="quantity">
+    <%= f.number_field :quantity, min: 1, placeholder: "QTY", class:"quantity-dropdown"%>
+    <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
+    <%end%>
+    </div>
+    </div>
+
+<%= render '/layouts/footer.html.erb'%>

@@ -1,0 +1,2 @@
+module StabilizerCartHelper
+end

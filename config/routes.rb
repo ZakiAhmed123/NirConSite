@@ -14,18 +14,19 @@ Rails.application.routes.draw do
   get 'Policies' => 'basics#policies', as: :policies
   get 'Shipping-Info' => 'basics#shipping_info', as: :shipping_info
 
+  get 'products/stabilizers/:id' => 'stabilizers#view', as: :stabilizer
+
   # PRODUCTS
   get 'products/embeds' => 'products#embeds', as: :products
   get 'products/embeds/:id' => 'products#embed_view', as: :product
-  get 'products/stabilizers/:id' => 'products#stabilizer', as: :stabilizer
   get 'products/embeds/:id/pdf' => 'products#pdf', as: :pdf
 
-  get 'products/stabilizers/:id/pdf' => 'products#stabilizer_pdf', as: :pdf_alt
   get 'products/chairs' => 'products#chairs', as: :chairs
   get 'products/chair/:id' => 'product#chairs', as: :chair
 
   get 'products/beams' => 'products#beams', as: :beams
   get 'products/beams/:id' => 'products#beam', as: :beam
+
 
 
   # ESTIMATOR
@@ -38,10 +39,12 @@ Rails.application.routes.draw do
   #SHOPPING CART
   # post 'cart' => 'carts#add_to_cart_stabilizer', as: :add_stabilizer
 
+  post 'cart' => 'stabilizer_cart#add_stabilizers', as: :add_stabilizers
+  delete 'cart' => 'stabilizer_cart#remove_alt_from_cart', as: :remove_alt_from_cart
+
   post 'cart' => 'carts#add_to_cart', as: :add_to_cart
   get 'cart' => 'carts#view', as: :cart
   delete 'cart' => 'carts#remove_from_cart', as: :remove_from_cart
-  delete 'cart' => 'carts#remove_from_cart_stabilizer', as: :remove_from_cart_stabilizer
 
 
 

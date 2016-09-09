@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def embeds
     @products= fetch_products
-
+    @stabilizers= fetch_stabilizers
   end
 
   def embed_view

@@ -1,0 +1,2 @@
+module StabilizersHelper
+end
