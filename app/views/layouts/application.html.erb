@@ -14,27 +14,31 @@
   <script type="text/javascript">
     Stripe.setPublishableKey('pk_live_JcBfnty8T16X7StsmKRGP4Wb');
   </script>
-
+  <script type="text/javascript">
+  $(window).ready(function() {
+  	$(".loader").fadeOut("slow");
+  })
+  </script>
 </head>
 <body>
-  <!--  NAV-->
 
+  <!--  NAV-->
+  <div class="loader">
+  </div>
 <%= yield %>
 
 </body>
-<script type="text/javascript">
-$(window).load(function() {
-  $(".loader").fadeOut("slow");
-})
-</script>
 
 <script type="text/javascript">
 $(document).ready(function () {
   setTimeout(function () {
     $('#flash').remove();
   }, 2500);
+
 })
 </script>
+
+
 
 
 </html>
