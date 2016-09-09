@@ -40,11 +40,14 @@ end
       :source => card_token,
     )
 
-    if @order.update status: 'pending'
+
+    if @order.email.present?
+    @order.update status: 'pending'
     ReceiptMailer.order_confirmation(@user, @order).deliver_now
     redirect_to receipt_path(id: @order.id)
     else
-    render :new
+      @order.update status: 'pending'
+      redirect_to receipt_path(id: @order.id)
     end
 
   end

@@ -1,9 +1,12 @@
 <div class="checkout-nav">
-  <%= link_to root_path do %>[NIRVANA CON]<%end%>
+  <div class="nav-logo">
+  <%= link_to root_path do %><%= image_tag "logo.jpg"%><%end%>
+  </div>
+
 </div>
 <div class="checkout-phone">
   <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
-  (832)-483-2131
+  (281) 583 7088
 </div>
 <div class="checkout-title">
   CHECKOUT
@@ -24,9 +27,9 @@
         <%= form_for :orders, :url=> process_shipping_path, method: :post do |f| %>
         <div class="section">
           <div class="shipping-label">
-            Name<span>*</span>
+            Email<span>*</span>
           </div>
-          <%= f.text_field :name, class:'shipping-param' %>
+          <%= f.text_field :email, class:'shipping-param' %>
         </div>
         <div class="section">
           <div class="shipping-label">
@@ -58,12 +61,7 @@
           </div>
           <%= f.text_field :phone_number, class:"shipping-param" %>
         </div>
-        <div class="section">
-          <div class="shipping-label">
-            Email<span>*</span>
-          </div>
-          <%= f.text_field :email, class:"shipping-param" %>
-        </div>
+
         <%= f.submit "NEXT STEP", class:'next-step'%>
         <div class="required">
           <span>*</span>

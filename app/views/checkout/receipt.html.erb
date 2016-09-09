@@ -6,14 +6,14 @@
 <div class="thank-you">
   THANK YOU FOR YOUR PURCHASE
 </div>
-  <div class="" style="Font-family:San Francisco Light; font-size:18px; text-align:center;margin-top:30px;">
-  We sent a receipt to your email (<strong> <%= @order.email %></strong>). Your load tables, sign and seals and shop drawings will be emailed to you shortly. If you do not recieve an email within 12 hours, please feel free to call us at 832-483-2131 or email us at nirconrd@gmail.com
+  <div class="" style="Font-family:'Open Sans', sans-serif; font-size:18px; text-align:center;margin-top:30px;">
+  We sent a receipt to your email <strong> <%= @order.email %></strong>. Your load tables, sign and seals and shop drawings will be emailed to you shortly. If you do not recieve an email within 12 hours, please feel free to call us at 832-483-2131 or email us at nirconrd@gmail.com
 </div>
 
 
 
 </div>
-<div class="bag-container" style="margin-top:100px;padding-left:120px;">
+<div class="bag-container" style="margin-top:100px;">
   <div class="bag">
     <div class="receipt-line">Purchaser: <%= @order.email %></div>
     <div class="receipt-line">Purchase Date : <%= local_time(@order.purchased_at) %></div>

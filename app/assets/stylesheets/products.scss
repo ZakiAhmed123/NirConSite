@@ -7,15 +7,15 @@
   align-items: center;
 }
 .i-image {
-  padding:100px 0 0 0;
+  padding:80px 0 0 0;
   background-color: #EEE;
   width:100%;
   display:flex;
   justify-content: center;
 }
 .index-title-image {
-  width:95%;
-  max-height: 220px;
+  width:85%;
+  max-height: 200px;
 }
 
 .i-container {
@@ -28,6 +28,7 @@
   font-size:40px;
   letter-spacing: 2px;
   color:#333;
+  text-align: center;
 }
 .index-subtitle {
   font-family: 'Raleway', sans-serif; font-weight:800;
@@ -41,7 +42,7 @@
   font-size: 20px;
   text-align: justify;
   margin-bottom:20px;
-  line-height: 40px;
+  line-height: 26px;
 }
 
 .product-container {

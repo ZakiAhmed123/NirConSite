@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  helper_method :current_or_guest_user
+  helper_method :current_user
 
   def index
   @orders = Order.where("status != ?", 'pending').order("purchased_at desc")
