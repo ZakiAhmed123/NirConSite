@@ -30,7 +30,7 @@
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="pk_live_JcBfnty8T16X7StsmKRGP4Wb"
           data-name="Nirvana Products"
-          data-image="/assets/logo_alt.jpg"
+          data-image=<%= "/assets/logo_alt.jpg"  %>
           data-amount="<%= @order.final_price %>"
           <% if @order.email.present?%>
           data-email="<%= @order.email %>"
@@ -41,7 +41,11 @@
           data-locale="auto"
           data-statement-descriptor="Nirvana Products" >
         </script>
-
+<script>
+$(window).ready(function() {
+  $(".stripe-button-el").click();
+})
+</script>
       <% end %>
 
       <% if false %>
