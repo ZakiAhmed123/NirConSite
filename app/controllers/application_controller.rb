@@ -53,27 +53,7 @@ class ApplicationController < ActionController::Base
        user.save_stripe_customer_id(customer_id)
      end
 
-  def fetch_products
-    @products=[]
-    CSV.foreach("embeds.csv",headers:true) do |row|
-      product=Product.new
-      product.id=row.to_h['id']
-      product.length=row.to_h['length']
-      product.width=row.to_h['width']
-      product.thickness=row.to_h['thickness']
-      product.stud_count=row.to_h['stud_count']
-      product.stud_thickness=row.to_h['stud_thickness']
-      product.stud_length=row.to_h['stud_length']
-      product.total_weight=row.to_h['total_weight']
-      product.price=row.to_h['price']
-      product.shipping_cost=row.to_h['shipping_cost']
-      product.name=row.to_h['name']
-      product.img_file=row.to_h['img_file']
-      product.pdf=row.to_h['pdf']
-      @products << product
-    end
-    @products
-  end
+  
 
 
 

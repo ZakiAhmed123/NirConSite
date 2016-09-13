@@ -2,10 +2,16 @@
 <div class="view-header">
   <%= image_tag "slab.jpg" %>
   <div class="view-title">
-    <%= @product.name %> <%= @product.length %>" <%= @product.width%>" <%=@product.thickness %>"
+    <%= @product.name %>
   </div>
 </div>
+<% if @product.stud_count = "nil" %>
+<%= @product.stud_count = "" %>
+<%end%>
 
+<% if @product.total_weight = "nil" %>
+<%= @product.total_weight = "" %>
+<%end%>
 <% flash.each do |name,msg| %>
 <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
 <%end%>
@@ -19,16 +25,14 @@
   </p>
   <div class="product-info">
     <p class="product-dimensions-head">
-      Embed Information
+      Description
     </p>
     <p class="product-dimensions">
-      Plate: <%=@product.length%>"
-    <%=@product.width%>"
-<%=@product.thickness%>" (L x W x H)
+      <%=@product.name%>(L x W x H)
 </br>
-Stud Count
-<%= @product.stud_count%>;</br>
-<%=@product.stud_length %>" <%= @product.stud_thickness %>" (H x D)</br>
+<%= @product.stud_count%></br>
+ <%= @product.stud_dimensions %></br>
+ <%= @product.total_weight %>
 </br>
 Once payment is received, a PDF with shop drawings and load calculations signed and sealed by a P.E. in your state will be e-mailed to you.
 </p>
@@ -48,7 +52,7 @@ Once payment is received, a PDF with shop drawings and load calculations signed 
 
   <div class="extras-container">
     <div class="e-block">
-      <a href="/products/embeds/101">
+      <a href="/products/embeds/21">
         <%= image_tag 'side.jpg', class:'e-image' %>
         <div class="e-description">
           <div class="e-name">
@@ -61,7 +65,7 @@ Once payment is received, a PDF with shop drawings and load calculations signed 
       </a>
     </div>
     <div class="e-block">
-      <a href="/products/embeds/102">
+      <a href="/products/embeds/22">
         <%= image_tag 'corner.jpg', class:'e-image' %>
         <div class="e-description">
           <div class="e-name">
@@ -76,7 +80,7 @@ Once payment is received, a PDF with shop drawings and load calculations signed 
     </div>
 
 <div class="e-block">
-  <a href="/products/embeds/103">
+  <a href="/products/embeds/23">
     <%= image_tag 'inside.jpg', class:'e-image' %>
     <div class="e-description">
       <div class="e-name">
