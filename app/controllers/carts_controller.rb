@@ -3,8 +3,7 @@ class CartsController < ApplicationController
   def remove_from_cart
     order = Order.find_by status: 'cart', user_id: current_or_guest_user.id
 
-    @products = fetch_products
-    @product = @products.find {|a| a.id == params[:product_id]}
+    @product = Product.find_by id: params[:product_id]
 
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
     order_item.destroy
@@ -13,8 +12,7 @@ class CartsController < ApplicationController
   end
 
   def add_to_cart
-    @products = fetch_products
-    @product = @products.find {|a| a.id == params[:product_id]}
+    @product = Product.find_by id: params[:product_id]
 
     order = Order.find_by status: 'cart', user_id: current_or_guest_user.id
 

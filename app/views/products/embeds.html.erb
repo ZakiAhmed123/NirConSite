@@ -13,7 +13,7 @@
 
     <div class="index-desc">
       Easy Embeds has redefined how embeds are fabricated and sold. Long gone are the pains of today including seeking approval for shop drawings and long lead times. We keep an active inventory of embeds to allow for rapid processing and shipping. All purchases come with shop drawings and load calculations signed and sealed by a P.E. in your state. Custom embeds are also available for purchase by uploading your plans
-      <%= link_to "here", new_message_path %>. 
+      <%= link_to "here", new_message_path %>.
     </div>
 
   </div>
@@ -24,18 +24,39 @@
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
     <div class="product-container">
-      <% @products.each do |product|%>
+      <% @products.slice(0,20).each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">
           <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
         </div>
         <p class="product-index-price"><%= number_to_currency(product.price)%></p>
-        <p class="product-name"><%= product.name %> <%= product.length %>" <%= product.width%>" <%=product.thickness %>"</p>
+        <p class="product-name"><%= product.name %> </p>
         <p class="product-sub">
-          <%=product.stud_length %>" <%= product.stud_thickness %>"</p>
+      <%= product.stud_dimensions %></p>
         <%end%>
       </div>
+
+      <%end%>
+    </div>
+
+    <div class="feature-products">
+      ACCESSORIES
+    </div>
+    <div class="product-container">
+      <% @products.slice(20,23).each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/embeds/#{product.id}" do %>
+        <div class="image-container">
+          <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
+        </div>
+        <p class="product-index-price"><%= number_to_currency(product.price)%></p>
+        <p class="product-name"><%= product.name %> </p>
+        <p class="product-sub">
+      <%= product.stud_dimensions %></p>
+        <%end%>
+      </div>
+
       <%end%>
     </div>
 

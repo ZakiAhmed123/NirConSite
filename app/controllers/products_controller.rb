@@ -1,14 +1,12 @@
-require 'csv'
 class ProductsController < ApplicationController
 
   def embeds
-    @products= fetch_products
+    @products= Product.all
 
   end
 
   def embed_view
-    @products = fetch_products
-    @product = @products.find {|a| a.id == params[:id]}
+    @product= Product.find_by id: params[:id]
 
   end
 
