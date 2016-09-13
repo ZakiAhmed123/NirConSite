@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   get 'orders/:id' => 'orders#view', as: :order
 
   #SHOPPING CART
-  # post 'cart' => 'carts#add_to_cart_stabilizer', as: :add_stabilizer
 
   post 'cart' => 'stabilizer_cart#add_stabilizers', as: :add_stabilizers
   delete 'cart' => 'stabilizer_cart#remove_alt_from_cart', as: :remove_alt_from_cart
