@@ -1,8 +1,6 @@
 <%= render 'layouts/nav_bar.html.erb' %>
 
-<div class="home-container">
-
-</div>
+<div class="home-container"></div>
 <div class="custom-order-container">
   <div class="custom-order-title" id="startchange">
     CUSTOM ORDERS
@@ -10,87 +8,88 @@
   <div class="custom-order-info">
     <span class="custom-desc">If you would like to request pricing information regarding a custom order for products not in our standard inventory, please upload your plans below and specify which products you are interesting in using for your project.
     </span>
-  <% flash.each do |name,msg| %>
-  <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
-  <%end%>
-  <div class="custom-order-mailer">
-    <%= form_for @message,:multipart=>true do |f|%>
-    <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
-      </h2>
+    <% flash.each do |name,msg| %>
+    <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+    <%end%>
+    <div class="custom-order-mailer">
+      <%= form_for @message,:multipart=>true do |f|%>
+      <% if @message.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
+        </h2>
 
-      <ul>
-        <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-        <ul></div>
-        <% end %>
+        <ul>
+          <% @message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          <ul></div>
+          <% end %>
 
-        <div class="custom-order-top">
-          <div class="custom-order-top-block">
-            <p>
-              Name:
-            </p>
-            <%= f.text_field :name, class:"co-top" %>
+          <div class="custom-order-top">
+
+                <div class="custom-message-top">
+                  Email:</br>
+                <%= f.email_field :email, class:'message-field'%>
+                </div>
+                <div class="custom-message-top">
+                  Subject:
+                <%= f.select(:subject, options_for_select(product_types,"Easy Embeds"),{}, {required: 'true', autofocus: 'true', class: 'subject-dropdown'}) %>
+                </div>
 
           </div>
-          <div class="custom-order-top-block">
-            <p>
-              Email:
-            </p>
-            <%= f.email_field :email, class:'co-top' %>
-          </div>
 
-        </div>
 
-        <div class="custom-order-middle">
-          <p>
-            Subject:
-          </p>
-          <%= f.text_field :subject, class:"co-middle" %>
-        </div>
 
-        <div class="custom-order-bottom">
+            <div class="custom-order-middle">
+              <p>
+                Message:
+              </p>
+              <%= f.text_area :content%>
+            </div>
 
-          <p>
-            Message:
-          </p>
-          <%= f.text_area :content %>
-        </div>
-        <div class="custom-order-upload">
 
-          Select File<%= f.file_field :file %>
-        </div>
 
-        <div class="custom-order-submit">
-          <%= f.submit 'SEND'%>
-        </div>
-        <% end %>
-        <div class="custom-order-other">
-          <div class="other-contact">
-            <p style="font-size:40px;">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              EMAIL US
-            </p>
-            <p>
-              Feel free to email us at nirconrd@gmail.com
-            </p>
-          </div>
-          <div class="other-contact">
-            <p style="font-size:40px;">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              CALL US
-            </p>
-            <p>
-              Feel free to call us at (281) 583 7088
+            <div class="custom-order-upload">
 
-            </p>
+              Select File<%= f.file_field :file %>
+            </div>
+
+            <div class="custom-order-submit">
+              <%= f.submit 'SEND'%>
+            </div>
+
+
+
+          <% end %>
+          <div class="custom-order-other">
+            <div class="other-contact">
+              <p style="font-size:40px;">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                EMAIL US
+              </p>
+              <p>
+                Feel free to email us at nirconrd@gmail.com
+              </p>
+            </div>
+            <div class="other-contact">
+              <p style="font-size:40px;">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                CALL US
+              </p>
+              <p>
+                Feel free to call us at (281) 583 7088
+
+              </p>
+            </div>
           </div>
         </div>
+
       </div>
 
-    </div>
-
-<%= render 'layouts/footer.html.erb' %>
+      <%= render 'layouts/footer.html.erb' %>
+      <script>
+        $('.subject-dropdown').on('click', function () {
+          $('.subject-dropdown').css('background-image', 'url(<%=image_url 'up-arrow.png'%>)');
+        })
+      </script>

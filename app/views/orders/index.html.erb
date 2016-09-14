@@ -11,9 +11,6 @@
         Order ID
       </th>
       <th>
-        Email
-      </th>
-      <th>
         Total Price
       </th>
       <th>
@@ -27,9 +24,7 @@
         <td>
           <%= order.id %>
         </td>
-        <td>
-          <%= order.email %>
-        </td>
+
         <td class="accounting">
           <%= number_to_currency(order.final_price * 0.01) %>
         </td>

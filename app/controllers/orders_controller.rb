@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-  helper_method :current_user
 
   def index
-  @orders = Order.where("status != ?", 'pending').order("purchased_at desc")
+  @orders = Order.where("status != ?", 'cart').order("purchased_at desc")
   end
 
   def view
