@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def chairs
+    @products= Product.all
   end
 
   def beams

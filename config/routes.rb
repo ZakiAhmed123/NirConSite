@@ -18,10 +18,8 @@ Rails.application.routes.draw do
   # PRODUCTS
   get 'products/embeds' => 'products#embeds', as: :products
   get 'products/embeds/:id' => 'products#embed_view', as: :product
-  get 'products/stabilizers/:id' => 'products#stabilizer', as: :stabilizer
   get 'products/embeds/:id/pdf' => 'products#pdf', as: :pdf
 
-  get 'products/stabilizers/:id/pdf' => 'products#stabilizer_pdf', as: :pdf_alt
   get 'products/chairs' => 'products#chairs', as: :chairs
   get 'products/chair/:id' => 'product#chairs', as: :chair
 
@@ -37,12 +35,10 @@ Rails.application.routes.draw do
   get 'orders/:id' => 'orders#view', as: :order
 
   #SHOPPING CART
-  # post 'cart' => 'carts#add_to_cart_stabilizer', as: :add_stabilizer
 
   post 'cart' => 'carts#add_to_cart', as: :add_to_cart
   get 'cart' => 'carts#view', as: :cart
   delete 'cart' => 'carts#remove_from_cart', as: :remove_from_cart
-  delete 'cart' => 'carts#remove_from_cart_stabilizer', as: :remove_from_cart_stabilizer
 
 
 

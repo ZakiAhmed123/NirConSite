@@ -24,7 +24,7 @@
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
     <div class="product-container">
-      <% @products.slice(0,20).each do |product|%>
+      <% @products.limit(20).each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">
