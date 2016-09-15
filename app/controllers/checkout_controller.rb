@@ -1,9 +1,12 @@
 class CheckoutController < ApplicationController
+  include Wicked::Wizard
   before_action do
         if current_or_guest_user.nil?
           redirect_to sign_in_path
         end
       end
+
+      steps :shipping, :payment
 
   def shipping
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
@@ -11,6 +14,8 @@ class CheckoutController < ApplicationController
 
   def process_shipping
     @order = Order.find_by status: 'cart', user_id:current_or_guest_user.id
+    params[:order][:status] = step.to_s
+    params[:order][:status] = 'active' if step == steps.last
     @order.update_attributes(order_params)
     if @order.save
     redirect_to checkout_path

@@ -2,6 +2,9 @@ class Order < ActiveRecord::Base
   has_many :order_items
   belongs_to :user
 
+  validates :email, :phone_number, :address_line1, :address_city, :address_zip, :address_state, presence: true
+
+
   def subtotal
     order_items.map { |order_item| order_item.item_price}.sum
   end
@@ -41,5 +44,9 @@ class Order < ActiveRecord::Base
       (total_price * 100).to_i
   end
   end
+
+
+
+
 
 end
