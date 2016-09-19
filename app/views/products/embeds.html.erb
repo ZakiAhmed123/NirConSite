@@ -22,7 +22,7 @@
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
     <div class="product-container">
-      <% @products.slice(5,20).each do |product|%>
+      <% @products.limit(20).each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">
@@ -42,7 +42,7 @@
       EMBED STABILIZER KITS
     </div>
     <div class="product-container">
-      <% @products.slice(25,28).each do |product|%>
+      <% @products.slice(20,23).each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">
