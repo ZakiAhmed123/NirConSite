@@ -42,7 +42,7 @@
       EMBED STABILIZER KITS
     </div>
     <div class="product-container">
-      <% @products.slice(20,23).each do |product|%>
+      <% @products[20..22].each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">

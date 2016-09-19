@@ -8,13 +8,11 @@
 }
 
 .index-title-block-chairs {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position:relative;
   margin-top:30px;
+  text-align: center;
 }
+
 .i-image {
   padding:130px 40px 0 40px;
   background-color: #EEE;
@@ -39,12 +37,12 @@
 
 .colored-chairs-banner {
   position:absolute;
+  font-size:80px;
+  font-family:'Open Sans', sans-serif; font-weight:600;
+  text-align: center;
+  width:100%;
   top:50%;
   bottom:50%;
-  font-size:80px;
-  width:100%;
-  font-family:'Open Sans', sans-serif; font-weight:700;
-  text-align:center;
 }
 
 .index-title {
