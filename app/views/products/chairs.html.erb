@@ -3,25 +3,32 @@
 <div class="product-index-container">
 
   <%= render '/layouts/nav_bar.html.erb'%>
-  <div class="coming-soon">
-  COLORED CHAIRS COMING SOON
+  <div class="index-title-block-chairs">
+      <%= image_tag 'Colored_Chairs.png', class:'index-title-image-chairs' %>
+      <div class="colored-chairs-banner">
+        COLORED CHAIRS
+      </div>
   </div>
 
 
     <% flash.each do |name,msg| %>
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
+
+      <div class="feature-products" style="margin-top:50px;">
+        INTERSECTIONAL CHAIRS
+      </div>
     <div class="product-container">
-      <% @products.slice(23,28).each do |product|%>
+      <% @products.slice(0,5).each do |product|%>
       <div class="embed-index-item">
-        <%= link_to "/products/embeds/#{product.id}" do %>
+        <%= link_to "/products/chairs/#{product.id}" do %>
         <div class="image-container">
-          <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
+          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
         </div>
         <p class="product-index-price"><%= number_to_currency(product.price)%></p>
         <p class="product-name"><%= product.name %> </p>
         <p class="product-sub">
-      <%= product.stud_dimensions %></p>
+          Price Per 500 Chairs</p>
         <%end%>
       </div>
 

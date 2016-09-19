@@ -1,0 +1,37 @@
+<%= render '/layouts/nav_bar.html.erb'%>
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
+<div class="product-view">
+  <%= image_tag "#{@product.img_file}.jpg", {:class => "product-view-picture-chairs"}%>
+<div class="product-view-info">
+  <p class="product-price"><%= number_to_currency(@product.price)%></p>
+
+  <p class="product-name-sub">
+    INTERSECTIONAL CHAIR (PRICE PER 500 CHAIRS)
+  </p>
+  <div class="product-info">
+    <p class="product-dimensions-head">
+      Description
+    </p>
+    <p class="product-dimensions">
+      <%=@product.name%>
+</br>
+<div class="" style="text-align:justify;">
+  World's Most Intelligent Concrete Construction Chairs.
+  Colored Chairs are coded by size to increase construction accuracy.
+  This <%= @product.stud_dimensions %> intersectional chair suspends rebar or PT cables <%= @product.stud_count%> in the concrete slab.
+</div>
+</br>
+</p>
+
+    </div>
+    <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
+    <p class="quantity">
+    <%= f.number_field :quantity, min: 1, placeholder: "QTY", class:"quantity-dropdown"%>
+    <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
+    <%end%>
+    </div>
+    </div>
+
+<%= render '/layouts/footer.html.erb'%>

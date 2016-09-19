@@ -6,7 +6,7 @@
   <div class="bag-container">
     <div class="bag">
       <div class="bag-title">
-        SHOPPING BAG
+        SHOPPING BAG ITEMS (<%= @order.order_items.count %>)
       </div>
 
       <table>
@@ -74,7 +74,7 @@
       </div>
 
       <div class="summary-values">
-        Shipping: <%= number_to_currency(@order.total_shipping)%></br>
+        Shipping: $0.00 TBD</br>
 
       </div>
       <div class="summary-values">
@@ -82,7 +82,7 @@
 
       </div>
       <div class="summary-values-black">
-        Total: <%= number_to_currency(@order.cart_total) %>
+        Total: <%= number_to_currency(@order.subtotal) %>
       </div>
       <% if @order.cart_total > 0 %>
       <%= link_to 'CHECKOUT', shipping_path, class: 'checkout-btn' %>

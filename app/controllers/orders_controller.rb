@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-  @orders = Order.where("status != ?", 'cart').order("purchased_at desc")
+  @orders = Order.where('(status= ? AND user_id= ?) OR (status= ? AND user_id= ?)', 'pending', current_or_guest_user.id,'complete',current_or_guest_user.id)
   end
 
   def view

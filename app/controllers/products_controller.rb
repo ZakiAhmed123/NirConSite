@@ -7,9 +7,7 @@ class ProductsController < ApplicationController
 
   def embed_view
     @product= Product.find_by id: params[:id]
-
   end
-
 
   def pdf
     @products = fetch_products
@@ -20,9 +18,11 @@ class ProductsController < ApplicationController
 
   def chairs
     @products= Product.all
+
   end
 
-  def beams
+  def chairs_view
+    @product= Product.find_by id: params[:id]
   end
 
 end

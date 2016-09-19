@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'products/embeds/:id/pdf' => 'products#pdf', as: :pdf
 
   get 'products/chairs' => 'products#chairs', as: :chairs
-  get 'products/chair/:id' => 'product#chairs', as: :chair
+  get 'products/chairs/:id' => 'products#chairs_view', as: :chair
 
   get 'products/beams' => 'products#beams', as: :beams
   get 'products/beams/:id' => 'products#beam', as: :beam
@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   # ORDER HISTORY
   get 'orders' => 'orders#index', as: :orders
   get 'orders/:id' => 'orders#view', as: :order
-
   #SHOPPING CART
 
   post 'cart' => 'carts#add_to_cart', as: :add_to_cart

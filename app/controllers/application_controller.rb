@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
        user.save_stripe_customer_id(customer_id)
      end
 
-  
+
 
 
 

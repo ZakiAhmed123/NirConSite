@@ -31,7 +31,7 @@
     <%= link_to "Sign In", new_user_session_path, class:'nav-item-a' %>
     <%end%>
     <%= link_to cart_path do %>
-    View Cart <i class="fa fa-shopping-cart" aria-hidden="true" id='cart-nav'></i>
+    View Cart <i class="fa fa-shopping-cart" aria-hidden="true" id='cart-nav'></i> (<%=current_order.order_items.count %>)
     <%end%>
   </div>
 </div>
