@@ -1,389 +1,399 @@
 // PRODUCTS INDEX
 .index-title-block {
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: #EEE;
   justify-content: center;
   align-items: center;
 }
-
 .index-title-block-chairs {
-  position:relative;
-  margin-top:30px;
+  position: relative;
+  margin-top: 30px;
   text-align: center;
 }
-
 .i-image {
-  padding:130px 0px 0 0px;
+  padding: 130px 0 0;
   background-color: #EEE;
-  width:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 .index-title-image {
-  width:70%;
+  width: 70%;
 }
-
 .index-title-image-chairs {
-  width:80%;
-  height:100%;
+  width: 80%;
+  height: 100%;
   opacity: 0.7;
-  margin-top:50px;
+  margin-top: 50px;
 }
 .i-container {
-  width:80%;
-  padding:20px 0px 40px 0px ;
+  width: 80%;
+  padding: 20px 0 40px;
 }
-
 .colored-chairs-banner {
-  position:absolute;
-  font-size:80px;
-  font-family:'Open Sans', sans-serif; font-weight:600;
+  position: absolute;
+  font-size: 80px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   text-align: center;
-  width:100%;
-  top:50%;
-  bottom:50%;
+  width: 100%;
+  top: 50%;
+  bottom: 50%;
 }
-
 .index-title {
-  font-family: 'Raleway', sans-serif; font-weight:800;
-  font-size:40px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
   letter-spacing: 2px;
-  color:#333;
+  color: #333;
   text-align: center;
 }
 .index-subtitle {
-  font-family: 'Raleway', sans-serif; font-weight:800;
-  font-size:30px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
   letter-spacing: 2px;
-  color:#333;
+  color: #333;
 }
-
 .index-desc {
-  font-family: 'Raleway', sans-serif; font-weight:300;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
   font-size: 23px;
   text-align: center;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   line-height: 30px;
 }
-
 .product-container {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
-  margin-top:50px;
-  padding:0px 10px;
+  margin-top: 50px;
+  padding: 0 10px;
   justify-content: center;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }
 .embed-index-item {
-  width:25%;
-  margin:0px 20px;
-  padding:20px;
-
+  width: 25%;
+  margin: 0 20px;
+  padding: 20px;
 }
-
 .embed-index-item a {
   text-decoration: none;
-
 }
-.image-container{
-  height:70%;display:flex;
+
+// MOBILE STYLING FOR CHAIRS
+@media only screen and (max-width: 414px)  {
+  .embed-index-item {
+    width:100%;
+  }
+  .embed-index-item a{
+    width:100%;
+  }
+
+  .panels {
+    padding:0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .colored-chairs-banner {
+    font-size:40px;
+  }
+  .feature-products {
+    font-size:20px;}
+}
+
+@media only screen and (max-width: 768px)  {
+  .embed-index-item {
+    width:40%;
+  }
+  .embed-index-item a{
+    width:100%;
+  }
+
+  .panels {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .colored-chairs-banner {
+    font-size:40px;
+  }
+  .feature-products {
+    font-size:20px;}
+}
+
+.image-container {
+  height: 70%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 .embed_picture {
-  width:100%;
+  width: 100%;
 }
-
 .embed_picture:hover {
-opacity:0.5;
+  opacity: 0.5;
 }
-
 .chair_picture {
-  width:100%;
+  width: 100%;
 }
-
 .chair_picture:hover {
-opacity:0.5;
+  opacity: 0.5;
 }
-
 .product-index-price {
-  color:#f39c12;
-  font-family:'Open Sans', sans-serif; font-weight:600;
+  color: #f39c12;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-size: 23px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
-
 .product-name {
-  font-family: 'Open Sans', sans-serif; font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 20px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
-  color:#333;
+  color: #333;
 }
-
 .product-name:hover {
-  color:#f1c40f;
+  color: #f1c40f;
 }
-
-
-
 .product-sub {
   color: #7f8c8d;
-  font-family: 'Open Sans', sans-serif; font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
-
 // PANELS
-
 .panels {
-  display:flex;
-  padding:100px 120px;
+  display: flex;
+  padding: 100px 120px;
   background-color: #f1c40f;
-  margin-bottom:20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  height:100%;
 }
-
 .area {
-  width:33%;
-  display:flex;
+  width: 33%;
+  display: flex;
   flex-direction: column;
 }
-
 .p-name {
-  font-family: 'Open Sans', sans-serif; font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 25px;
   letter-spacing: 1px;
-  color:#333;
+  color: #333;
   text-align: center;
 }
-
 .p-icon i {
-  color:#333;
+  color: #333;
 }
-
 .p-icon {
   text-align: center;
-  margin-bottom:50px;
+  margin-bottom: 50px;
 }
-
-
 // PRODUCT VIEW
 // header
 .view-header {
-  position:relative;
-  margin-top:50px;
+  position: relative;
+  margin-top: 50px;
 }
 .view-title {
-  position:absolute;
-  left:30%;
-  top:40%;
-  color:white;
-  font-family: 'Open Sans', sans-serif; font-weight:800;
+  position: absolute;
+  left: 30%;
+  top: 40%;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
   font-size: 40px;
 }
-
 .view-header img {
-  width:100%;
+  width: 100%;
 }
-
 .product-view-picture {
-  width:40%;
-  height:100%;
+  width: 40%;
+  height: 100%;
 }
 .product-view-picture-chairs {
-  width:40%;
-  height:100%;
+  width: 40%;
+  height: 100%;
 }
 .product-view {
-  padding-top:100px;
-  display:flex;
+  padding-top: 100px;
+  display: flex;
   padding-left: 50px;
   padding-right: 50px;
-  margin-bottom:80px;
+  margin-bottom: 80px;
 }
-
 .product-view-info {
-  width:40%;
-  font-family: 'Open Sans', sans-serif; font-weight:300;
+  width: 40%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   color: #f1c40f;
-  height:100%;
+  height: 100%;
 }
-
 .product-view-name {
-  margin:0 0 10px 20px;
-  color:#222;
-  font-family: 'Open Sans', sans-serif; font-weight:600;
+  margin: 0 0 10px 20px;
+  color: #222;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-size: 40px;
-  border:0px;
-  padding:0px;
+  border: 0;
+  padding: 0;
 }
 .product-name-sub {
   color: gray;
-  font-family: 'Open Sans', sans-serif; font-weight:600;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-style: italic;
   font-size: 15px;
-  border:0px;
-  padding:0px;
-  margin:0 0 20px 20px;
+  border: 0;
+  padding: 0;
+  margin: 0 0 20px 20px;
 }
-
 .product-price {
-  color:#f39c12;
-  font-family: 'Open Sans', sans-serif; font-weight:600;
-  margin:0 0 20px 20px;
+  color: #f39c12;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  margin: 0 0 20px 20px;
   font-size: 30px;
   border-bottom: 1px solid #EEEEEE;
 }
-
 .product-info {
-  width:95%;
-  color:#222;
-  margin:0 0 20px 20px;
-  padding:10px;
-
+  width: 95%;
+  color: #222;
+  margin: 0 0 20px 20px;
+  padding: 10px;
 }
-
 .product-dimensions-head {
   text-align: center;
-  margin:0 0 10px 0px;
-  font-family: 'Open Sans', sans-serif; font-weight:400;
+  margin: 0 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 20px;
   margin-bottom: 20px;
 }
 .product-dimensions {
-  margin:0px;
+  margin: 0;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif; font-weight:300;
-
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
-
 .product-drawing {
-  color:#222;
+  color: #222;
   margin-top: 10px;
   font-size: 17px;
-  font-family: 'Open Sans', sans-serif; font-weight:400;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   text-align: center;
 }
-
-
 .product-drawing:hover {
-  color:blue;
+  color: blue;
 }
-
-
 .add-to-cart {
   background-color: white;
-  color:#333;
-  padding:10px 20px 10px 20px;
-  width:200px;
+  color: #333;
+  padding: 10px 20px;
+  width: 200px;
   border-radius: 3px;
-  border:1px solid #333;
+  border: 1px solid #333;
   font-size: 18px;
   margin-left: 10px;
   text-align: center;
 }
-
 .add-to-cart:hover {
   background-color: #333;
-  border:1px solid #333;
-  color:white;
+  border: 1px solid #333;
+  color: white;
 }
-
 .quantity {
-  color:#222;
+  color: #222;
   text-align: center;
-  font-family: 'Open Sans', sans-serif; font-weight:600;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-size: 20px;
 }
-
 .quantity-dropdown {
-  width:70px;
-  border:1px solid #EEE;
+  width: 70px;
+  border: 1px solid #EEE;
   background-color: white;
-  font-family: 'Open Sans', sans-serif; font-weight:300;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   border-radius: 3px;
   font-size: 20px;
   text-align: center;
 }
-
 .new_order_item {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 .item-container {
-  display:flex;
+  display: flex;
 }
-
 .pdf-embed {
-  width:100%;
-  height:100vh;
+  width: 100%;
+  height: 100vh;
 }
-
 // EMBED VIEW FEATURE PRODUCTS
-
 .feature-container {
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: #EEE;
-  padding:80px 60px;
+  padding: 80px 60px;
 }
-
 .feature-products {
-  font-family: 'Open Sans', sans-serif; font-weight:800;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
   font-size: 40px;
-  margin-bottom:60px;
+  margin-bottom: 60px;
   text-align: center;
   letter-spacing: 3px;
 }
 .extras-container {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .e-block {
-  width:30%;
-  margin:5px;
+  width: 30%;
+  margin: 5px;
 }
 .e-block a {
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-decoration: none;
 }
 .e-image {
-  width:100%;
+  width: 100%;
 }
-
 .e-image:hover {
-  opacity:0.8;
+  opacity: 0.8;
 }
-
 .e-description {
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: white;
-  padding:10px;
+  padding: 10px;
 }
-
 .e-name {
-  font-family: 'Open Sans', sans-serif; font-weight:400;
-  color:#333;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #333;
   font-size: 20px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
-
 .e-price {
-  font-family: 'Open Sans', sans-serif; font-weight:400;
-  color:#f1c40f;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #f1c40f;
   font-size: 20px;
 }
-
 .coming-soon {
-  font-family:'Open Sans', sans-serif; font-weight:600;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-size: 80px;
   text-align: center;
-  padding-top:200px;
-  color:#333;
+  padding-top: 200px;
+  color: #333;
 }
