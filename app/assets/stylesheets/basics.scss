@@ -166,9 +166,11 @@
 .about-info {
   font-family: 'Open Sans', sans-serif; font-weight:300;
   font-size: 20px;
-  margin-bottom:30px;
   text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
   line-height: 35px;
+
 }
 
 .shop-container {

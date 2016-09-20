@@ -14,10 +14,12 @@
   <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
   <%end%>
   <p class="home-title" id="startchange">
-    WELCOME TO </br> NIRVANA CONSTRUCTION PRODUCTS
+    WELCOME TO
   </br>
+  NIRVANA CONSTRUCTION PRODUCTS
 </br>
-  <%= link_to "SHOP NOW" ,products_path, class:"title-about" %>
+</br>
+<%= link_to "SHOP NOW" ,products_path, class:"title-about" %>
 </p>
 
 </div>
@@ -26,87 +28,87 @@
 
 <div class="grid">
 
-  <div class="layer">
-    <div class="layer-icon">
-      <i class="fa fa-bus fa-lg" aria-hidden="true"></i>
+<div class="layer">
+<div class="layer-icon">
+  <i class="fa fa-bus fa-lg" aria-hidden="true"></i>
 
-    </div>
-    <div class="layer-content">
-      <div class="layer-title">
-        DIRECT SHIPPING
-      </div>
-      <div class="layer-text">
-Have your products shipped securely with tracking information wherever you need them - including construction sites.
- </div>
-    </div>
-
+</div>
+<div class="layer-content">
+  <div class="layer-title">
+    DIRECT SHIPPING
   </div>
-  <div class="layer">
-    <div class="layer-icon">
-      <i class="fa fa-book fa-lg" aria-hidden="true"></i>
+  <div class="layer-text">
+    Have your products shipped securely with tracking information wherever you need them - including construction sites.
+    <%= link_to "More Info", shipping_info_path %></div>
+</div>
 
-    </div>
-    <div class="layer-content">
-      <div class="layer-title">
-        DOCUMENTED
-      </div>
-      <div class="layer-text">
-        All products come with summarized load tables checked for accuracy by structural engineers. A full set of calculations are available on request.
-       </div>
-    </div>
+</div>
+<div class="layer">
+<div class="layer-icon">
+  <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
 
+</div>
+<div class="layer-content">
+  <div class="layer-title">
+    CUSTOMER SERVICE
   </div>
+  <div class="layer-text">
+All sales are backed by the Nirvana Promise - we don’t stop working until you are satisfied. Engineering and construction support is always <%= link_to "available via phone or e-mail.", contact_path %>
+  </div>
+</div>
+
+</div>
 </div>
 
 <div class="grid">
 
-  <div class="layer">
-    <div class="layer-icon">
-      <i class="fa fa-check fa-lg" aria-hidden="true"></i>
+<div class="layer">
+<div class="layer-icon">
+  <i class="fa fa-check fa-lg" aria-hidden="true"></i>
 
-    </div>
-    <div class="layer-content">
-      <div class="layer-title">
-        STANDARDIZED
-      </div>
-      <div class="layer-text">
-        All products sold by Nirvana Construction are standardized to ensure consistency from one order to another.
-      </div>
-    </div>
-
+</div>
+<div class="layer-content">
+  <div class="layer-title">
+    STANDARDIZED
   </div>
-  <div class="layer">
-    <div class="layer-icon">
-      <i class="fa fa-building-o fa-lg" aria-hidden="true"></i>
-
-    </div>
-    <div class="layer-content">
-      <div class="layer-title">
-        PE SEALED
-      </div>
-      <div class="layer-text">
-      Stop wasting time running around for approvals, all products come with shop drawings sealed by a P.E. in the state of construction.
-  </div>
-    </div>
-
+  <div class="layer-text">
+    All items sold by Nirvana Construction Products are standardized to ensure consistency from one order to the next.
   </div>
 </div>
 
 </div>
+<div class="layer">
+<div class="layer-icon">
+  <i class="fa fa-building-o fa-lg" aria-hidden="true"></i>
 
+</div>
+<div class="layer-content">
+  <div class="layer-title">
+  ENGINEERING SUPPORT
+  </div>
+  <div class="layer-text">
+ All products come with summarized load tables and shop drawings sealed by a P.E. in the state of construction.   </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<A NAME="codeword"></A>
 
 <div class="about">
-  <A NAME="aboutus"></A>
   <div class="about-title">
     ABOUT US
   </div>
   <div class="about-info">
-  Nirvana Construction Products was founded with the goal of becoming the leading online platform for standardized construction products. We realized that the current process of shop drawings being sent around for approvals needed to be disrupted. Nirvana Construction Products is the only place online where customers can purchase products ready to use in construction. All of our products come with shop drawings, engineering support, and a Professional Engineer’s seal for the state in which the product will be used in. Finally, contractors can be at ease.
-</div>
+    Nirvana Construction Products was founded with the goal of becoming the leading online platform for standardized construction products. We realized that the current process of shop drawings sent around for approvals needed to be simplified. Nirvana
+    Construction Products is the only place online where customers can purchase products ready to use in construction. All of our products come with load calculations and shop drawings with a Professional Engineer’s seal for the state in which the
+    product will be used in. All sales are also backed by the Nirvana promise - we don’t stop working until you are satisfied. Engineering and Construction support is always available via phone or e-mail. Finally, contractors can be at ease.
+  </div>
 </div>
 <div class="shop-container">
   <%= link_to products_path do%>
-    SHOP NOW
+  SHOP NOW
   <%end%>
 </div>
 
@@ -145,7 +147,6 @@ Have your products shipped securely with tracking information wherever you need 
     </div>
   </div>
 </div>
-
 <%= render "layouts/footer.html.erb" %>
 
 <script>
