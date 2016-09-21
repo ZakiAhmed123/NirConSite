@@ -34,13 +34,15 @@
                 </div>
                 <div class="custom-message-top">
                   Subject:
-                <%= f.select(:subject, options_for_select(product_types,"Easy Embeds"),{}, {required: 'true', autofocus: 'true', class: 'subject-dropdown'}) %>
+                  <div class="checkbox">
+                  <span><%= f.check_box(:subject_1, options={}, checked_value="Easy Embeds", unchecked_value=" ") %> Easy Embeds </span>
+                  <span><%= f.check_box(:subject_2, options={}, checked_value="Colored Chairs", unchecked_value=" ") %> Colored Chairs </span>
+                  <span><%= f.check_box(:subject_3, options={}, checked_value="Standard Studs", unchecked_value=" ") %> Standard Studs </span>
+                  <span><%= f.check_box(:subject_4, options={}, checked_value="Tiger Beams", unchecked_value=" ") %> Tiger Beams </span>
+                  </div>
                 </div>
 
           </div>
-
-
-
             <div class="custom-order-middle">
               <p>
                 Message:

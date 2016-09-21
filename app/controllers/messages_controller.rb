@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
 
   def create
       @message = Message.new(message_params)
+      @message.subject = [@message.subject_1, @message.subject_2, @message.subject_3,@message.subject_4].reject(&:empty?).join(',')
       if @message.valid?
         MessageMailer.message_me(@message).deliver_now
         redirect_to new_message_path
@@ -21,6 +22,6 @@ class MessagesController < ApplicationController
 private
 
 def message_params
-  params.require(:message).permit(:name, :email, :subject, :content, :file)
+  params.require(:message).permit(:name, :email, :subject, :content, :file,:subject_1, :subject_2, :subject_3, :subject_4)
 end
 end

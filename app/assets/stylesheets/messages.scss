@@ -174,3 +174,11 @@ font-family: 'Open Sans', sans-serif; font-weight:400;
   padding:10px 5px;
   text-align: center;
 }
+
+.checkbox {
+  display:flex;
+  flex-wrap: wrap;
+}
+.checkbox span {
+  width:50%;
+}
