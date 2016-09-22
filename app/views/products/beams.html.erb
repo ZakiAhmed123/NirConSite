@@ -1,5 +1,71 @@
-<%= render 'layouts/nav_bar.html.erb'%>
-<div class="coming-soon">
-TIGER TRACKS COMING SOON
+<%= render '/layouts/nav_bar.html.erb'%>
+
+
+<div class="product-index-container">
+
+
+  <div class="index-title-block-chairs">
+      <div class="colored-chairs-banner">
+        TIGER TRACKS
+      </div>
+  </div>
+
+
+    <% flash.each do |name,msg| %>
+    <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+    <%end%>
+
+
+    <div class="product-container">
+      <% @products.slice(28,30).each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/beams/#{product.id}" do %>
+        <div class="image-container">
+          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
+        </div>
+        <p class="product-name"><%= product.name %> </p>
+        <p class="product-sub">
+        <%= product.stud_dimensions %></p>
+        <%end%>
+      </div>
+
+      <%end%>
+    </div>
+
+  </div>
 </div>
-<%= render 'layouts/footer.html.erb' %>
+
+<div class="panels">
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-trophy fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+QUALITY GUARANTEED
+</div>
+
+
+</div>
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-bus fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+ON SITE DELIVERY
+</div>
+
+
+</div>
+<div class="area">
+  <div class="p-icon">
+    <i class="fa fa-lock fa-3x" aria-hidden="true"></i>
+  </div>
+<div class="p-name">
+SECURE PAYMENT
+</div>
+
+
+</div>
+</div>
+
+<%= render '/layouts/footer.html.erb'%>

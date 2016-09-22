@@ -33,3 +33,4 @@
 # Product.create(id: 26,name:'Yellow Chair 3.5"/4"', price: 70.00, img_file: 'CC-03', shipping_cost:40.00, stud_count:'3.5"/4"', stud_dimensions:'Yellow', total_weight:'nil')
 # Product.create(id: 27,name:'Sky Blue Chair 2.5"/3"', price: 50.00, img_file: 'CC-04', shipping_cost:30.00, stud_count:'2.5"/3"', stud_dimensions:'Sky Blue', total_weight:'nil')
 # Product.create(id: 28,name:'Red Chair 1.5"/2"', price: 40.00, img_file: 'CC-05', shipping_cost:20.00, stud_count:'1.5"/2"', stud_dimensions:'Red', total_weight:'nil')
+Product.create(id: 29,name:'362S162-68-50', price: 1, img_file: 'Stud', shipping_cost:20.00, stud_count:'nil', stud_dimensions:'Stud: 3.63 in. web, 1.63 in. flange, 14 gauge, 50 ksi', total_weight:'nil', ppf: 1.78, ppi:0.119)

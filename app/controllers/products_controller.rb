@@ -25,4 +25,12 @@ class ProductsController < ApplicationController
     @product= Product.find_by id: params[:id]
   end
 
+  def beams
+    @products= Product.all
+  end
+
+  def beams_view
+    @product= Product.find_by id: params[:id]
+
+  end
 end

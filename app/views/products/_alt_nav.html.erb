@@ -3,9 +3,26 @@
     <%= link_to root_path do%><%= image_tag "logo.jpg" %><%end%>
   </p>
   <div class="nav-items">
-    <%= link_to "Easy Embeds", products_path, class:'nav-item-a'%>
-    <%= link_to "Colored Chairs", chairs_path, class:'nav-item-a'%>
-    <%= link_to "Tiger Tracks", beams_path, class:'nav-item-a'%>
+    <div class="dropdown">
+      <button class="dropbtn">Products
+        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <%= link_to products_path do %>
+        EASY EMBEDS
+        <%end%>
+        <%= link_to chairs_path do %>
+        COLORED CHAIRS
+        <%end %>
+        <%= link_to beams_path do %>
+        TIGER TRACKS
+        <%end %>
+      </div>
+    </div>
+
+
+    <%= link_to "About Us","#{root_path}#codeword"%>
+
 
     <%= link_to "Plan Upload/Custom Order", new_message_path, class:'nav-item-b' %>
 

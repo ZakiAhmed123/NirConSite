@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913204201) do
+ActiveRecord::Schema.define(version: 20160922164325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,14 +37,16 @@ ActiveRecord::Schema.define(version: 20160913204201) do
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "product_id"
-    t.boolean  "shipped",       default: false
     t.integer  "quantity",      default: 1
     t.decimal  "shipping_cost", default: 0.0
     t.decimal  "price",         default: 0.0
     t.string   "img_file"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "name"
+    t.integer  "length"
+    t.integer  "weight_rate"
+    t.integer  "length_inch"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -58,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160913204201) do
     t.string   "address_state"
     t.string   "address_zip"
     t.string   "name"
-    t.boolean  "address_same",  default: false
     t.string   "phone_number"
     t.integer  "shipping_cost", default: 1
     t.string   "email"
@@ -171,6 +172,8 @@ ActiveRecord::Schema.define(version: 20160913204201) do
     t.string  "name"
     t.string  "img_file"
     t.string  "stud_dimensions"
+    t.decimal "ppf"
+    t.decimal "ppi"
   end
 
   create_table "refile_attachments", force: :cascade do |t|
@@ -181,11 +184,6 @@ ActiveRecord::Schema.define(version: 20160913204201) do
 
   add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
   add_index "refile_attachments", ["oid"], name: "index_refile_attachments_on_oid", using: :btree
-
-  create_table "stabilizers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false

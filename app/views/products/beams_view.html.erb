@@ -1,0 +1,53 @@
+<%= render '/layouts/nav_bar.html.erb'%>
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
+<div class="product-view">
+  <%= image_tag "#{@product.img_file}.jpg", {:class => "product-view-picture-chairs"}%>
+<div class="product-view-info">
+
+
+  <p class="product-name-sub">
+    (PRICE PER 500 CHAIRS)
+  </p>
+  <div class="product-info">
+    <p class="product-dimensions-head">
+      Description
+    </p>
+    <p class="product-dimensions">
+      <%=@product.name%>
+</br>
+<div class="" style="text-align:justify;">
+  <%= @product.stud_dimensions %>
+
+</div>
+</br>
+</p>
+
+PRICE Pending Length (ft,in)
+<input type = "text" id = "Totprice" hidden> <br>
+<span id='Totprice2'>Stud Total is: $0.00</span>
+    </div>
+    <%= form_for :order_item, :url => add_to_cart_path(product_id: @product.id) do |f| %>
+    <p class="quantity">
+    <%= f.number_field :quantity, min: 1, placeholder: "QTY", class:"quantity-dropdown"%>
+    <%= f.number_field :length,min: 0,placeholder: "length (ft)", id:'length', onChange:'update()'%>
+    <%= f.number_field :length_inch,min: 0,placeholder: "length (in)", id:'length_inch', onChange:'update()' %>
+    <%= f.submit "ADD TO CART", class:"add-to-cart"%></p>
+    <%end%>
+    </div>
+    </div>
+
+<%= render '/layouts/footer.html.erb'%>
+
+<%= javascript_tag do %>
+function update(){
+var feet=document.getElementById("length").value;
+var inches=document.getElementById("length_inch").value;
+var price = ((feet * <%= @product.ppf %>) + (<%= @product.ppi%> * inches)).toFixed(2);
+
+document.getElementById("Totprice").value = price;
+document.getElementById("Totprice2").innerHTML = "Stud Total Is: $" + price
+}
+
+<%end%>

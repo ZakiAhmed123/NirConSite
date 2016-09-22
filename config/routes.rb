@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'products/chairs/:id' => 'products#chairs_view', as: :chair
 
   get 'products/beams' => 'products#beams', as: :beams
-  get 'products/beams/:id' => 'products#beam', as: :beam
+  get 'products/beams/:id' => 'products#beams_view', as: :beam
 
 
   # ESTIMATOR

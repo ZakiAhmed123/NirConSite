@@ -24,13 +24,18 @@ class CartsController < ApplicationController
     end
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
 
+
     if order_item.present?
       order_item.increment :quantity
     else
       order_item = OrderItem.new(orderitem_params)
       order_item.order = order
       order_item.product = @product
+      if @product.stud_dimensions.include? "flange"
+      order_item.price = (@product.ppf * order_item.length) + (@product.ppi * order_item.length_inch)
+      else
       order_item.price = @product.price
+      end
       order_item.shipping_cost = @product.shipping_cost
       order_item.img_file = @product.img_file
       order_item.name = @product.name
@@ -38,6 +43,9 @@ class CartsController < ApplicationController
 
       if order_item.quantity.blank?
         order_item.quantity=1
+      end
+      if order_item.length.blank?
+        order_item.length = 1
       end
     if order_item.save!
       flash[:success] = "Successfully Added to Cart"
@@ -60,7 +68,7 @@ class CartsController < ApplicationController
 
   private
   def orderitem_params
-    params.require(:order_item).permit(:quantity)
+    params.require(:order_item).permit(:quantity, :length, :length_inch)
   end
 
 
