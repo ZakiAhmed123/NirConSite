@@ -68,7 +68,7 @@ class CartsController < ApplicationController
 
   private
   def orderitem_params
-    params.require(:order_item).permit(:quantity, :length, :length_inch)
+    params.require(:order_item).permit(:quantity, :length, :length_inch, :dimple)
   end
 
 

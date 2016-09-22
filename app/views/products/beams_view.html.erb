@@ -14,18 +14,17 @@
     <p class="product-dimensions-head">
       Description
     </p>
-
-    PRICE Pending Length (ft,in)
-    <input type = "text" id = "Totprice" hidden> <br>
-    <span id='Totprice2'>Individual Stud Total is: $0.00</span>
-  </br>
-</br>
     <p class="product-dimensions">
       <%=@product.name%>
-<div class="" style="text-align:justify;">
-  <%= @product.stud_dimensions %>
-</div>
-</p>
+      <div class="" style="text-align:justify;">
+        <%= @product.stud_dimensions %>
+      </div>
+    </p>
+
+    <span id='Totprice2'>Individual Stud Total is: $0.00</span>
+  </br>
+    PRICE Pending Length (ft,in)
+    <input type = "text" id = "Totprice" hidden> <br>
 
 
 </div>
@@ -48,7 +47,10 @@
     <p>Inches</p>
     <%= f.number_field :length_inch,min: 0,placeholder: "(in)", id:'length_inch', onChange:'update()',class:"quantity-dropdown" %>
   </div>
-
+  <div class="qa">
+    <p>Dimple</p>
+    <%= f.check_box(:dimple, options={}, checked_value="Yes", unchecked_value="No") %>
+  </div>
 </div>
 <%= f.submit "ADD TO CART", class:"add-to-cart"%>
 <%end%>
@@ -68,7 +70,7 @@ var inches=document.getElementById("length_inch").value;
 var price = ((feet * <%= @product.ppf %>) + (<%= @product.ppi%> * inches)).toFixed(2);
 
 document.getElementById("Totprice").value = price;
-document.getElementById("Totprice2").innerHTML = "Individual Stud Total Is: $" + price
+document.getElementById("Totprice2").innerHTML = "Individual Stud Total Is: <strong>$" + price + "</strong>";
 }
 
 <%end%>
