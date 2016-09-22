@@ -274,7 +274,7 @@ opacity:0.5;
   background-color: white;
   color:#333;
   padding:10px 20px 10px 20px;
-  width:200px;
+  width:80%;
   border-radius: 3px;
   border:1px solid #333;
   font-size: 18px;
@@ -386,4 +386,28 @@ opacity:0.5;
   text-align: center;
   padding-top:200px;
   color:#333;
+}
+
+
+.order_item_form form{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.quantity-box {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:80%;
+}
+.qa {
+  width:20%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:10px;
 }
