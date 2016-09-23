@@ -18,7 +18,7 @@
 
 
     <div class="product-container">
-      <% @products.slice(23,28).each do |product|%>
+      <% @products[23..27].each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/chairs/#{product.id}" do %>
         <div class="image-container">
