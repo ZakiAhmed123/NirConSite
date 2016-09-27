@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922200316) do
+ActiveRecord::Schema.define(version: 20160927180918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(version: 20160922200316) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "name"
-    t.integer  "length"
-    t.integer  "weight_rate"
-    t.integer  "length_inch"
+    t.integer  "length",        default: 1
+    t.integer  "length_inch",   default: 0
     t.string   "dimple",        default: "no"
   end
 
@@ -166,15 +165,17 @@ ActiveRecord::Schema.define(version: 20160922200316) do
   add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string  "stud_count"
-    t.string  "total_weight"
     t.integer "shipping_cost"
     t.integer "price"
     t.string  "name"
     t.string  "img_file"
-    t.string  "stud_dimensions"
     t.decimal "ppf"
     t.decimal "ppi"
+    t.string  "info_1"
+    t.string  "info_2"
+    t.string  "info_3"
+    t.decimal "web"
+    t.decimal "flange"
   end
 
   create_table "refile_attachments", force: :cascade do |t|
