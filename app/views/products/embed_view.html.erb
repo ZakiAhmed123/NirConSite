@@ -5,12 +5,12 @@
     <%= @product.name %>
   </div>
 </div>
-<% if @product.stud_count = "nil" %>
-<%= @product.stud_count = "" %>
+<% if @product.info_2 = "nil" %>
+<%= @product.info_2 = "" %>
 <%end%>
 
-<% if @product.total_weight = "nil" %>
-<%= @product.total_weight = "" %>
+<% if @product.info_3 = "nil" %>
+<%= @product.info_3 = "" %>
 <%end%>
 <% flash.each do |name,msg| %>
 <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
@@ -30,9 +30,9 @@
     <p class="product-dimensions">
       <%=@product.name%>(L x W x H)
 </br>
-<%= @product.stud_count%></br>
- <%= @product.stud_dimensions %></br>
- <%= @product.total_weight %>
+<%= @product.info_2%></br>
+ <%= @product.info_1%></br>
+ <%= @product.info_3 %>
 </br>
 Once payment is received, a PDF with shop drawings and load calculations signed and sealed by a P.E. in your state will be e-mailed to you.
 </p>
