@@ -4,28 +4,6 @@
 <div class="product-index-container" style="margin-top:200px;">
 
 
-  <%= form_for_filterrific @filterrific do |f| %>
-    <div>
-      Search
-      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-      <%= f.text_field(
-        :search_query,
-        class: 'filterrific-periodically-observed'
-      ) %>
-    </div>
-<%= f.number_field(
-:flange,
-class:'filterrific-periodically-observed'
-) %>
-    <div>
-      <%= link_to(
-        'Reset filters',
-        reset_filterrific_url,
-      ) %>
-    </div>
-
-  <% end %>
-
 
     <% flash.each do |name,msg| %>
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>

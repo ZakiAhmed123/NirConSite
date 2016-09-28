@@ -21,16 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def beams
-    @filterrific = initialize_filterrific(
-      Product,
-      params[:filterrific]
-    ) or return
-    @products = @filterrific.find.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    @products=Product.all
   end
 
   def beams_view
