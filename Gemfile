@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'refile-postgres'
 gem 'easypost'
 gem "letter_opener", group: :development
+gem 'aws-sdk', '~> 2'
