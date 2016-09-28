@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Payola::Engine => '/payola', as: :payola
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   root 'basics#home'
 
   # BASIC NAVIGATION
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   # PRODUCTS
   get 'products/embeds' => 'products#embeds', as: :products
   get 'products/embeds/:id' => 'products#embed_view', as: :product
-  get 'products/embeds/:id/pdf' => 'products#pdf', as: :pdf
 
   get 'products/chairs' => 'products#chairs', as: :chairs
   get 'products/chairs/:id' => 'products#chairs_view', as: :chair

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927180918) do
+ActiveRecord::Schema.define(version: 20160928181814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,15 +177,6 @@ ActiveRecord::Schema.define(version: 20160927180918) do
     t.decimal "web"
     t.decimal "flange"
   end
-
-  create_table "refile_attachments", force: :cascade do |t|
-    t.integer  "oid",        null: false
-    t.string   "namespace",  null: false
-    t.datetime "created_at"
-  end
-
-  add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
-  add_index "refile_attachments", ["oid"], name: "index_refile_attachments_on_oid", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false

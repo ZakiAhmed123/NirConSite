@@ -9,12 +9,7 @@ class ProductsController < ApplicationController
     @product= Product.find_by id: params[:id]
   end
 
-  def pdf
-    @products = fetch_products
-    @product = @products.find {|a| a.id == params[:id]}
-    pdf_filename = File.join(Rails.root, '/assets/sample.pdf')
-    send_file(pdf_filename, :filename => 'sample.pdf', :type => "application/pdf")
-  end
+
 
   def chairs
     @products= Product.all
@@ -26,11 +21,19 @@ class ProductsController < ApplicationController
   end
 
   def beams
-    @products= Product.all
+    @filterrific = initialize_filterrific(
+      Product,
+      params[:filterrific]
+    ) or return
+    @products = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def beams_view
     @product= Product.find_by id: params[:id]
-
   end
 end

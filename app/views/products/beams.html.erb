@@ -1,10 +1,30 @@
 <%= render '/layouts/nav_bar.html.erb'%>
 
 
-<div class="product-index-container">
+<div class="product-index-container" style="margin-top:200px;">
 
 
+  <%= form_for_filterrific @filterrific do |f| %>
+    <div>
+      Search
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed'
+      ) %>
+    </div>
+<%= f.number_field(
+:flange,
+class:'filterrific-periodically-observed'
+) %>
+    <div>
+      <%= link_to(
+        'Reset filters',
+        reset_filterrific_url,
+      ) %>
+    </div>
 
+  <% end %>
 
 
     <% flash.each do |name,msg| %>
@@ -12,23 +32,12 @@
     <%end%>
 
 
-    <div class="product-container">
-      <% @products.slice(28,30).each do |product|%>
-      <div class="embed-index-item">
-        <%= link_to "/products/beams/#{product.id}" do %>
-        <div class="image-container">
-          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
-        </div>
-        <p class="product-name"><%= product.name %> </p>
-        <p class="product-sub">
-        <%= product.info_1 %></p>
-        <%end%>
-      </div>
 
-      <%end%>
-    </div>
 
-  </div>
+    <%= render(
+      partial: 'products/list',
+      locals: {products: @products }
+    ) %>
 </div>
 
 <div class="panels">

@@ -46,6 +46,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "letter_opener"
 end
 
 ruby '2.3.0'
@@ -62,8 +63,5 @@ gem 'rails_admin'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'single_test'
 gem 'devise'
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
-gem 'refile-postgres'
-gem 'easypost'
-gem "letter_opener", group: :development
+gem 'will_paginate'
+gem 'pdfjs_viewer-rails'
