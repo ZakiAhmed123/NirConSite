@@ -32,6 +32,12 @@ class CartsController < ApplicationController
       order_item.order = order
       order_item.product = @product
       if @product.info_1.include? "flange"
+        if order_item.length.nil?
+          order_item.length=1
+        end
+        if order_item.length_inch.nil?
+          order_item.length_inch=1
+        end
       order_item.price = (@product.ppf * order_item.length) + (@product.ppi * order_item.length_inch)
       else
       order_item.price = @product.price

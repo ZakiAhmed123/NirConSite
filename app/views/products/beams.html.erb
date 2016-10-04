@@ -1,7 +1,7 @@
 <%= render '/layouts/nav_bar.html.erb'%>
 
 
-<div class="product-index-container" style="margin-top:200px;">
+<div class="product-index-container" style="margin-top:100px;">
 
 
 
@@ -10,12 +10,43 @@
     <%end%>
 
 
+    <div class="stud-title">
+      STANDARD TRACKS
+    </div>
 
+    <div class="product-container">
+      <% @products[28..75].each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/studs/#{product.id}" do %>
+        <div class="image-container">
+          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
+        </div>
+        <p class="product-name"><%= product.name %> </p>
+        <p class="product-sub">
+        <%= product.info_1 %></p>
+        <%end%>
+      </div>
 
-    <%= render(
-      partial: 'products/list',
-      locals: {products: @products }
-    ) %>
+      <%end%>
+    </div>
+    <div class="stud-title">
+      TRACKS
+    </div>
+    <div class="product-container">
+      <% @products[76..100].each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/beams/#{product.id}" do %>
+        <div class="image-container">
+          <%= image_tag "Track.jpg", {:class => "chair_picture"}%>
+        </div>
+        <p class="product-name"><%= product.name %> </p>
+        <p class="product-sub">
+        <%= product.info_1 %></p>
+        <%end%>
+      </div>
+
+      <%end%>
+    </div>
 </div>
 
 <div class="panels">

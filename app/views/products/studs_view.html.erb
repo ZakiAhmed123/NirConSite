@@ -4,8 +4,8 @@
 <%end%>
 <div class="product-view">
 <div class="img-change" id="img-change" style="width:40%" name="picture">
-  <%= image_tag 'Track_2.jpg', class:'product-view-picture-chairs', id:'myImageId2' %>
-  <%= image_tag 'Track.jpg', class:'product-view-picture-chairs-alt', id:'myImageId' %>
+  <%= image_tag 'Stud_2.jpg', class:'product-view-picture-chairs', id:'myImageId2' %>
+  <%= image_tag 'Stud.jpg', class:'product-view-picture-chairs-alt', id:'myImageId' %>
 
 </div>
 <div class="product-view-info">
@@ -52,28 +52,10 @@
     <%= f.number_field :length_inch,min: 0,placeholder: "(in)", id:'length_inch', onChange:'update()',class:"quantity-dropdown" %>
   </div>
   <div class="qa">
-    <p>
-      Dimple?
-    </p>
-    <input type="checkbox" onClick="document.getElementById('dimple-options').style.visibility=(this.checked)?'visible':'hidden';" name="name" value="">
+    <p>Dimple</p>
+    <%= f.check_box(:dimple, options={name:"check", onClick:"document.getElementById('myImageId').style.visibility=(this.checked)?'hidden':'visible';document.getElementById('myImageId2').style.visibility=(this.checked)?'visible':'hidden';
+"}, checked_value="Yes", unchecked_value="No") %>
   </div>
-
-<div id="dimple-options" style="visibility:hidden">
-  <div class="qa">
-    <p>
-      16" dimple
-    </p>
-    <%= f.radio_button(:dimple, '16"', options={name:"check", onClick:"document.getElementById('myImageId').style.visibility=(this.checked)?'hidden':'visible';document.getElementById('myImageId2').style.visibility=(this.checked)?'visible':'hidden';
-"}) %>
-  </div>
-  <div class="qa">
-    <p>24" dimple </p>
-    <%= f.radio_button(:dimple, '24"', options={name:"check", onClick:"document.getElementById('myImageId').style.visibility=(this.checked)?'hidden':'visible';document.getElementById('myImageId2').style.visibility=(this.checked)?'visible':'hidden';
-"}) %>
-
-  </div>
-</div>
-
 </div>
 <%= f.submit "ADD TO CART", class:"add-to-cart"%>
 <%end%>
@@ -84,6 +66,12 @@
 </div>
 
 <%= render '/layouts/footer.html.erb'%>
+
+<script type="text/javascript">
+
+</script>
+
+
 
 <%= javascript_tag do %>
 function update(){

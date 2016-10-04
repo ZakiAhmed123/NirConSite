@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'products/beams' => 'products#beams', as: :beams
   get 'products/beams/:id' => 'products#beams_view', as: :beam
 
+  get 'products/studs/:id' => 'products#studs_view', as: :stud
+
 
   # ESTIMATOR
   resources :messages, only: [:new, :create]

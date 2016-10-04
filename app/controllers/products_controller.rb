@@ -27,4 +27,8 @@ class ProductsController < ApplicationController
   def beams_view
     @product= Product.find_by id: params[:id]
   end
+
+  def studs_view
+    @product= Product.find_by id: params[:id]
+  end
 end
