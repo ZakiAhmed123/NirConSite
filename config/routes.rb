@@ -17,8 +17,12 @@ Rails.application.routes.draw do
   get 'Shipping-Info' => 'basics#shipping_info', as: :shipping_info
 
   # PRODUCTS
-  get 'products/embeds' => 'products#embeds', as: :products
-  get 'products/embeds/:id' => 'products#embed_view', as: :product
+  get 'products' => 'products#products',as: :products
+
+  get 'products/embeds' => 'products#embeds', as: :embeds
+  get 'products/embeds/:id' => 'products#embed_view', as: :embed
+
+  get 'products/stabilizers/:id' => 'products#stabilizers_view', as: :stabilizer
 
   get 'products/chairs' => 'products#chairs', as: :chairs
   get 'products/chairs/:id' => 'products#chairs_view', as: :chair
@@ -29,7 +33,6 @@ Rails.application.routes.draw do
   get 'products/tracks/:id' => 'products#tracks_view', as: :track
 
   get 'products/tigerbeams' => 'products#beams', as: :beams
-  get 'products/stabilizers/:id' => 'products#stabilizers_view', as: :stabilizer
 
   # ESTIMATOR
   resources :messages, only: [:new, :create]
@@ -42,8 +45,6 @@ Rails.application.routes.draw do
   post 'cart' => 'carts#add_to_cart', as: :add_to_cart
   get 'cart' => 'carts#view', as: :cart
   delete 'cart' => 'carts#remove_from_cart', as: :remove_from_cart
-
-
 
   #ORDER PROCESSING I.E. CHECKOUT
   get 'checkout' => 'checkout#payment', as: :checkout

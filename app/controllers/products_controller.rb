@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
 
+  def products
+  end
+  
   def embeds
     @products= Product.where('category=?','embed')
     @stabilizers =Product.where('category=?','stabilizer')
