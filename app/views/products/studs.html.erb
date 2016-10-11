@@ -1,37 +1,53 @@
 <%= render '/layouts/nav_bar.html.erb'%>
 
 
-<div class="product-index-container">
+<div class="product-index-container" style="margin-top:100px;">
 
-
-  <div class="index-title-block-chairs">
-      <%= image_tag 'chairs_logo.png', class:'index-title-image-chairs' %>
-  </div>
 
 
     <% flash.each do |name,msg| %>
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
 
+<div class="studs-header">
+  <%= image_tag 'studs_logo.png', class:'index-title-image-studs' %>
+
+</div>
+
 
     <div class="product-container" style="margin-top:0px;">
-      <% @products.each do |product|%>
-      <div class="chair-index-item">
-        <%= link_to "/products/chairs/#{product.id}" do %>
+      <% @Studs.each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/studs/#{product.id}" do %>
         <div class="image-container">
           <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
         </div>
-        <p class="product-index-price"><%= number_to_currency(product.price)%></p>
         <p class="product-name"><%= product.name %> </p>
         <p class="product-sub">
-          Price Per 500 Chairs</p>
+        <%= product.info_1 %></p>
         <%end%>
       </div>
 
       <%end%>
     </div>
+    <div class="stud-title">
+      STANRDARD TRACKS
+    </div>
+    <div class="product-container">
+      <% @Tracks.each do |product|%>
+      <div class="embed-index-item">
+        <%= link_to "/products/tracks/#{product.id}" do %>
+        <div class="image-container">
+          <%= image_tag "Track.jpg", {:class => "chair_picture"}%>
+        </div>
+        <p class="product-name"><%= product.name %> </p>
+        <p class="product-sub">
+        <%= product.info_1 %></p>
+        <%end%>
+      </div>
 
-  </div>
+      <%end%>
+    </div>
 </div>
 
 <div class="panels">

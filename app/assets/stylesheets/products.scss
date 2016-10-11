@@ -9,7 +9,7 @@
 
 .index-title-block-chairs {
   position:relative;
-  margin-top:30px;
+  margin-top:50px;
   text-align: center;
 }
 
@@ -25,9 +25,7 @@
 }
 
 .index-title-image-chairs {
-  width:80%;
-  height:100%;
-  opacity: 0.7;
+  width:30%;
   margin-top:50px;
 }
 .i-container {
@@ -82,15 +80,26 @@
 
 }
 
+.chair-index-item {
+  width:25%;
+  margin:0px 20px;
+  padding:20px;
+}
+
+.chair-index-item a {
+  text-decoration: none;
+
+}
+
 .embed-index-item a {
   text-decoration: none;
 
 }
 .image-container{
-  height:70%;display:flex;
-  justify-content: center;
-  align-items: center;
+  height:70%;
+  display:flex;
 }
+
 .embed_picture {
   width:100%;
 }
@@ -101,6 +110,7 @@ opacity:0.5;
 
 .chair_picture {
   width:100%;
+  align-self: baseline;
 }
 
 .chair_picture:hover {
@@ -126,6 +136,15 @@ opacity:0.5;
   color:#f1c40f;
 }
 
+.index-title-image-studs {
+  width:40%;
+}
+
+.studs-header {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 .product-sub {
@@ -202,7 +221,10 @@ opacity:0.5;
   top:0px;left:0px;
 
 }
-
+.chairs-pic {
+  width:30%;
+  height:30%;
+}
 
 .img-change {
   position:relative;
@@ -213,6 +235,7 @@ opacity:0.5;
   padding-left: 50px;
   padding-right: 50px;
   margin-bottom:80px;
+  justify-content: center;
 }
 
 .product-view-info {

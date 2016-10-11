@@ -1,5 +1,5 @@
 class ReceiptMailer < ApplicationMailer
-  default from: 'info.nirconrd@gmail.com'
+  default from: 'nirconrd@gmail.com'
   helper_method :current_or_guest_user
 
   def order_confirmation(user, order)

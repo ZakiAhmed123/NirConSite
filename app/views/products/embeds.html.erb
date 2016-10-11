@@ -22,7 +22,7 @@
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
     <div class="product-container">
-      <% @products.limit(20).each do |product|%>
+      <% @products.each do |product|%>
       <div class="embed-index-item">
         <%= link_to "/products/embeds/#{product.id}" do %>
         <div class="image-container">
@@ -42,9 +42,9 @@
       EMBED STABILIZER KITS
     </div>
     <div class="product-container">
-      <% @products[20..22].each do |product|%>
+      <% @stabilizers.each do |product|%>
       <div class="embed-index-item">
-        <%= link_to "/products/embeds/#{product.id}" do %>
+        <%= link_to "/products/stabilizers/#{product.id}" do %>
         <div class="image-container">
           <%= image_tag "#{product.img_file}.jpg", {:class => "embed_picture"}%>
         </div>

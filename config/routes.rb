@@ -23,11 +23,13 @@ Rails.application.routes.draw do
   get 'products/chairs' => 'products#chairs', as: :chairs
   get 'products/chairs/:id' => 'products#chairs_view', as: :chair
 
-  get 'products/beams' => 'products#beams', as: :beams
-  get 'products/beams/:id' => 'products#beams_view', as: :beam
-
+  get 'products/studs' => 'products#studs', as: :studs
   get 'products/studs/:id' => 'products#studs_view', as: :stud
 
+  get 'products/tracks/:id' => 'products#tracks_view', as: :track
+
+  get 'products/tigerbeams' => 'products#beams', as: :beams
+  get 'products/stabilizers/:id' => 'products#stabilizers_view', as: :stabilizer
 
   # ESTIMATOR
   resources :messages, only: [:new, :create]
