@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
   belongs_to :user
 
+validates_presence_of :address_line1, :address_city, :address_state, :address_zip, :name, :phone_number, :email, if: :on_process_shipping_step?
 
   def subtotal
     order_items.map { |order_item| order_item.item_price}.sum

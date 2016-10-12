@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   #ORDER PROCESSING I.E. CHECKOUT
   get 'checkout' => 'checkout#payment', as: :checkout
   post 'checkout' => 'checkout#process_payment', as: :process_payment
-  get 'shipping' =>  'checkout#shipping', as: :shipping
+  get 'shipping' =>  'checkout#show', as: :shipping
   post 'shipping' => 'checkout#process_shipping', as: :process_shipping
 
   get 'receipts/:id' => 'checkout#receipt', as: :receipt

@@ -14,17 +14,23 @@
 <% flash.each do |name,msg| %>
 <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
 <%end%>
+
+
 <div class="shipping-container">
   <div class="shipping">
 
     <div class="shipping-1">
-
+      <% if @user.errors.any %>
+      <%= pluralize(@user.errors.count, "error") %>
+      <% @user.errors.full_messages.each do |msg| %>
+      <%=msg %>
+      <%end%>
       <div class="shipping-title">
         1. SHIPPING
       </div>
 
       <div class="shipping-content">
-        <%= form_for :orders, :url=> process_shipping_path, method: :post do |f| %>
+        <%= form_for :orders, :url=> wizard_path, method: :post do |f| %>
         <div class="section">
           <div class="shipping-label">
             Email<span>*</span>
