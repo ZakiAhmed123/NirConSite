@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   belongs_to :user
 attr_writer :current_step
 validates_presence_of :address_line1, :address_state, :address_city,:address_zip, :email,:phone_number, :if => lambda { |o| o.current_step == "shipping"}
+validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+
   def subtotal
     order_items.map { |order_item| order_item.item_price}.sum
   end

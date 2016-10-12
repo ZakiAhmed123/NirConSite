@@ -10,7 +10,7 @@ class MessageMailer < ApplicationMailer
     }
   else
   end
-    mail from: @msg.email, subject: @msg.subject, body: @msg.content
+    mail from: @msg.email, subject: @msg.subject, body: "Message from #{msg.name} email:(#{msg.email}) is contacting Nirvana Construction in regards to -- #{msg.content}"
   end
 
 end

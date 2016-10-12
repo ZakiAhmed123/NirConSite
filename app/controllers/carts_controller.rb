@@ -56,18 +56,16 @@ class CartsController < ApplicationController
       order_item.name = @product.name
     end
 
-      if order_item.quantity.blank?
-        order_item.quantity=1
-      end
+
       if order_item.length.blank?
         order_item.length = 1
       end
-    if order_item.save!
+    if order_item.save
       flash[:success] = "Successfully Added to Cart"
       redirect_to request.referrer
     else
-      flash[:error] = "Error In adding to Cart"
-      render :new
+      flash[:error] = "Quantity Cannot be Blank"
+      redirect_to request.referrer
       end
   end
 
