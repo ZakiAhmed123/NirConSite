@@ -20,7 +20,16 @@ class CartsController < ApplicationController
       order = Order.new
       order.user = current_or_guest_user
       order.purchased_at = Time.now
-      order.save!
+      order.current_step = session[:order_step]
+      if @order.valid?
+      if params[:back_button]
+        order.previous_step
+      else
+        order.next_step
+      end
+    end
+      order.next_step
+      render "view"
     end
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
 

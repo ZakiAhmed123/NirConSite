@@ -1,8 +1,8 @@
 class Order < ActiveRecord::Base
   has_many :order_items
   belongs_to :user
-
-
+attr_writer :current_step
+validates_presence_of :address_line1, :address_state, :address_city,:address_zip, :email,:phone_number, :if => lambda { |o| o.current_step == "shipping"}
   def subtotal
     order_items.map { |order_item| order_item.item_price}.sum
   end
@@ -43,7 +43,23 @@ class Order < ActiveRecord::Base
   end
   end
 
+def current_step
+  @current_step || steps.first
+end
+def steps
+  %w[shipping payment]
+end
+def next_step
+self.current_step = steps[steps.index(current_step)+1]
+end
 
+def next_step
+self.current_step = steps[steps.index(current_step)-1]
+end
+
+def first_step?
+  current_step == steps.first
+end
 
 
 

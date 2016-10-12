@@ -63,6 +63,7 @@
         </div>
 
         <%= f.submit "NEXT STEP", class:'next-step'%>
+        <%= f.submit "BACK", :name => "back_button" unless @order.first_step? %>
         <div class="required">
           <span>*</span>
           Required Field
