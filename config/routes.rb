@@ -42,9 +42,9 @@ Rails.application.routes.draw do
   get 'orders/:id' => 'orders#view', as: :order
   #SHOPPING CART
 
-  post 'cart' => 'carts#add_to_cart', as: :add_to_cart
-  get 'cart' => 'carts#view', as: :cart
-  delete 'cart' => 'carts#remove_from_cart', as: :remove_from_cart
+  post 'cart' => 'checkout#add_to_cart', as: :add_to_cart
+  get 'cart' => 'checkout#cart_view', as: :cart
+  delete 'cart' => 'checkout#remove_from_cart', as: :remove_from_cart
 
   #ORDER PROCESSING I.E. CHECKOUT
   get 'checkout' => 'checkout#payment', as: :checkout
