@@ -62,7 +62,7 @@
           <%= f.text_field :phone_number, class:"shipping-param" %>
         </div>
 
-        <%= f.submit "NEXT STEP", class:'next-step'%>
+        <%= f.submit "TO BILLING", :class =>'next-step'%>
         <%= f.submit "BACK", :name => "back_button" unless @order.first_step? %>
         <div class="required">
           <span>*</span>
@@ -110,7 +110,7 @@
             TAX
           </div>
           <div class="item-2">
-          $0.00
+          $0.00 (TBD)
           </div>
         </div>
         <div class="piece-total">

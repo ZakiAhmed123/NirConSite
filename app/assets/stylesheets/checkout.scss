@@ -65,7 +65,7 @@ margin-bottom: 40px;
 }
 
 .item-total {
-  color:#FA5400;
+  color:#f1c40f;
 }
 .piece-total {
   display:flex;
@@ -131,17 +131,18 @@ margin-bottom: 40px;
   padding:10px 20px;
   font-family: 'Open Sans', sans-serif; font-weight:400;
   color:white;
-  background-color: #F76122;
+  background-color: #3498db;
   font-size: 18px;
-  border: 1px solid #F76122;
+  border: 1px solid #3498db;
   border-radius:3px;
   align-self: flex-end;
   margin-top: 20px;
 }
 
 .next-step:hover {
-  background-color:#e05a00 ;
-  border:1px solid #e05a00 ;
+  background-color:#2980b9 ;
+  border:1px solid #2980b9 ;
+  cursor: pointer; cursor: hand;
 }
 
 #next-step {
