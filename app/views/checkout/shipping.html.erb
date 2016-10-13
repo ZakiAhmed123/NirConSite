@@ -59,11 +59,10 @@
           <div class="shipping-label">
             Phone Number<span>*</span>
           </div>
-          <%= f.text_field :phone_number, class:"shipping-param" %>
+          <%= f.text_field :phone_number, class:"shipping-param", name:"phone_number" %>
         </div>
 
-        <%= f.submit "TO BILLING", :class =>'next-step'%>
-        <%= f.submit "BACK", :name => "back_button" unless @order.first_step? %>
+        <%= f.submit "TO BILLING", :class =>'next-step', :id => 'register', :disabled => 'disabled'%>
         <div class="required">
           <span>*</span>
           Required Field
@@ -72,6 +71,8 @@
       </div>
 
     </div>
+
+
 
     <div class="summary-title" style="margin-top:20px;">
       2. PAYMENT
@@ -153,3 +154,29 @@
 </div>
 
 <%= render "layouts/footer.html.erb" %>
+
+<script type="text/javascript">
+(function() {
+    $('.shipping-param').keyup(function() {
+
+        var empty = false;
+        $('.shipping-param').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#register').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        } else {
+            $('#register').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        }
+    });
+})()
+</script>
+
+<script type="text/javascript">
+$("input[name='phone_number']").keyup(function() {
+  $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d)+$/, "($1)-$2-$3"));
+});
+</script>
