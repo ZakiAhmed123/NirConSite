@@ -6,7 +6,7 @@
   <div class="bag-container">
     <div class="bag">
       <div class="bag-title">
-        SHOPPING BAG ITEMS 
+        SHOPPING BAG ITEMS
       </div>
 
       <table>
@@ -87,7 +87,9 @@
       <% if @order.cart_total > 0 %>
       <%= link_to 'CHECKOUT', shipping_path, class: 'checkout-btn' %>
       <%else%>
-      <%= link_to 'FIND EMBEDS?', products_path, class:'checkout-btn' %>
+    <div class="checkout-btn" style="background-color:#2ecc71; border:2px solid #2ecc71;">
+      CART IS EMPTY
+    </div>
       <%end%>
     </div>
   </div>

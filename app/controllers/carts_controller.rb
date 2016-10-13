@@ -39,6 +39,8 @@ class CartsController < ApplicationController
           order_item.length_inch=1
         end
       order_item.price = (@product.ppf * order_item.length) + (@product.ppi * order_item.length_inch)
+      elsif @product.category == "Track"
+      order_item.price = (@product.ppf * order_item.length) + (@product.ppi * order_item.length_inch)
       else
       order_item.price = @product.price
       end
