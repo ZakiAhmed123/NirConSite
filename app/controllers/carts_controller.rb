@@ -23,9 +23,7 @@ class CartsController < ApplicationController
       order.save!
   end
 
-
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
-
 
     if order_item.present?
       order_item.increment :quantity
@@ -33,7 +31,7 @@ class CartsController < ApplicationController
       order_item = OrderItem.new(orderitem_params)
       order_item.order = order
       order_item.product = @product
-      if @product.info_1.include? "flange"
+      if @product.category == "Stud"
         if order_item.length.nil?
           order_item.length=1
         end
@@ -65,8 +63,6 @@ class CartsController < ApplicationController
       end
   end
 
-
-
   def view
     @order = Order.find_by status: 'cart', user_id: current_or_guest_user.id
     if @order.nil?
@@ -74,12 +70,9 @@ class CartsController < ApplicationController
     end
   end
 
-
   private
   def orderitem_params
     params.require(:order_item).permit(:quantity, :length, :length_inch, :dimple)
   end
-
-
 
 end

@@ -57,7 +57,6 @@ end
 
 gem 'stripe'
 gem 'payola-payments'
-gem 'filterrific'
 gem 'local_time'
 gem 'rails_admin'
 gem 'font-awesome-sass', '~> 4.6.2'

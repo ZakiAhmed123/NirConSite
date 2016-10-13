@@ -8,4 +8,5 @@ class BasicsController < ApplicationController
 
   def shipping_info
   end
+  
 end
