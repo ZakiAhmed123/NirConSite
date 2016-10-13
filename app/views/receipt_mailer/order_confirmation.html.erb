@@ -1,22 +1,35 @@
-Hi <%= @order.email %>
+<div class="mailer-logo-container">
+  <%= image_tag "logo.jpg", class:'mailer-logo' %>
 
-You have successfully placed an order with us.
-Please find the details of your order below.
+</div>
 
-<strong>Total Price: </strong>
+<div class="receipt-mailer">
+  <span>Thank you for your purchase.</span>
+  </br>
+  </br>
 
-<%= number_to_currency(@order.final_price * 0.01) %>
+  <article>
+    Hello <%= @order.name %> you have successfully placed an order with us.
+    A PDF with necessary tables along with sign and seals are on the way.
+    We will notify you when your order has been shipped.
+    Please find the details of your order below.
+  </article>
+  <button type="button" name="button">View Your Order</button>
+  <span style="border-bottom:1px solid #95a5a6";><%= link_to "Visit Our Store", root_path %></span>
+  <span style="margin-top:10px;">Order Summary</span>
+  <strong>Total Price: </strong>
 
-<h3>Items</h3>
+  <%= number_to_currency(@order.final_price * 0.01) %>
 
-<% @order.order_items.each do |order_item| %>
+  <h3>Items</h3>
 
-<%= order_item.name %>
+  <% @order.order_items.each do |order_item| %>
 
-<%= order_item.quantity %> at <%= order_item.price %>
+  <%= order_item.name %>
+
+  <%= order_item.quantity %> at <%= order_item.price %>
 
 
-<% end %>
+  <% end %>
 
-
-A PDF with your necessary tables with sign and seals are on the way!
+</div>

@@ -27,6 +27,12 @@
         <%= form_for :orders, :url=> process_shipping_path, method: :post do |f| %>
         <div class="section">
           <div class="shipping-label">
+            Name<span>*</span>
+          </div>
+          <%= f.text_field :name, class:'shipping-param' %>
+        </div>
+        <div class="section">
+          <div class="shipping-label">
             Email<span>*</span>
           </div>
           <%= f.text_field :email, class:'shipping-param' %>
