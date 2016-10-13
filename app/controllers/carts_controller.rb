@@ -20,17 +20,10 @@ class CartsController < ApplicationController
       order = Order.new
       order.user = current_or_guest_user
       order.purchased_at = Time.now
-      order.current_step = session[:order_step]
-      if @order.valid?
-      if params[:back_button]
-        order.previous_step
-      else
-        order.next_step
-      end
-    end
-      order.next_step
-      render "view"
-    end
+      order.save!
+  end
+
+
     order_item = OrderItem.find_by order_id: order.id, product_id: @product.id
 
 
@@ -60,7 +53,7 @@ class CartsController < ApplicationController
       if order_item.length.blank?
         order_item.length = 1
       end
-    if order_item.save
+    if order_item.save!
       flash[:success] = "Successfully Added to Cart"
       redirect_to request.referrer
     else

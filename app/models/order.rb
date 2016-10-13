@@ -1,10 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :order_items
   belongs_to :user
-attr_writer :current_step
-validates_presence_of :address_line1, :address_state, :address_city,:address_zip, :email,:phone_number, :if => lambda { |o| o.current_step == "shipping"}
-validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-
+  
   def subtotal
     order_items.map { |order_item| order_item.item_price}.sum
   end
@@ -44,24 +41,6 @@ validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
       (total_price * 100).to_i
   end
   end
-
-def current_step
-  @current_step || steps.first
-end
-def steps
-  %w[shipping payment]
-end
-def next_step
-self.current_step = steps[steps.index(current_step)+1]
-end
-
-def next_step
-self.current_step = steps[steps.index(current_step)-1]
-end
-
-def first_step?
-  current_step == steps.first
-end
 
 
 
