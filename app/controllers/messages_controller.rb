@@ -23,6 +23,6 @@ class MessagesController < ApplicationController
 private
 
 def message_params
-  params.require(:message).permit(:name, :email, :subject, :content, :file,:subject_1, :subject_2, :subject_3, :subject_4)
+  params.require(:message).permit(:name, :email, :subject, :content, :file == [],:subject_1, :subject_2, :subject_3, :subject_4)
 end
 end
