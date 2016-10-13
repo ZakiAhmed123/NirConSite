@@ -49,6 +49,9 @@ class CartsController < ApplicationController
       order_item.name = @product.name
     end
 
+     if order_item.quantity.blank?
+       order_item.quantity=1
+     end
 
       if order_item.length.blank?
         order_item.length = 1
