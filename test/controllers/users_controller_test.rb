@@ -6,10 +6,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get settings" do
-    get :settings
-    assert_response :success
-  end
 
   test "should get order_status" do
     get :order_status
