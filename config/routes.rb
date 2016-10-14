@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'products/tigerbeams' => 'products#beams', as: :beams
 
   # USER MAILER ESTIMATOR
-  resources :messages, only: [:new, :create]
+  resources :contact_forms, only: [:new, :create]
 
   # ORDER HISTORY
   get 'orders' => 'orders#index', as: :orders
@@ -48,5 +48,5 @@ Rails.application.routes.draw do
 
   get 'receipts/:id' => 'checkout#receipt', as: :receipt
 
-  
+
 end
