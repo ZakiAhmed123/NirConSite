@@ -2,7 +2,7 @@ class ContactForm < MailForm::Base
   attribute :name,      :validate => true
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :file,      :attachment => true
-  attribute :content
+  attribute :content    :validate => true
   attribute :subject_1
   attribute :subject_2
   attribute :subject_3
