@@ -28,9 +28,11 @@
 
           <div class="custom-order-top">
 
-                <div class="custom-message-top">
-                  Email:</br>
-                <%= f.email_field :email, class:'message-field'%>
+                <div class="custom-order-middle">
+                  <p>
+                    Email:
+                  </p>
+                <%= f.email_field :email, class:'message-field', style:'width:100%;'%>
                 </div>
                 <div class="custom-message-top">
                   Subject: (Click all that Apply)
@@ -94,7 +96,7 @@
         </div>
 
       </div>
-      Y
+      
       <%= render 'layouts/footer.html.erb' %>
       <script>
         $('.subject-dropdown').on('click', function () {

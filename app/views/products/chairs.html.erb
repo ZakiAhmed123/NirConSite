@@ -7,7 +7,11 @@
   <div class="index-title-block-chairs">
       <%= image_tag 'chairs_logo.png', class:'index-title-image-chairs' %>
       <div class="chairs-desc">
-Colored Chairs have reset the bar for the concrete reinforcement accessories industry. Contractors, engineers, and inspectors previously were unable to measure the height of a chair without physically putting a tape on it resulting in inaccurate construction without a method to double check. Colored chairs are the only intelligent concrete reinforcement product in the market that defines the height of the chair by color. Now contractors will always know which chair to use during construction while engineers and inspectors will have an easier time double checking construction for accuracy. If you would like to receive an estimate, please upload your plans here.
+Colored Chairs have reset the bar for the concrete reinforcement accessories industry.
+Colored chairs are the only intelligent concrete reinforcement
+ product in the market that defines the height of the chair by color. Now contractors will always
+ know which chair to use during construction, and engineers and inspectors will have an easier
+ time double checking construction for accuracy.
       </div>
   </div>
 
@@ -16,13 +20,14 @@ Colored Chairs have reset the bar for the concrete reinforcement accessories ind
     <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
     <%end%>
 
-
+</br>
+</br>
     <div class="product-container" style="margin-top:0px;">
       <% @products.each do |product|%>
       <div class="chair-index-item">
         <%= link_to "/products/chairs/#{product.id}" do %>
-        <div class="image-container">
-          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
+        <div class="image-container-alt">
+          <%= image_tag "#{product.img_file}.png", {:class => "chair_picture"}%>
         </div>
         <p class="product-index-price"><%= number_to_currency(product.price)%></p>
         <p class="product-name"><%= product.name %> </p>

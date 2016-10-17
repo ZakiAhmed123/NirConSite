@@ -3,7 +3,7 @@
 <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
 <%end%>
 <div class="product-view">
-  <%= image_tag "#{@product.img_file}.jpg", {:class => "chairs-pic"}%>
+  <%= image_tag "#{@product.img_file}.png", {:class => "chairs-pic"}%>
 <div class="product-view-info">
   <p class="product-price"><%= number_to_currency(@product.price)%></p>
 
@@ -15,11 +15,12 @@
       Description
     </p>
     <p class="product-dimensions">
-      <%=@product.name%>
+      <span style="font-size:18px"><%=@product.name%></span>
 </br>
 <div class="" style="text-align:justify;">
-  World's Most Intelligent Concrete Construction Chairs. Colored Chairs are coded by size to increase construction accuracy.
-   This <%= @product.info_1 %> chair suspends rebar or PT cables <%= @product.info_2%> in the concrete slab depending on which direction the chair is placed.
+</br>
+  World's Most Intelligent Concrete Construction Chairs. Colored Chairs are coded by size to increase construction accuracy and assist with inspections and verifications.
+   This <%= @product.info_1 %> Chair suspends rebar or PT cables <%= @product.info_2%> in the concrete slab depending on which direction the chair is placed.
 
 </div>
 </br>

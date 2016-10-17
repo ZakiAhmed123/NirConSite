@@ -15,20 +15,16 @@
   <p class="product-price"><%= number_to_currency(@product.price)%></p>
 
   <p class="product-name-sub">
-    STANDARDIZED EMBED ITEM
+
   </p>
   <div class="product-info">
-    <p class="product-dimensions-head">
-      Description
-    </p>
+
     <p class="product-dimensions">
-      <%=@product.name%></br>
-    </br>
+</br>
 Never have out of place embeds again!
 
 <%= @product.info_2 %>
 </br></br>
- <%= link_to "Sample PDF", pdfjs.full_path(file: "/assets/sample.pdf"), :target => "_blank"%>
 
 </br>
 </p>
