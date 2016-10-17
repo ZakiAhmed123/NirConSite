@@ -31,10 +31,10 @@ manufacturing. Accu-Dimple technology results in perfect
 
     <div class="product-container" style="margin-top:0px;">
       <% @Studs.each do |product|%>
-      <div class="embed-index-item">
+      <div class="stud-index-item">
         <%= link_to "/products/studs/#{product.id}" do %>
-        <div class="image-container">
-          <%= image_tag "#{product.img_file}.jpg", {:class => "chair_picture"}%>
+        <div class="image-container-studs">
+          <%= image_tag "#{product.img_file}.jpg", {:class => "stud_picture"}%>
         </div>
         <p class="product-name"><%= product.name %> </p>
         <p class="product-sub">
@@ -49,10 +49,10 @@ manufacturing. Accu-Dimple technology results in perfect
     </div>
     <div class="product-container">
       <% @Tracks.each do |product|%>
-      <div class="embed-index-item">
+      <div class="stud-index-item">
         <%= link_to "/products/tracks/#{product.id}" do %>
-        <div class="image-container">
-          <%= image_tag "Track.jpg", {:class => "chair_picture"}%>
+        <div class="image-container-studs">
+          <%= image_tag "Track.jpg", {:class => "stud_picture"}%>
         </div>
         <p class="product-name"><%= product.name %> </p>
         <p class="product-sub">

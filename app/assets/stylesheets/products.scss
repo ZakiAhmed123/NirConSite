@@ -94,6 +94,16 @@
 
 }
 
+.stud-index-item {
+  width:25%;
+  margin:20px 20px;
+  padding:20px;
+  height:300px;
+}
+.stud-index-item a {
+  text-decoration: none;
+}
+
 .embed-index-item a {
   text-decoration: none;
 
@@ -103,6 +113,18 @@
   display:flex;
 }
 
+.image-container-studs {
+  height:60%;
+  display:flex;
+  justify-content: center;
+}
+.stud_picture {
+  height:100%;
+  width:100%;
+}
+.stud_picture:hover {
+opacity:0.5;
+}
 .embed_picture {
   width:100%;
   height:100%;
@@ -127,6 +149,8 @@ opacity:0.5;
 .chair_picture:hover {
 opacity:0.5;
 }
+
+
 
 
 

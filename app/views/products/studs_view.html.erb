@@ -49,7 +49,7 @@
     <%= f.number_field :length_inch,min: 0,placeholder: "(in)", id:'length_inch', onChange:'update()',class:"quantity-dropdown" %>
   </div>
   <div class="qa">
-    <p>Dimple</p>
+    <p>Dimple?</p>
     <%= f.check_box(:dimple, options={name:"check", onClick:"document.getElementById('myImageId').style.visibility=(this.checked)?'hidden':'visible';document.getElementById('myImageId2').style.visibility=(this.checked)?'visible':'hidden';
 "}, checked_value="Yes", unchecked_value="No") %>
   </div>
