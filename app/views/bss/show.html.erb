@@ -1,0 +1,18 @@
+<%= @order.id %>
+<% @order.order_items.each do |order_item| %>
+<%= order_item.name %>
+<%= order_item.quantity %>
+<%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+
+
+<%= form_for @order, :url => bss_update_path, method: :post do |f|%>
+<p><%= f.text_field :name %></p>
+<p><%= f.text_field :address_line1 %></p>
+<p><%= f.text_field :address_zip %></p>
+<p><%= f.text_field :address_city %></p>
+<p><%= f.select(:address_state, options_for_select(us_states, "TX"))%></p>
+<p><%= f.select(:status, options_for_select(status, "Pending"))%></p>
+<%= f.submit "UPDATE" %>
+<%end%>
+
+<%= link_to "BSS ORDERS", bss_panel_path %>

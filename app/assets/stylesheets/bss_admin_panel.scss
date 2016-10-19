@@ -1,0 +1,59 @@
+.vendor_table_container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  table {
+    font-family:'Open Sans', sans-serif;
+    font-size:15px;
+    border-collapse: collapse;
+    width:95vw;
+    margin-top:10px;
+  }
+
+    td {
+      border-bottom:1px solid #231f20;
+      font-size:15px;
+      padding:5px;
+    }
+    a {
+      text-decoration: none;
+      color:#3498db;
+      font-weight: 600;
+    }
+}
+.bss_logo {
+  width:150px;
+  height:100%;
+}
+
+.vendor_header {
+  background-color: #231f20;
+  color:white;
+  font-family: 'Open Sans',sans-serif;
+  font-size:25px;
+  padding:10px;
+  span {
+    color:#e74c3c;
+    font-weight: 800;
+    font-size:15px;
+  }
+}
+
+.dashboard {
+  padding:5px;
+  margin:10px;
+  border:2px solid #231f20;
+  font-family:'Open Sans', sans-serif;
+  font-size:15px;
+  color: #231f20;
+  border-radius: 5px;
+}
+
+.vendor_title {
+  font-family:'Open Sans', sans-serif;
+  color:#231f20;
+  font-size:30px;
+  font-weight: 800;
+  padding:10px;
+  border-bottom:1px solid #231f20;
+}

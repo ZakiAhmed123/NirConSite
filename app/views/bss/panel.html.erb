@@ -1,0 +1,68 @@
+
+<div class="vendor_container">
+<div class="vendor_header">
+BLACK SWAN STEEL <span>Admin</span>
+</div>
+<div class="vendor_title">
+  Select Order To View or Edit
+</div>
+
+<div class="vendor_table_container">
+
+<table>
+  <thead>
+    <tr>
+      <th>
+      ID
+      </th>
+      <th>
+        STATUS
+      </th>
+      <th>
+        PURCHASE DATE
+      </th>
+
+      <th>
+        Name
+      </th>
+      <th>
+        State
+      </th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+
+    <tr>
+      <td>
+        <%= order.id %>
+      </td>
+      <td>
+        <%= order.status %>
+      </td>
+      <td>
+        <%= local_time(order.purchased_at) %>
+      </td>
+      <td>
+        <%= order.name %>
+    
+      </td>
+      <td>
+        <%= order.address_state %>
+      </td>
+
+        <td>
+          <%= link_to "Show More/Edit", bss_order_path(id: order.id) %>
+        </td>
+
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<%end%>
+
+</div>
