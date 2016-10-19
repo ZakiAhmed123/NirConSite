@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  get 'user_info/user_info'
+
   devise_for :users
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -48,5 +51,12 @@ Rails.application.routes.draw do
 
   get 'receipts/:id' => 'checkout#receipt', as: :receipt
 
+
+# VENDOR PANELS
+
+get 'bss/orders' => 'bss#panel', as: :bss_panel
+get 'bss/orders/:id' => 'bss#show', as: :bss_order
+
+post 'bss/orders/:id' => 'bss#update', as: :bss_update
 
 end
