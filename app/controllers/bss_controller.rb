@@ -1,4 +1,5 @@
 class BssController < ApplicationController
+  before_action :authenticate_vendor!
   def panel
     @orders = Order.where('(status=?) OR (status=?) OR (status=?) OR (status=?)', 'pending', 'shipped', 'canceled', 'complete')
 
