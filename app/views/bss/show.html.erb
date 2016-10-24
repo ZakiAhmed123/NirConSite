@@ -2,7 +2,8 @@
 BLACK SWAN STEEL <span>Admin</span>
 </div>
 <div class="vendor_title">
-  <%= link_to "Orders", bss_panel_path %> / View and Edit Order / <%= @order.id %>
+  <%= link_to "Orders", bss_panel_path %> <i class="fa fa-list" aria-hidden="true"></i>
+ / View and Edit Order <i class="fa fa-pencil" aria-hidden="true"></i>/ #<%= @order.id %>
 </div>
 <% flash.each do |name,msg| %>
 <%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
