@@ -2,6 +2,10 @@
 <div class="vendor_container">
 <div class="vendor_header">
 BLACK SWAN STEEL <span>Admin</span>
+<span><%= link_to destroy_vendor_session_path, :method => "delete" do %>
+      <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+      SIGN OUT
+      <%end %></span>
 </div>
 <div class="vendor_title">
   Select Order To View or Edit
