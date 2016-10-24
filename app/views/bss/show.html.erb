@@ -1,18 +1,86 @@
-<%= @order.id %>
-<% @order.order_items.each do |order_item| %>
-<%= order_item.name %>
-<%= order_item.quantity %>
-<%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+<div class="vendor_header">
+BLACK SWAN STEEL <span>Admin</span>
+</div>
+<div class="vendor_title">
+  <%= link_to "Orders", bss_panel_path %> / View and Edit Order / <%= @order.id %>
+</div>
+<% flash.each do |name,msg| %>
+<%= content_tag :div, msg, :id => "flash", class: 'flash-message' %>
+<%end%>
+<div class="orders-table" style="margin-left:10%; margin-right:10%;">
+  <div class="orders-items">Order Items</div>
 
+<table>
+  <thead>
+    <tr>
+      <th>
+        Item
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Quantity
+      </th>
+
+      <th>
+        Per Item Price
+      </th>
+
+
+      <th>
+        Total Shipping Cost
+      </th>
+
+      <th>
+        Total Price
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+
+    <tr>
+      <td>
+        <%= image_tag "#{order_item.img_file}.jpg", {:class => "cart_picture"}%>
+      </td>
+      <td>
+        <%= order_item.name %>
+      </td>
+      <td>
+        <%= order_item.quantity %>
+      </td>
+
+      <td>
+        <%= number_to_currency(order_item.price.to_i) %>
+      </td>
+
+      <% end %>
+      <td>
+        <%= number_to_currency(@order.total_shipping) %>
+      </td>
+      <td>
+        <%= number_to_currency(@order.final_price * 0.01) %>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
+
+</div>
 
 <%= form_for @order, :url => bss_update_path, method: :post do |f|%>
-<p><%= f.text_field :name %></p>
-<p><%= f.text_field :address_line1 %></p>
-<p><%= f.text_field :address_zip %></p>
-<p><%= f.text_field :address_city %></p>
-<p><%= f.select(:address_state, options_for_select(us_states, "TX"))%></p>
-<p><%= f.select(:status, options_for_select(status, "Pending"))%></p>
-<%= f.submit "UPDATE" %>
-<%end%>
 
-<%= link_to "BSS ORDERS", bss_panel_path %>
+<div class="bss_form"><span>User</span><%= f.text_field :name %></div>
+<div class="bss_form"><span>Address Line 1</span><%= f.text_field :address_line1 %></div>
+<div class="bss_form"><span>Zip Code</span><%= f.text_field :address_zip %></div>
+<div class="bss_form"><span>City </span><%= f.text_field :address_city %></div>
+<div class="bss_form"><span>State</span><%= f.select(:address_state, options_for_select(us_states, "TX"))%></div>
+<div class="bss_form"><span>Status</span><%= f.select(:status, options_for_select(status, "Pending"))%></div>
+<div class="bss_form">
+  <%= f.submit "UPDATE", class:'bss_submit' %>
+</div>
+<%end%>

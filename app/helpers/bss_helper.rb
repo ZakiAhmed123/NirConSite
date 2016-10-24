@@ -1,10 +1,10 @@
 module BssHelper
   def status
     [
-      ['Pending','pending'],
-      ['Shipped','shipped'],
-      ['Complete','complete'],
-      ['Canceled','canceled']
+      ['pending','pending'],
+      ['shipped','shipped'],
+      ['complete','complete'],
+      ['canceled','canceled']
     ]
   end
 end
