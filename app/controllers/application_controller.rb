@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) ||
+    if resource.is_a?(Vendor)
+      bss_panel_path
+    else
+      super
+    end
+  end
+
 
   def guest_user(with_retry = true)
     @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)

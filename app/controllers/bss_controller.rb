@@ -1,6 +1,6 @@
 class BssController < ApplicationController
   def panel
-    @orders = Order.where('(status= ?) OR (status= ?) OR (status=?) OR (status=?)', 'pending', 'complete', 'canceled', 'shipped')
+    @orders = Order.where('(status=?) OR (status=?) OR (status=?) OR (status=?)', 'pending', 'shipped', 'canceled', 'complete')
 
   end
 
@@ -12,6 +12,7 @@ class BssController < ApplicationController
     @order = Order.find_by id: params[:id]
     @order.update_attributes(order_params)
     if @order.save
+      flash[:success] = "Successfully Edited Order"
       redirect_to request.referrer
     end
   end

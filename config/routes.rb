@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :vendors
   get 'user_info/user_info'
 
   devise_for :users

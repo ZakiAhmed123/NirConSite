@@ -56,4 +56,38 @@
   font-weight: 800;
   padding:10px;
   border-bottom:1px solid #231f20;
+  a {
+    color:#5bc0de;
+  }
+}
+
+.bss_form {
+  font-size: 20px;
+  font-family:'Open Sans', sans-serif;
+  padding-left:10%;
+  margin:10px;
+  span {
+    font-weight: 400;
+    margin-right:20px;
+  }
+  input {
+    border-radius:5px;
+    border:1px solid #EEE;
+    color:#333;
+    padding:3px;
+    font-size: 18px;
+    width:30%;
+    font-weight: 300;
+  }
+  .bss_submit {
+    color:white;
+    background-color: #3498db;
+    border-radius:5px;
+    height:50px;
+    width :100px;
+    padding:5px;
+  }
+  .bss_submit:hover {
+    background-color: #2980b9;
+  }
 }
