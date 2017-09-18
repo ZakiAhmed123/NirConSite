@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require_tree .
 //= require local_time
+
+#removed turbolinks, makes some js unusable
